@@ -198,7 +198,67 @@ Template Name: Front-page
                         </div>
                     </div>
                 </section>
-                <div class="block block-3"></div>
+                <section class="main-firms">
+                    <div class="main-firms__wrapper">
+                        <div class="main-firms__bg">
+                            <img src="<?php bloginfo('template_url'); ?>/assets/images/firms-bg.jpg" loading="lazy" decoding= "async" alt="">
+                        </div>
+                        <div class="main-firms__container">
+                            <div class="main-firms__subtitle">У нас представлены</div>
+                            <div class="main-firms__title">лучшие<br>из лучших</div>
+                            <div class="main-firms__inner">
+                                <div class="main-firms__item">
+                                    <div class="main-firms__logo">
+                                        <img src="<?php bloginfo('template_url'); ?>/assets/images/firms-logo.jpg" loading="lazy" decoding= "async" alt="">
+                                    </div>
+                                    <div class="main-firms__text">ZARA</div>
+                                </div>
+                                <div class="main-firms__item">
+                                    <div class="main-firms__logo">
+                                        <img src="<?php bloginfo('template_url'); ?>/assets/images/firms-logo1.jpg" loading="lazy" decoding= "async" alt="">
+                                    </div>
+                                    <div class="main-firms__text">Четыре Лапы</div>
+                                </div>
+                                <div class="main-firms__item">
+                                    <div class="main-firms__logo">
+                                        <img src="<?php bloginfo('template_url'); ?>/assets/images/firms-logo.jpg" loading="lazy" decoding= "async" alt="">
+                                    </div>
+                                    <div class="main-firms__text">М.Видео</div>
+                                </div>
+                                <div class="main-firms__item">
+                                    <div class="main-firms__logo">
+                                        <img src="<?php bloginfo('template_url'); ?>/assets/images/firms-logo1.jpg" loading="lazy" decoding= "async" alt="">
+                                    </div>
+                                    <div class="main-firms__text">GUCCI</div>
+                                </div>
+                                <div class="main-firms__item">
+                                    <div class="main-firms__logo">
+                                        <img src="<?php bloginfo('template_url'); ?>/assets/images/firms-logo.jpg" loading="lazy" decoding= "async" alt="">
+                                    </div>
+                                    <div class="main-firms__text">Stradivarius</div>
+                                </div>
+                                <div class="main-firms__item">
+                                    <div class="main-firms__logo">
+                                        <img src="<?php bloginfo('template_url'); ?>/assets/images/firms-logo1.jpg" loading="lazy" decoding= "async" alt="">
+                                    </div>
+                                    <div class="main-firms__text">Stradivarius</div>
+                                </div>
+                                <div class="main-firms__item">
+                                    <div class="main-firms__logo">
+                                        <img src="<?php bloginfo('template_url'); ?>/assets/images/firms-logo.jpg" loading="lazy" decoding= "async" alt="">
+                                    </div>
+                                    <div class="main-firms__text">Азбука вкуса</div>
+                                </div>
+                                <div class="main-firms__item">
+                                    <div class="main-firms__logo">
+                                        <img src="<?php bloginfo('template_url'); ?>/assets/images/firms-logo1.jpg" loading="lazy" decoding= "async" alt="">
+                                    </div>
+                                    <div class="main-firms__text">Икея</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
                 <div class="block block-4"></div>
             </main>
             <?php get_footer(); ?>
