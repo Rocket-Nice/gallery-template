@@ -26,34 +26,6 @@ a {
   overflow: hidden;
 }
 
-.block {
-  width: 100%;
-  height: 100vh;
-}
-
-.block-1 {
-  background: red;
-}
-
-.block-2 {
-  background: black;
-}
-
-.block-3 {
-  background: green;
-}
-
-.block-4 {
-  background: gray;
-}
-
-.test-block {
-  height: 100vh;
-  width: 100vw;
-  background: purple;
-}
-
-
 .full-window {
   width: 100%;
   height: 100vh;
@@ -65,3 +37,4 @@ a {
 @import "components/header/menu";
 @import "components/main-info";
 @import "components/main-firms";
+@import "components/main-video";

@@ -259,7 +259,22 @@ Template Name: Front-page
                         </div>
                     </div>
                 </section>
-                <div class="block block-4"></div>
+                <section class="main-video">
+                    <div class="main-video__wrapper">
+                        <div class="main-video__container" data-video-bg>
+                            <div class="main-video__text">
+                                Стиль прошлого,<br>презентация коллекции
+                            </div>
+                            <div class="main-video__bg"></div>
+                            <div class="main-video__play" data-video-play>
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M37.0171 22.7699C38.3459 23.5406 38.3459 25.4594 37.0171 26.2301L18.0034 37.258C16.6701 38.0313 15 37.0693 15 35.5279L15 13.4721C15 11.9307 16.6701 10.9687 18.0034 11.742L37.0171 22.7699Z" fill="white"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <video class="main-video__item" src="<?php bloginfo('template_url'); ?>/assets/video/main.mp4" loop data-video></video>
+                    </div>
+                </section>
             </main>
             <?php get_footer(); ?>
         </div>
