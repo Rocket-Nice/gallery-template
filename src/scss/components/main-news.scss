@@ -1,0 +1,97 @@
+@use "../vars";
+@use "../responsive";
+
+.main-news {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+
+  &__title {
+    padding: 0 20px;
+    margin-bottom: 30px;
+    color: vars.$dark;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    @include responsive.media-breakpoint-down(elg) {
+      padding: 0;
+    }
+
+    @include responsive.media-breakpoint-down(md) {
+      margin-bottom: 20px;
+      font-size: 40px;
+    }
+  }
+
+  &__container {
+    width: 100%;
+
+    @include responsive.media-breakpoint-down(elg) {
+      padding: 0 20px;
+    }
+  }
+
+  .swiper {
+    &.--desc {
+      @include responsive.media-breakpoint-down(elg) {
+        display: none;
+      }
+    }
+
+    &.--mobile {
+      display: none;
+
+      @include responsive.media-breakpoint-down(elg) {
+        display: block;
+      }
+    }
+  }
+
+  .swiper-slide {
+    max-width: 1230px;
+    width: 100%;
+    height: 600px;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+
+    @include responsive.media-breakpoint-down(elg) {
+      padding: 0;
+    }
+
+    @include responsive.media-breakpoint-down(md) {
+      height: 237px;
+    }
+  }
+
+  &__navigation {
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 30px;
+    background: rgba(0, 0, 0, 0.05);
+
+    @include responsive.media-breakpoint-down(md) {
+      margin-top: 20px;
+    }
+
+    .swiper-navigation-button {
+      &:hover {
+        background: rgba(0, 0, 0, 0.10);
+      }
+    }
+  }
+
+  .news-card__wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    height: 100%;
+  }
+
+  &__slide {
+    height: 100%;
+  }
+}

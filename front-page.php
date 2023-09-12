@@ -275,6 +275,267 @@ Template Name: Front-page
                         <video class="main-video__item" src="<?php bloginfo('template_url'); ?>/assets/video/main.mp4" loop data-video></video>
                     </div>
                 </section>
+                <section class="main-news">
+                    <div class="main-news__container">
+                        <div class="main-news__title">
+                            Наши новости
+                        </div>
+                        <div class="swiper --desc">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="main-news__slide">
+                                        <div class="news-card__wrapper">
+                                            <a href="#" class="news-card">
+                                                <div class="news-card__bg">
+                                                    <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
+                                                </div>
+                                                <div class="news-card__content">
+                                                    <div class="news-card__info">
+                                                        <div class="news-card__tag --yellow">Акция</div>
+                                                        <div class="news-card__date">24.07 – 05.08</div>
+                                                    </div>
+                                                    <div class="news-card__text">
+                                                        <div class="news-card__title">SALE до 30%</div>
+                                                        <div class="news-card__subtitle">в lady & gentleman CITY</div>
+                                                        <div class="news-card__desc">На старт, внимание, SALE*! В магазине lady & gentleman CITY вас ждут скидки до 30%** на коллекцию Весна-Лето.</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="news-card">
+                                                <div class="news-card__bg">
+                                                    <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
+                                                </div>
+                                                <div class="news-card__content">
+                                                    <div class="news-card__info">
+                                                        <div class="news-card__tag --yellow">Акция</div>
+                                                        <div class="news-card__date">24.07 – 05.08</div>
+                                                    </div>
+                                                    <div class="news-card__text">
+                                                        <div class="news-card__title">SALE до 30%</div>
+                                                        <div class="news-card__subtitle">в lady & gentleman CITY</div>
+                                                        <div class="news-card__desc">На старт, внимание, SALE*! В магазине lady & gentleman CITY вас ждут скидки до 30%** на коллекцию Весна-Лето.</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="news-card">
+                                                <div class="news-card__bg">
+                                                    <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
+                                                </div>
+                                                <div class="news-card__content">
+                                                    <div class="news-card__info">
+                                                        <div class="news-card__tag --yellow">Акция</div>
+                                                        <div class="news-card__date">24.07 – 05.08</div>
+                                                    </div>
+                                                    <div class="news-card__text">
+                                                        <div class="news-card__title">SALE до 30%</div>
+                                                        <div class="news-card__subtitle">в lady & gentleman CITY</div>
+                                                        <div class="news-card__desc">На старт, внимание, SALE*! В магазине lady & gentleman CITY вас ждут скидки до 30%** на коллекцию Весна-Лето.</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="main-news__slide">
+                                        <div class="news-card__wrapper">
+                                            <a href="#" class="news-card">
+                                                <div class="news-card__bg">
+                                                    <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
+                                                </div>
+                                                <div class="news-card__content">
+                                                    <div class="news-card__info">
+                                                        <div class="news-card__tag --yellow">Акция</div>
+                                                        <div class="news-card__date">24.07 – 05.08</div>
+                                                    </div>
+                                                    <div class="news-card__text">
+                                                        <div class="news-card__title">SALE до 30%</div>
+                                                        <div class="news-card__subtitle">в lady & gentleman CITY</div>
+                                                        <div class="news-card__desc">На старт, внимание, SALE*! В магазине lady & gentleman CITY вас ждут скидки до 30%** на коллекцию Весна-Лето.</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="news-card">
+                                                <div class="news-card__bg">
+                                                    <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
+                                                </div>
+                                                <div class="news-card__content">
+                                                    <div class="news-card__info">
+                                                        <div class="news-card__tag --yellow">Акция</div>
+                                                        <div class="news-card__date">24.07 – 05.08</div>
+                                                    </div>
+                                                    <div class="news-card__text">
+                                                        <div class="news-card__title">SALE до 30%</div>
+                                                        <div class="news-card__subtitle">в lady & gentleman CITY</div>
+                                                        <div class="news-card__desc">На старт, внимание, SALE*! В магазине lady & gentleman CITY вас ждут скидки до 30%** на коллекцию Весна-Лето.</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="news-card">
+                                                <div class="news-card__bg">
+                                                    <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
+                                                </div>
+                                                <div class="news-card__content">
+                                                    <div class="news-card__info">
+                                                        <div class="news-card__tag --yellow">Акция</div>
+                                                        <div class="news-card__date">24.07 – 05.08</div>
+                                                    </div>
+                                                    <div class="news-card__text">
+                                                        <div class="news-card__title">SALE до 30%</div>
+                                                        <div class="news-card__subtitle">в lady & gentleman CITY</div>
+                                                        <div class="news-card__desc">На старт, внимание, SALE*! В магазине lady & gentleman CITY вас ждут скидки до 30%** на коллекцию Весна-Лето.</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="main-news__slide">
+                                        <div class="news-card__wrapper">
+                                            <a href="#" class="news-card">
+                                                <div class="news-card__bg">
+                                                    <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
+                                                </div>
+                                                <div class="news-card__content">
+                                                    <div class="news-card__info">
+                                                        <div class="news-card__tag --yellow">Акция</div>
+                                                        <div class="news-card__date">24.07 – 05.08</div>
+                                                    </div>
+                                                    <div class="news-card__text">
+                                                        <div class="news-card__title">SALE до 30%</div>
+                                                        <div class="news-card__subtitle">в lady & gentleman CITY</div>
+                                                        <div class="news-card__desc">На старт, внимание, SALE*! В магазине lady & gentleman CITY вас ждут скидки до 30%** на коллекцию Весна-Лето.</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="news-card">
+                                                <div class="news-card__bg">
+                                                    <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
+                                                </div>
+                                                <div class="news-card__content">
+                                                    <div class="news-card__info">
+                                                        <div class="news-card__tag --yellow">Акция</div>
+                                                        <div class="news-card__date">24.07 – 05.08</div>
+                                                    </div>
+                                                    <div class="news-card__text">
+                                                        <div class="news-card__title">SALE до 30%</div>
+                                                        <div class="news-card__subtitle">в lady & gentleman CITY</div>
+                                                        <div class="news-card__desc">На старт, внимание, SALE*! В магазине lady & gentleman CITY вас ждут скидки до 30%** на коллекцию Весна-Лето.</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="news-card">
+                                                <div class="news-card__bg">
+                                                    <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
+                                                </div>
+                                                <div class="news-card__content">
+                                                    <div class="news-card__info">
+                                                        <div class="news-card__tag --yellow">Акция</div>
+                                                        <div class="news-card__date">24.07 – 05.08</div>
+                                                    </div>
+                                                    <div class="news-card__text">
+                                                        <div class="news-card__title">SALE до 30%</div>
+                                                        <div class="news-card__subtitle">в lady & gentleman CITY</div>
+                                                        <div class="news-card__desc">На старт, внимание, SALE*! В магазине lady & gentleman CITY вас ждут скидки до 30%** на коллекцию Весна-Лето.</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="main-news__navigation swiper-navigation --desc">
+                                <div class="swiper-navigation-button swiper-navigation-prev">
+                                    <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5 1L1 5L5 9" stroke="#2F3542" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="swiper-navigation-button swiper-navigation-next">
+                                    <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 1L5 5L1 9" stroke="#2F3542" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper --mobile">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="main-news__slide">
+                                        <a href="#" class="news-card">
+                                            <div class="news-card__bg">
+                                                <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
+                                            </div>
+                                            <div class="news-card__content">
+                                                <div class="news-card__info">
+                                                    <div class="news-card__tag --yellow">Акция</div>
+                                                    <div class="news-card__date">24.07 – 05.08</div>
+                                                </div>
+                                                <div class="news-card__text">
+                                                    <div class="news-card__title">SALE до 30%</div>
+                                                    <div class="news-card__subtitle">в lady & gentleman CITY</div>
+                                                    <div class="news-card__desc">На старт, внимание, SALE*! В магазине lady & gentleman CITY вас ждут скидки до 30%** на коллекцию Весна-Лето.</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="main-news__slide">
+                                        <a href="#" class="news-card">
+                                            <div class="news-card__bg">
+                                                <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
+                                            </div>
+                                            <div class="news-card__content">
+                                                <div class="news-card__info">
+                                                    <div class="news-card__tag --yellow">Акция</div>
+                                                    <div class="news-card__date">24.07 – 05.08</div>
+                                                </div>
+                                                <div class="news-card__text">
+                                                    <div class="news-card__title">SALE до 30%</div>
+                                                    <div class="news-card__subtitle">в lady & gentleman CITY</div>
+                                                    <div class="news-card__desc">На старт, внимание, SALE*! В магазине lady & gentleman CITY вас ждут скидки до 30%** на коллекцию Весна-Лето.</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="main-news__slide">
+                                        <a href="#" class="news-card">
+                                            <div class="news-card__bg">
+                                                <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
+                                            </div>
+                                            <div class="news-card__content">
+                                                <div class="news-card__info">
+                                                    <div class="news-card__tag --yellow">Акция</div>
+                                                    <div class="news-card__date">24.07 – 05.08</div>
+                                                </div>
+                                                <div class="news-card__text">
+                                                    <div class="news-card__title">SALE до 30%</div>
+                                                    <div class="news-card__subtitle">в lady & gentleman CITY</div>
+                                                    <div class="news-card__desc">На старт, внимание, SALE*! В магазине lady & gentleman CITY вас ждут скидки до 30%** на коллекцию Весна-Лето.</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="main-news__navigation swiper-navigation --desc">
+                                <div class="swiper-navigation-button swiper-navigation-prev">
+                                    <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5 1L1 5L5 9" stroke="#2F3542" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="swiper-navigation-button swiper-navigation-next">
+                                    <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 1L5 5L1 9" stroke="#2F3542" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </main>
             <?php get_footer(); ?>
         </div>

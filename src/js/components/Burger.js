@@ -1,6 +1,3 @@
-import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
-
 export default function Burger() {
   const body = document.querySelector('body');
   const burger = document.querySelector('[data-burger]');

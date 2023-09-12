@@ -1,9 +1,9 @@
-import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
+import Swiper, { Navigation, Pagination } from 'swiper';
+
+Swiper.use([Navigation, Pagination]);
 
 export default function MainSlider() {
   const swiper = new Swiper('.main-slider .swiper', {
-    modules: [Navigation, Pagination],
     loop: false,
     rewind: true,
     spaceBetween: 0,
