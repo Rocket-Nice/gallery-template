@@ -64,6 +64,7 @@
 
   &__navigation {
     background: rgba(0, 0, 0, 0.40);
+    transition: all .3s;
 
     &.--desc {
       margin-left: 26px;
@@ -86,9 +87,21 @@
       }
     }
 
+    &.--hidden {
+      visibility: hidden;
+      opacity: 0;
+    }
+
   }
 
   &__pagination {
+    transition: all .3s;
+
+    &.--hidden {
+      visibility: hidden;
+      opacity: 0;
+    }
+
     &.--desc {
       margin-right: 44px;
     }
