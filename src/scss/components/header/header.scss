@@ -39,7 +39,7 @@
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 2;
+    z-index: 3;
 
     @include responsive.media-breakpoint-down(md) {
       display: block;
