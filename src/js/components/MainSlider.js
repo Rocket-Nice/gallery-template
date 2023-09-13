@@ -8,6 +8,7 @@ export default function MainSlider() {
     rewind: true,
     spaceBetween: 0,
     slidesPerView: 1,
+    allowTouchMove: false,
     pagination: {
       el: ".main-slider__pagination.--desc",
       type: 'custom',

@@ -9,8 +9,8 @@ import SmoothScroll from './components/SmoothScroll';
 
 function main() {
   // SmoothScroll();
-  // MainHoryzontalScroll();
-  MainSlider();
+  MainHoryzontalScroll();
+  // MainSlider();
   Burger();
   MainVideo();
   NewsSlider();
