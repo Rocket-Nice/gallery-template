@@ -11,6 +11,7 @@
     <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/Lato-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/Lato-Semibold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/NotoSans-Medium.ttf" as="font" type="font/truetype" crossorigin>
+    <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/NotoSans-Regular.ttf" as="font" type="font/truetype" crossorigin>
     <?php wp_head(); ?>
 </head>
 <body>

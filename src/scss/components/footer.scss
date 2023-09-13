@@ -1,0 +1,124 @@
+@use "../vars";
+@use "../responsive";
+
+.footer {
+  @include responsive.media-breakpoint-down(md) {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    height: auto;
+    padding: 120px 30px 120px;
+  }
+
+  &__container {
+    padding: 80px 30px 172px;
+    max-width: 1230px;
+    width: 100%;
+    margin: 0 auto;
+
+    @include responsive.media-breakpoint-down(md) {
+      padding: 0;
+    }
+  }
+
+  &__logo {
+    display: block;
+    margin-bottom: 40px;
+
+    @include responsive.media-breakpoint-down(md) {
+      display: none;
+    }
+
+    svg {
+      display: block;
+    }
+  }
+
+  &-info {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+
+    @include responsive.media-breakpoint-down(md) {
+      margin-bottom: 24px;
+      flex-direction: column;
+      text-align: center;
+      gap: 16px;
+    }
+
+    &__title {
+      color: rgba(47, 53, 66, 0.50);
+      font-size: 12px;
+    }
+
+    &__desc {
+      margin-top: 4px;
+      color: #2F3542;
+      font-size: 24px;
+      text-transform: uppercase;
+    }
+  }
+
+  &-social {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &__item {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 1000px;
+      background: rgba(0, 0, 0, 0.05);
+      transition: all .3s;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.10);
+      }
+    }
+  }
+
+  &-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    @include responsive.media-breakpoint-down(sm) {
+      flex-direction: column;
+      text-align: center;
+      gap: 30px;
+    }
+  }
+
+  &-politics {
+    display: block;
+    color: rgba(47, 53, 66, 0.50);
+    font-family: Noto Sans;
+    font-size: 12px;
+    transition: all .3s;
+
+    &:hover {
+      color: #2F3542;
+      text-decoration-line: underline;
+    }
+  }
+
+  &-develops {
+    path {
+      transition: all .3s;
+    }
+
+    &:hover {
+      path {
+        fill: #CDD3DC;
+      }
+    }
+  }
+}
