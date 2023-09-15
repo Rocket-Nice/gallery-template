@@ -35,6 +35,14 @@ a {
   height: 100vh;
 }
 
+.no-scrollbar {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 @import "components/main-slider";
 @import "components/swiper";
 @import "components/header/header";

@@ -8,7 +8,6 @@ export default function MainSlider() {
     rewind: true,
     spaceBetween: 0,
     slidesPerView: 1,
-    allowTouchMove: false,
     pagination: {
       el: ".main-slider__pagination.--desc",
       type: 'custom',
@@ -39,23 +38,5 @@ export default function MainSlider() {
         })
       })
     }
-
-    const pagination = document.querySelector('.main-slider__pagination');
-    const navigation = document.querySelector('.main-slider__navigation');
-
-    function checkedScroll() {
-      if (window.innerWidth > 1439 && window.scrollY > 20) {
-        pagination.classList.add('--hidden');
-        navigation.classList.add('--hidden');
-      } else {
-        pagination.classList.remove('--hidden');
-        navigation.classList.remove('--hidden');
-      }
-    }
-
-    checkedScroll();
-    window.addEventListener('scroll', () => {
-      checkedScroll();
-    });
   }
 }

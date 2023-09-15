@@ -14,7 +14,7 @@
     <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/NotoSans-Regular.ttf" as="font" type="font/truetype" crossorigin>
     <?php wp_head(); ?>
 </head>
-<body>
+<body class="no-scrollbar">
     <header class="header">
         <a href="/" class="header-logo">
             <svg width="161" height="68" viewBox="0 0 161 68" fill="none" xmlns="http://www.w3.org/2000/svg">

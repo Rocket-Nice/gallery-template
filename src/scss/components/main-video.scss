@@ -2,14 +2,14 @@
 @use "../responsive";
 
 .main-video {
-  padding: 5px 10px 5px;
+  padding: 10px;
   width: 100%;
 
   &__wrapper {
     position: relative;
     border-radius: 24px;
     overflow: hidden;
-    height: calc(100vh - 15px);
+    height: calc(100vh - 20px);
   }
 
   &__item {

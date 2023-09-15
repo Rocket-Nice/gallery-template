@@ -8,12 +8,21 @@ import NewsSlider from './components/NewsSlider';
 import SmoothScroll from './components/SmoothScroll';
 
 function main() {
-  // SmoothScroll();
+  SmoothScroll();
   MainHoryzontalScroll();
-  // MainSlider();
+  MainSlider();
   Burger();
   MainVideo();
   NewsSlider();
+
+  //доскролить страницу наверх при перезагрузке
+  window.onbeforeunload = function () {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant',
+    });
+  }
 }
 
 document.addEventListener("DOMContentLoaded", main);

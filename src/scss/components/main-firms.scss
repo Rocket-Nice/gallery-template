@@ -2,7 +2,7 @@
 @use "../responsive";
 
 .main-firms {
-  padding: 10px 10px 5px;
+  padding: 10px;
   width: 100%;
 
   &__wrapper {
@@ -11,10 +11,10 @@
     overflow: hidden;
     display: flex;
     align-items: center;
-    height: calc(100vh - 15px);
+    height: calc(100vh - 20px);
 
     @include responsive.media-breakpoint-down(elg) {
-      min-height: calc(100vh - 15px);
+      min-height: calc(100vh - 20px);
       height: auto;
     }
   }
