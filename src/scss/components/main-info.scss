@@ -274,9 +274,12 @@
 
     &.--white {
 
-      .main-info-desc,
-      .main-info__hover {
+      .main-info-desc {
         background: vars.$white-bg;
+      }
+
+      .main-info__hover {
+        background: #c4c2c2;
       }
 
       .main-info-desc__text {
