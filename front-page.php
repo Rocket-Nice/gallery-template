@@ -291,6 +291,7 @@ Template Name: Front-page
                                                         <a href="#" class="news-card">
                                                             <div class="news-card__bg">
                                                                 <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
+                                                                <div class="news-card__bg-hover"></div>
                                                             </div>
                                                             <div class="news-card__content">
                                                                 <div class="news-card__info">
@@ -307,6 +308,7 @@ Template Name: Front-page
                                                         <a href="#" class="news-card">
                                                             <div class="news-card__bg">
                                                                 <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
+                                                                <div class="news-card__bg-hover"></div>
                                                             </div>
                                                             <div class="news-card__content">
                                                                 <div class="news-card__info">
@@ -323,60 +325,7 @@ Template Name: Front-page
                                                         <a href="#" class="news-card">
                                                             <div class="news-card__bg">
                                                                 <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
-                                                            </div>
-                                                            <div class="news-card__content">
-                                                                <div class="news-card__info">
-                                                                    <div class="news-card__tag --yellow">Акция</div>
-                                                                    <div class="news-card__date">24.07 – 05.08</div>
-                                                                </div>
-                                                                <div class="news-card__text">
-                                                                    <div class="news-card__title">SALE до 30%</div>
-                                                                    <div class="news-card__subtitle">в lady & gentleman CITY</div>
-                                                                    <div class="news-card__desc">На старт, внимание, SALE*! В магазине lady & gentleman CITY вас ждут скидки до 30%** на коллекцию Весна-Лето.</div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <div class="main-news__slide">
-                                                    <div class="news-card__wrapper">
-                                                        <a href="#" class="news-card">
-                                                            <div class="news-card__bg">
-                                                                <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
-                                                            </div>
-                                                            <div class="news-card__content">
-                                                                <div class="news-card__info">
-                                                                    <div class="news-card__tag --yellow">Акция</div>
-                                                                    <div class="news-card__date">24.07 – 05.08</div>
-                                                                </div>
-                                                                <div class="news-card__text">
-                                                                    <div class="news-card__title">SALE до 30%</div>
-                                                                    <div class="news-card__subtitle">в lady & gentleman CITY</div>
-                                                                    <div class="news-card__desc">На старт, внимание, SALE*! В магазине lady & gentleman CITY вас ждут скидки до 30%** на коллекцию Весна-Лето.</div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a href="#" class="news-card">
-                                                            <div class="news-card__bg">
-                                                                <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
-                                                            </div>
-                                                            <div class="news-card__content">
-                                                                <div class="news-card__info">
-                                                                    <div class="news-card__tag --yellow">Акция</div>
-                                                                    <div class="news-card__date">24.07 – 05.08</div>
-                                                                </div>
-                                                                <div class="news-card__text">
-                                                                    <div class="news-card__title">SALE до 30%</div>
-                                                                    <div class="news-card__subtitle">в lady & gentleman CITY</div>
-                                                                    <div class="news-card__desc">На старт, внимание, SALE*! В магазине lady & gentleman CITY вас ждут скидки до 30%** на коллекцию Весна-Лето.</div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a href="#" class="news-card">
-                                                            <div class="news-card__bg">
-                                                                <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
+                                                                <div class="news-card__bg-hover"></div>
                                                             </div>
                                                             <div class="news-card__content">
                                                                 <div class="news-card__info">
@@ -399,6 +348,7 @@ Template Name: Front-page
                                                         <a href="#" class="news-card">
                                                             <div class="news-card__bg">
                                                                 <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
+                                                                <div class="news-card__bg-hover"></div>
                                                             </div>
                                                             <div class="news-card__content">
                                                                 <div class="news-card__info">
@@ -415,6 +365,7 @@ Template Name: Front-page
                                                         <a href="#" class="news-card">
                                                             <div class="news-card__bg">
                                                                 <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
+                                                                <div class="news-card__bg-hover"></div>
                                                             </div>
                                                             <div class="news-card__content">
                                                                 <div class="news-card__info">
@@ -431,6 +382,64 @@ Template Name: Front-page
                                                         <a href="#" class="news-card">
                                                             <div class="news-card__bg">
                                                                 <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
+                                                                <div class="news-card__bg-hover"></div>
+                                                            </div>
+                                                            <div class="news-card__content">
+                                                                <div class="news-card__info">
+                                                                    <div class="news-card__tag --yellow">Акция</div>
+                                                                    <div class="news-card__date">24.07 – 05.08</div>
+                                                                </div>
+                                                                <div class="news-card__text">
+                                                                    <div class="news-card__title">SALE до 30%</div>
+                                                                    <div class="news-card__subtitle">в lady & gentleman CITY</div>
+                                                                    <div class="news-card__desc">На старт, внимание, SALE*! В магазине lady & gentleman CITY вас ждут скидки до 30%** на коллекцию Весна-Лето.</div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="main-news__slide">
+                                                    <div class="news-card__wrapper">
+                                                        <a href="#" class="news-card">
+                                                            <div class="news-card__bg">
+                                                                <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
+                                                                <div class="news-card__bg-hover"></div>
+                                                            </div>
+                                                            <div class="news-card__content">
+                                                                <div class="news-card__info">
+                                                                    <div class="news-card__tag --yellow">Акция</div>
+                                                                    <div class="news-card__date">24.07 – 05.08</div>
+                                                                </div>
+                                                                <div class="news-card__text">
+                                                                    <div class="news-card__title">SALE до 30%</div>
+                                                                    <div class="news-card__subtitle">в lady & gentleman CITY</div>
+                                                                    <div class="news-card__desc">На старт, внимание, SALE*! В магазине lady & gentleman CITY вас ждут скидки до 30%** на коллекцию Весна-Лето.</div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="news-card">
+                                                            <div class="news-card__bg">
+                                                                <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
+                                                                <div class="news-card__bg-hover"></div>
+                                                            </div>
+                                                            <div class="news-card__content">
+                                                                <div class="news-card__info">
+                                                                    <div class="news-card__tag --yellow">Акция</div>
+                                                                    <div class="news-card__date">24.07 – 05.08</div>
+                                                                </div>
+                                                                <div class="news-card__text">
+                                                                    <div class="news-card__title">SALE до 30%</div>
+                                                                    <div class="news-card__subtitle">в lady & gentleman CITY</div>
+                                                                    <div class="news-card__desc">На старт, внимание, SALE*! В магазине lady & gentleman CITY вас ждут скидки до 30%** на коллекцию Весна-Лето.</div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="news-card">
+                                                            <div class="news-card__bg">
+                                                                <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
+                                                                <div class="news-card__bg-hover"></div>
                                                             </div>
                                                             <div class="news-card__content">
                                                                 <div class="news-card__info">
@@ -468,6 +477,7 @@ Template Name: Front-page
                                                     <a href="#" class="news-card">
                                                         <div class="news-card__bg">
                                                             <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
+                                                            <div class="news-card__bg-hover"></div>
                                                         </div>
                                                         <div class="news-card__content">
                                                             <div class="news-card__info">
@@ -488,6 +498,7 @@ Template Name: Front-page
                                                     <a href="#" class="news-card">
                                                         <div class="news-card__bg">
                                                             <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
+                                                            <div class="news-card__bg-hover"></div>
                                                         </div>
                                                         <div class="news-card__content">
                                                             <div class="news-card__info">
@@ -508,6 +519,7 @@ Template Name: Front-page
                                                     <a href="#" class="news-card">
                                                         <div class="news-card__bg">
                                                             <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
+                                                            <div class="news-card__bg-hover"></div>
                                                         </div>
                                                         <div class="news-card__content">
                                                             <div class="news-card__info">

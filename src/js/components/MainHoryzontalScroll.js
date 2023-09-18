@@ -6,7 +6,7 @@ SwiperCore.use([Keyboard, Mousewheel]);
 export default function MainHoryzontalScroll() {
   const isMainPage = document.querySelector('.main-page');
   if (isMainPage) {
-    let mql = window.matchMedia("(max-width: 1024px)");
+    let mql = window.matchMedia("(max-width: 1023px)");
     const swiperAtribute = {
       direction: "horizontal",
       spaceBetween: 0,
@@ -107,11 +107,13 @@ export default function MainHoryzontalScroll() {
 
     //доскролить страницу наверх при перезагрузке
     window.onbeforeunload = function () {
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'instant',
-      });
+      if (window.innerWidth > 1023) {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'instant',
+        });
+      }
     }
 
     // отключение скролла на стрелки
