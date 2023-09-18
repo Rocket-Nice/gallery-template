@@ -4,75 +4,121 @@ import SwiperCore, { Keyboard, Mousewheel } from 'swiper';
 SwiperCore.use([Keyboard, Mousewheel]);
 
 export default function MainHoryzontalScroll() {
-  const swiper = new Swiper('.horizontal-slider', {
-    direction: "horizontal",
-    spaceBetween: 0,
-    slidesPerView: 1,
-    speed: 1000,
-    allowTouchMove: false,
-    mousewheel: {
-      releaseOnEdges: false,
-    },
-  });
-
-  const pagination = document.querySelector('.main-slider__pagination');
-  const navigation = document.querySelector('.main-slider__navigation');
-
-  // отключение возможности прокрутки слайдера вниз
-  swiper.on('slideChange', function () {
-    setTimeout(() => {
-      swiper.params.mousewheel.releaseOnEdges = false;
-    }, 500);
-    // отключение навигации и пагинации внутреннего слайдера на первой экране
-    if (swiper.activeIndex === 0) {
-      pagination.classList.remove('--hidden');
-      navigation.classList.remove('--hidden');
-    } else {
-      pagination.classList.add('--hidden');
-      navigation.classList.add('--hidden');
-    }
-  });
-
-  // включение возможности прокрутки слайдера вниз на последнем слайде
-  swiper.on('reachEnd', function () {
-    setTimeout(() => {
-      swiper.params.mousewheel.releaseOnEdges = true;
-    }, 1000);
-  });
-
-
-  // блокировка слайдера когда страница прокручена вниз
-  function clientsNewObservering() {
-    const slider = document.querySelectorAll(
-      '.horizontal-slider',
-    );
-    const config = {
-      rootMargin: '0%',
-      threshold: 1,
+  const isMainPage = document.querySelector('.main-page');
+  if (isMainPage) {
+    let mql = window.matchMedia("(max-width: 1024px)");
+    const swiperAtribute = {
+      direction: "horizontal",
+      spaceBetween: 0,
+      slidesPerView: 1,
+      speed: 1000,
+      allowTouchMove: false,
+      mousewheel: {
+        releaseOnEdges: false,
+      },
     };
-    const callback = entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-          swiper.disable();
+
+    let isSwiperInit = false;
+    if (window.innerWidth > 1023) {
+      const swiper = new Swiper('.horizontal-slider', swiperAtribute);
+      swiperEvents(swiper);
+      isSwiperInit = true;
+    }
+
+    const containerSwiper = document.querySelector('.horizontal-slider__container');
+    const sliderBlock = document.querySelector('.horizontal-slider');
+
+    // событие сработает когда экран ресайзнет границу 1024px
+    mql.onchange = (e) => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'instant',
+      });
+
+      if (sliderBlock && e.matches && isSwiperInit) {
+        const swiper1 = sliderBlock.swiper;
+        if (swiper1) {
+          swiper1.destroy(true, true);
+          isSwiperInit = false;
+          sliderBlock.style = '';
+          sliderBlock.querySelector('.swiper-wrapper').style = '';
+          sliderBlock.querySelector('.swiper-slide').style = '';
+          window.observer?.unobserve?.(document.querySelector('.horizontal-slider'));
+        }
+      } else if (containerSwiper && !e.matches && !isSwiperInit) {
+        isSwiperInit = true;
+        const swiper2 = new Swiper('.horizontal-slider', swiperAtribute);
+        swiperEvents(swiper2);
+      }
+    };
+
+    function swiperEvents(swiper) {
+      const pagination = document.querySelector('.main-slider__pagination');
+      const navigation = document.querySelector('.main-slider__navigation');
+
+      // отключение возможности прокрутки слайдера вниз
+      swiper.on('slideChange', function () {
+        setTimeout(() => {
+          swiper.params.mousewheel.releaseOnEdges = false;
+        }, 500);
+        // отключение навигации и пагинации внутреннего слайдера на первой экране
+        if (swiper.activeIndex === 0) {
+          pagination.classList.remove('--hidden');
+          navigation.classList.remove('--hidden');
         } else {
-          swiper.enable();
+          pagination.classList.add('--hidden');
+          navigation.classList.add('--hidden');
         }
       });
-    };
 
-    const observer = new IntersectionObserver(callback, config);
+      // включение возможности прокрутки слайдера вниз на последнем слайде
+      swiper.on('reachEnd', function () {
+        setTimeout(() => {
+          swiper.params.mousewheel.releaseOnEdges = true;
+        }, 1000);
+      });
 
-    slider.forEach(element => {
-      observer.observe(element);
-    });
-  }
-
-  clientsNewObservering();
-
-  // отключение скролла на стрелки
-  window.addEventListener("keydown", function (e) {
-    if (["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(e.code) > -1) {
-      e.preventDefault();
+      clientsNewObservering(swiper);
     }
-  }, false);
+
+    // блокировка слайдера когда страница прокручена вниз
+    function clientsNewObservering(swiper) {
+      const config = {
+        rootMargin: '0%',
+        threshold: 1,
+      };
+      const callback = entries => {
+        if (window.innerWidth > 1023) {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+              swiper.disable();
+            } else {
+              swiper.enable();
+            }
+          });
+        }
+      };
+
+      const observer = new IntersectionObserver(callback, config);
+      observer.observe(document.querySelector('.horizontal-slider'));
+      window.observer = observer;
+    }
+
+    //доскролить страницу наверх при перезагрузке
+    window.onbeforeunload = function () {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'instant',
+      });
+    }
+
+    // отключение скролла на стрелки
+    window.addEventListener("keydown", function (e) {
+      if (["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(e.code) > -1) {
+        e.preventDefault();
+      }
+    }, false);
+  }
 }

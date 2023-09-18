@@ -1,0 +1,24 @@
+@use "../vars";
+@use "../responsive";
+
+.horizontal-slider__container {
+  height: 100vh;
+
+  @include responsive.media-breakpoint-down(elg) {
+    height: auto;
+  }
+
+  .horizontal-slider {
+    @include responsive.media-breakpoint-down(elg) {
+      overflow: unset;
+    }
+
+    &>.swiper-wrapper {
+      @include responsive.media-breakpoint-down(elg) {
+        display: block;
+      }
+    }
+  }
+
+
+}

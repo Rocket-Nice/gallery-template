@@ -31,10 +31,6 @@ a {
   height: 100vh;
 }
 
-.horizontal-slider {
-  height: 100vh;
-}
-
 .no-scrollbar {
   scrollbar-width: none;
 
@@ -51,5 +47,6 @@ a {
 @import "components/main-firms";
 @import "components/main-video";
 @import "components/main-news";
+@import "components/main-horizontal-scroll";
 @import "components/news-card";
 @import "components/footer";

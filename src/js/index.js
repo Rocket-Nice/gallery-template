@@ -14,15 +14,6 @@ function main() {
   Burger();
   MainVideo();
   NewsSlider();
-
-  //доскролить страницу наверх при перезагрузке
-  window.onbeforeunload = function () {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'instant',
-    });
-  }
 }
 
 document.addEventListener("DOMContentLoaded", main);
