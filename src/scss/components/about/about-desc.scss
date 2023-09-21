@@ -1,0 +1,90 @@
+@use "../../vars";
+@use "../../responsive";
+
+.about-desc {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  &__bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+
+    img {
+      display: block;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__container {
+    padding: 130px 30px;
+    max-width: 1030px;
+    width: 100%;
+    margin: 0 auto;
+
+    @include responsive.media-breakpoint-down(md) {
+      padding: 130px 20px;
+    }
+  }
+
+  &__content {
+    max-width: 581px;
+    width: 100%;
+
+    @include responsive.media-breakpoint-down(md) {
+      max-width: unset;
+      text-align: center;
+    }
+  }
+
+  &__subtitle {
+    color: vars.$white-text;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 38px;
+
+    @include responsive.media-breakpoint-down(md) {
+      font-size: 24px;
+      font-weight: 700;
+    }
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    color: vars.$white-text;
+    font-family: Jost;
+    font-size: 100px;
+    font-weight: 300;
+    line-height: 120%;
+    letter-spacing: 23px;
+
+    @include responsive.media-breakpoint-down(md) {
+      font-size: 64px;
+      letter-spacing: 14.72px;
+    }
+
+    @include responsive.media-breakpoint-down(smxs) {
+      font-size: 48px;
+      letter-spacing: 10.72px;
+    }
+  }
+
+  &__text {
+    color: vars.$white-text;
+    font-family: Helvetica;
+    font-size: 18px;
+    line-height: 160%;
+
+    @include responsive.media-breakpoint-down(md) {
+      font-size: 14px;
+    }
+  }
+}

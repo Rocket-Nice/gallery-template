@@ -12,6 +12,7 @@
     <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/Lato-Semibold.woff2" as="font" crossorigin>
     <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/NotoSans-Medium.ttf" as="font" crossorigin>
     <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/NotoSans-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/Jost-Light.woff2" as="font" crossorigin>
     <?php wp_head(); ?>
 </head>
 <body class="no-scrollbar">
@@ -37,7 +38,9 @@
         </a>
         <div class="header-desc">
             <div class="header-desc__inner">
-                <div class="main-slider__pagination pagination-fraction --desc"></div>
+                <?php if(is_front_page()): ?>
+                    <div class="main-slider__pagination pagination-fraction --desc"></div>
+                <?php endif ?>
                 <div class="menu">
                     <a class="menu-item" href="#">
                         <div class="menu-item__icon">
@@ -141,18 +144,20 @@
                         <div class="menu-item__text">Как добраться</div>
                     </a>
                 </div>
-                <div class="main-slider__navigation swiper-navigation --desc">
-                    <div class="swiper-navigation-button swiper-navigation-prev">
-                        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5 1L1 5L5 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                <?php if(is_front_page()): ?>
+                    <div class="main-slider__navigation swiper-navigation --desc">
+                        <div class="swiper-navigation-button swiper-navigation-prev">
+                            <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 1L1 5L5 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="swiper-navigation-button swiper-navigation-next">
+                            <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1L5 5L1 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
                     </div>
-                    <div class="swiper-navigation-button swiper-navigation-next">
-                        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 1L5 5L1 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                </div>
+                <?php endif ?>
             </div>
         </div>
         <div class="header-mobile">

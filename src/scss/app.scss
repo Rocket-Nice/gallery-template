@@ -39,14 +39,15 @@ a {
   }
 }
 
-@import "components/main-slider";
+@import "components/main-page/main-slider";
 @import "components/swiper";
 @import "components/header/header";
 @import "components/header/menu";
-@import "components/main-info";
-@import "components/main-firms";
-@import "components/main-video";
-@import "components/main-news";
-@import "components/main-horizontal-scroll";
+@import "components/main-page/main-info";
+@import "components/main-page/main-firms";
+@import "components/main-page/main-video";
+@import "components/main-page/main-news";
+@import "components/main-page/main-horizontal-scroll";
 @import "components/news-card";
 @import "components/footer";
+@import "components/about/about-desc";

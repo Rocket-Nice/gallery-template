@@ -67,3 +67,21 @@
   font-display: swap;
   font-style: normal;
 }
+
+@font-face {
+  font-family: Jost;
+  src: url('../../assets/fonts/Jost-Light.woff2') format('woff2'),
+    url('../../assets/fonts/Jost-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Helvetica;
+  src: url('../../assets/fonts/Helvetica-Regular.woff2') format('woff2'),
+    url('../../assets/fonts/Helvetica-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
