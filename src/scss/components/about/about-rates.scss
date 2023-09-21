@@ -1,0 +1,68 @@
+@use "../../vars";
+@use "../../responsive";
+
+.about-rates {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  &__bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+
+    img {
+      display: block;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__container {
+    max-width: 1230px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 130px 30px;
+
+    @include responsive.media-breakpoint-down(md) {
+      padding: 130px 20px;
+    }
+  }
+
+  &__title {
+    color: vars.$white-text;
+    font-size: 120px;
+    font-weight: 700;
+    line-height: 120px;
+    text-align: center;
+
+    @include responsive.media-breakpoint-down(md) {
+      font-size: 70px;
+      line-height: 90px;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 31px;
+    color: vars.$white-text;
+    font-size: 24px;
+    line-height: 120%;
+    text-align: center;
+
+    @include responsive.media-breakpoint-down(md) {
+      margin-bottom: 20px;
+    }
+  }
+
+  .dark-btn {
+    max-width: 413px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}

@@ -23,6 +23,21 @@ Template Name: About
                         </div>
                     </div>
                 </section>
+                <section class="about-rates">
+                    <div class="about-rates__bg">
+                        <img src="<?php bloginfo('template_url'); ?>/assets/images/about-rates.jpg" width="1920" height="1080" loading="lazy" decoding= "async" alt="">
+                    </div>
+                    <div class="about-rates__container">
+                        <div class="about-rates__title">100</div>
+                        <div class="about-rates__subtitle">машиномест на подземном паркинге</div>
+                        <a href="#" class="dark-btn">
+                            <div class="dark-btn__text">Иформация о тарифах</div>
+                            <div class="dark-btn__icon">
+                                <img src="<?php bloginfo('template_url'); ?>/assets/icons/btn-arrow.svg" width="24" height="24" loading="lazy" decoding= "async" alt="">
+                            </div>
+                        </a>
+                    </div>
+                </section>
             </main>
             <?php get_footer(); ?>
         </div>

@@ -1,0 +1,32 @@
+@use "../vars";
+@use "../responsive";
+
+.dark-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 16px;
+  gap: 12px;
+  border-radius: 1000px;
+  background: vars.$dark;
+  transition: all .3s;
+
+  &:hover {
+    background: #495163;
+  }
+
+  &__text {
+    color: vars.$white-text;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+
+    svg {
+      display: block;
+    }
+  }
+}
