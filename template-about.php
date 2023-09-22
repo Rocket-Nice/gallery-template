@@ -83,6 +83,57 @@ Template Name: About
                         </div>
                     </div>
                 </section>
+                <section class="about-info">
+                    <div class="about-rates__bg">
+                        <img src="<?php bloginfo('template_url'); ?>/assets/images/about-info.jpg" width="1920" height="1080" loading="lazy" decoding= "async" alt="">
+                    </div>
+                    <div class="about-info__container">
+                        <div class="about-info__block">
+                            <div class="about-info__title">Зона охвата</div>
+                            <div class="about-info__inner">
+                                <div class="about-info__item">
+                                    <div class="about-info__head">3063 чел.</div>
+                                    <div class="about-info__desc">5 минутная пешеходная доступность</div>
+                                </div>
+                                <div class="about-info__item">
+                                    <div class="about-info__head">12518 чел.</div>
+                                    <div class="about-info__desc">10 минутная пешеходная доступность</div>
+                                </div>
+                                <div class="about-info__item">
+                                    <div class="about-info__head">28222 чел.</div>
+                                    <div class="about-info__desc">15 минутная пешеходная доступность</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-info__block">
+                            <div class="about-info__title">Транспортная доступность</div>
+                            <div class="about-info__inner">
+                                <div class="about-info__item">
+                                    <div class="about-info__head">2 мин.</div>
+                                    <div class="about-info__desc">Проспект Мира</div>
+                                </div>
+                                <div class="about-info__item">
+                                    <div class="about-info__head">2 мин.</div>
+                                    <div class="about-info__desc">Центральный рынок</div>
+                                </div>
+                                <div class="about-info__item">
+                                    <div class="about-info__head">5 мин.</div>
+                                    <div class="about-info__desc">ЖД Вокзал</div>
+                                </div>
+                                <div class="about-info__item --green">
+                                    <div class="about-info__head">17</div>
+                                    <div class="about-info__desc">Маршрутных такси</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="dark-btn">
+                            <div class="dark-btn__text">Как добраться</div>
+                            <div class="dark-btn__icon">
+                                <img src="<?php bloginfo('template_url'); ?>/assets/icons/btn-arrow.svg" width="24" height="24" loading="lazy" decoding= "async" alt="">
+                            </div>
+                        </a>
+                    </div>
+                </section>
                 <section class="about-rates">
                     <div class="about-rates__bg">
                         <img src="<?php bloginfo('template_url'); ?>/assets/images/about-rates.jpg" width="1920" height="1080" loading="lazy" decoding= "async" alt="">

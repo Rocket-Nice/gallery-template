@@ -1,0 +1,143 @@
+@use "../../vars";
+@use "../../responsive";
+
+.about-info {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  &__bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+
+    img {
+      display: block;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__container {
+    padding: 130px 30px;
+    max-width: 1230px;
+    width: 100%;
+    margin: 0 auto;
+
+    @include responsive.media-breakpoint-down(md) {
+      padding: 144px 20px 88px;
+    }
+  }
+
+  &__block {
+    padding: 30px;
+    border-radius: 24px;
+    background: rgba(0, 0, 0, 0.20);
+    backdrop-filter: blur(9px);
+
+    @include responsive.media-breakpoint-down(чд) {
+      padding: 20px;
+    }
+  }
+
+  &__block+&__block {
+    margin-top: 10px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    color: vars.$white-text;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 120%;
+
+    @include responsive.media-breakpoint-down(md) {
+      margin-bottom: 16px;
+      font-size: 32px;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 30px;
+
+    @include responsive.media-breakpoint-down(md) {
+      flex-direction: column;
+      align-items: initial;
+      gap: 16px;
+    }
+  }
+
+  &__item {
+    min-height: 86px;
+
+    @include responsive.media-breakpoint-down(xl) {
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    @include responsive.media-breakpoint-down(md) {
+      width: 100%;
+    }
+
+    &.--green {
+      padding: 24px;
+      border-radius: 24px;
+      background: #41A169;
+      text-align: center;
+
+      @include responsive.media-breakpoint-down(md) {
+        padding: 12px;
+      }
+
+      .about-info__head {
+        margin-bottom: -4px;
+
+        @include responsive.media-breakpoint-down(elg) {
+          font-size: 34px;
+        }
+      }
+
+      .about-info__desc {
+        @include responsive.media-breakpoint-down(elg) {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  &__head {
+    margin-bottom: 4px;
+    color: vars.$white-text;
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 130%;
+
+    @include responsive.media-breakpoint-down(elg) {
+      font-size: 24px;
+    }
+  }
+
+  &__desc {
+    color: vars.$white-text;
+    font-size: 18px;
+    line-height: 120%;
+
+    @include responsive.media-breakpoint-down(elg) {
+      font-size: 14px;
+    }
+  }
+
+  .dark-btn {
+    margin-top: 20px;
+  }
+}
