@@ -149,6 +149,24 @@ Template Name: About
                         </a>
                     </div>
                 </section>
+                <section class="about-contacts">
+                    <div class="about-contacts__container">
+                        <div class="about-contacts__title">Контактная информация</div>
+                        <div class="about-contacts__inner">
+                            <div class="about-contacts__item">
+                                <div class="about-contacts__head">Отдел аренды</div>
+                                <a href="tel:+79999999999" class="about-contacts__desc">+7 (999) 999 99-99</a>
+                            </div>
+                            <div class="about-contacts__item">
+                                <div class="about-contacts__head">Справочная информация</div>
+                                <a href="tel:+79999999999" class="about-contacts__desc">+7 (999) 999 99-99</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-contacts__map">
+                        <iframe src="https://yandex.ru/map-widget/v1/?ll=44.686316%2C43.030537&mode=poi&poi%5Bpoint%5D=44.686081%2C43.030606&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D205202674359&z=19.88" loading="lazy"></iframe>
+                    </div>
+                </section>
             </main>
             <?php get_footer(); ?>
         </div>
