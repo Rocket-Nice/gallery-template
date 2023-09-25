@@ -1,5 +1,6 @@
 import '../scss/app.scss';
 import './bootstrap';
+import AboutCharSlider from './components/AboutCharSlider';
 import Burger from './components/Burger';
 import MainHoryzontalScroll from './components/MainHoryzontalScroll';
 import MainSlider from './components/MainSlider';
@@ -14,6 +15,7 @@ function main() {
   Burger();
   MainVideo();
   NewsSlider();
+  // AboutCharSlider();
 }
 
 document.addEventListener("DOMContentLoaded", main);
