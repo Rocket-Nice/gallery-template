@@ -1,0 +1,27 @@
+@use "../vars";
+@use "../responsive";
+
+.custom-tag {
+  width: fit-content;
+  padding: 6px 12px;
+  border-radius: 1000px;
+  color: vars.$white-text;
+  font-size: 14px;
+  font-weight: 700;
+
+  &.--yellow {
+    background: vars.$yellow;
+  }
+
+  &.--red {
+    background: vars.$red;
+  }
+
+  &.--blue {
+    background: vars.$blue;
+  }
+
+  &.--black {
+    background: vars.$dark;
+  }
+}

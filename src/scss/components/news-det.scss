@@ -1,0 +1,271 @@
+@use "../vars";
+@use "../responsive";
+
+.news-det {
+  &-page {
+    padding: 248px 0 80px;
+
+    @include responsive.media-breakpoint-down(mxl) {
+      padding: 150px 0 60px;
+    }
+
+    @include responsive.media-breakpoint-down(elg) {
+      padding: 127px 0 40px;
+    }
+
+    @include responsive.media-breakpoint-down(md) {
+      padding: 127px 0 30px;
+    }
+  }
+
+  &__container {
+    max-width: 1090px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 60px;
+
+    @include responsive.media-breakpoint-down(elg) {
+      padding: 0 30px;
+    }
+
+    @include responsive.media-breakpoint-down(md) {
+      padding: 0 20px;
+    }
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr 370px;
+    gap: 30px;
+
+    @include responsive.media-breakpoint-down(elg) {
+      display: block;
+    }
+  }
+
+  &-title {
+    position: relative;
+    margin-bottom: 14px;
+
+    @include responsive.media-breakpoint-down(elg) {
+      margin-bottom: 16px;
+    }
+
+    &__arrow {
+      display: block;
+      position: absolute;
+      top: 5px;
+      left: -48px;
+      background: #F2F2F2;
+      border-radius: 100px;
+      transition: all .3s;
+
+      @include responsive.media-breakpoint-down(elg) {
+        position: static;
+        float: left;
+        margin-right: 15px;
+      }
+
+      &:hover {
+        background: #dbdbdb;
+      }
+
+      &-icon {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    &__text {
+      color: vars.$dark-text;
+      font-family: Noto Sans;
+      font-size: 32px;
+      font-weight: 700;
+
+      @include responsive.media-breakpoint-down(elg) {
+        font-size: 28px;
+      }
+    }
+  }
+
+  .custom-tag {
+    &__wrapper {
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      @include responsive.media-breakpoint-down(elg) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__content {
+    >* {
+      margin-top: 16px;
+
+      @include responsive.media-breakpoint-down(md) {
+        margin-top: 12px;
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    p,
+    li {
+      color: vars.$dark-text;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+
+      @include responsive.media-breakpoint-down(md) {
+        font-size: 14px;
+      }
+    }
+
+    strong,
+    b {
+      font: inherit;
+      color: inherit;
+      font-weight: 900;
+    }
+
+    a {
+      font: inherit;
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      transition: all .3s;
+
+      &:hover {
+        color: #000;
+      }
+    }
+
+    .gray-bg-block {
+      padding: 20px;
+      border-radius: 12px;
+      background: #E6E8EC;
+      color: vars.$dark-text;
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    ul {
+      list-style-type: disc;
+    }
+
+    ul,
+    ol {
+      padding-left: 27px;
+      margin-top: 4px;
+    }
+  }
+
+  &__right {
+    padding-top: 14px;
+
+    @include responsive.media-breakpoint-down(elg) {
+      padding-top: 0;
+      margin-top: 20px;
+    }
+
+    .sticky-block {
+      position: sticky;
+      top: 100px;
+    }
+  }
+
+  &__date {
+    margin-bottom: 18px;
+    padding-right: 14px;
+    text-align: end;
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.5;
+
+    @include responsive.media-breakpoint-down(elg) {
+      text-align: start;
+      padding-right: 0;
+      margin-bottom: 16px;
+    }
+  }
+
+  &-slider {
+    .swiper-slide {
+      height: 500px;
+      border-radius: 24px;
+      overflow: hidden;
+
+      @include responsive.media-breakpoint-down(md) {
+        height: 400px;
+      }
+
+      @include responsive.media-breakpoint-down(sm) {
+        height: 300px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+
+    &__navigation {
+      position: absolute;
+      bottom: 14px;
+      right: 14px;
+      background: rgba(0, 0, 0, 0.40);
+      transition: all .3s;
+      z-index: 1;
+
+      .swiper-navigation-button {
+        &:hover {
+          background: rgba(255, 255, 255, 0.10);
+        }
+      }
+    }
+  }
+
+  .dark-btn {
+    margin-top: 20px;
+
+    &.--mobile {
+      display: none;
+
+      @include responsive.media-breakpoint-down(elg) {
+        display: flex;
+        position: sticky;
+        bottom: 113px;
+
+        @include responsive.media-breakpoint-down(md) {
+          bottom: 78px;
+          height: 48px;
+        }
+      }
+    }
+  }
+
+  .--desc {
+    @include responsive.media-breakpoint-down(elg) {
+      display: none;
+    }
+  }
+
+  .--mobile {
+    display: none;
+
+    @include responsive.media-breakpoint-down(elg) {
+      display: block;
+    }
+  }
+}

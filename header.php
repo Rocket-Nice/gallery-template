@@ -10,12 +10,14 @@
     <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/Lato-Medium.woff2" as="font" crossorigin>
     <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/Lato-Regular.woff2" as="font" crossorigin>
     <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/Lato-Semibold.woff2" as="font" crossorigin>
+    <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/Lato-Black.woff2" as="font" crossorigin>
+    <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/NotoSans-Bold.ttf" as="font" crossorigin>
     <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/NotoSans-Medium.ttf" as="font" crossorigin>
     <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/NotoSans-Regular.ttf" as="font" crossorigin>
     <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/Jost-Light.woff2" as="font" crossorigin>
     <?php wp_head(); ?>
 </head>
-<body class="no-scrollbar">
+<body>
     <header class="header">
         <a href="/" class="header-logo">
             <svg width="161" height="68" viewBox="0 0 161 68" fill="none" xmlns="http://www.w3.org/2000/svg">
