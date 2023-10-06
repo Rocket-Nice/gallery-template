@@ -1,0 +1,97 @@
+@use "../vars";
+@use "../responsive";
+
+.renter {
+  &-page {
+    padding: 147px 0 0;
+
+    @include responsive.media-breakpoint-down(md) {
+      padding: 117px 0 0;
+    }
+  }
+
+  &__container {
+    max-width: 1230px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 30px;
+
+    @include responsive.media-breakpoint-down(md) {
+      padding: 0 20px;
+    }
+  }
+
+  &-block {
+    margin-bottom: 20px;
+    padding: 32px 20px;
+    border-radius: 24px;
+    background: #EAEDEF;
+
+    @include responsive.media-breakpoint-down(md) {
+      padding: 20px;
+      margin-bottom: 10px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &__title {
+      margin-bottom: 24px;
+      color: vars.$dark-text;
+      font-size: 24px;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+
+      @include responsive.media-breakpoint-down(md) {
+        margin-bottom: 16px;
+      }
+    }
+
+    &__text {
+      >* {
+        margin-top: 16px;
+
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+
+      p {
+        color: vars.$dark-text;
+        text-align: center;
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+
+    &__btn {
+      max-width: 370px;
+      width: 100%;
+      margin: 0 auto;
+      margin-top: 24px;
+
+      @include responsive.media-breakpoint-down(md) {
+        margin-top: 16px;
+      }
+
+      @include responsive.media-breakpoint-down(sm) {
+        max-width: unset;
+      }
+    }
+
+    &__buttons {
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .renter-block__btn {
+        margin: 0;
+      }
+    }
+  }
+}

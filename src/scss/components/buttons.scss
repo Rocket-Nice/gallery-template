@@ -10,6 +10,7 @@
   border-radius: 1000px;
   background: vars.$dark;
   transition: all .3s;
+  cursor: pointer;
 
   &:hover {
     background: #495163;
@@ -19,6 +20,7 @@
     color: vars.$white-text;
     font-size: 16px;
     font-weight: 500;
+    transition: all .3s;
   }
 
   &__icon {
@@ -28,5 +30,30 @@
     svg {
       display: block;
     }
+  }
+
+  &:disabled,
+  &.disabled {
+    background: #495163;
+    cursor: not-allowed;
+  }
+}
+
+.white-btn {
+  padding: 20px 16px;
+  border-radius: 1000px;
+  border: 1px solid #2F3542;
+  background: transparent;
+  text-align: center;
+  color: vars.$dark-text;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all .3s;
+  cursor: pointer;
+
+  &:hover {
+    background: #868688;
+    color: vars.$white-text;
+    border: 1px solid #868688;
   }
 }

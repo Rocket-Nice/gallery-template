@@ -9,6 +9,7 @@ add_filter( 'show_admin_bar', '__return_false' );
  * Подключение всех основным стилей и скриптов.
  */
 require_once( 'inc/script_and_styles.php' );
+require_once(__DIR__ . "/inc/FormSend.php"); // отправка формы
 
 /**
  * Включение автоматической подстановки title страниц.

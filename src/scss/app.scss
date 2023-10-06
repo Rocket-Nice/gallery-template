@@ -43,6 +43,21 @@ sup {
   vertical-align: super;
 }
 
+.custom-scroll {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #2F3542;
+    border-radius: 24px;
+  }
+}
+
 @import "components/main-page/main-slider";
 @import "components/swiper";
 @import "components/header/header";
@@ -64,3 +79,6 @@ sup {
 @import "components/news";
 @import "components/news-det";
 @import "components/custom-tags";
+@import "components/renter";
+@import "components/modal";
+@import "components/form";

@@ -9,6 +9,14 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 4;
+
+    @include responsive.media-breakpoint-down(md) {
+      top: 30px;
+    }
+
+    svg {
+      display: block;
+    }
   }
 
   &-desc {
