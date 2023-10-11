@@ -2,6 +2,7 @@ import '../scss/app.scss';
 import './bootstrap';
 import AboutCharSlider from './components/AboutCharSlider';
 import Burger from './components/Burger';
+import CatalogFilters from './components/CatalogFilters';
 import Form from './components/Form';
 import MainHoryzontalScroll from './components/MainHoryzontalScroll';
 import MainSlider from './components/MainSlider';
@@ -22,6 +23,7 @@ function main() {
   NewsDetSlider();
   Modal();
   Form();
+  CatalogFilters();
 }
 
 document.addEventListener("DOMContentLoaded", main);
