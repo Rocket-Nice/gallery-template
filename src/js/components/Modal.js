@@ -41,10 +41,10 @@ function modalOpen(modal, body) {
 function modalClose(modal, body) {
   const form = document.querySelector('#form');
   const completed = document.querySelector('#form-completed');
-  const modalContainer = completed.closest('.modal__inner');
   modal.classList.remove('--open');
   body.classList.remove('hidden');
   if (completed && form) {
+    const modalContainer = completed.closest('.modal__inner');
     setTimeout(() => {
       completed.classList.add('--hidden');
       modalContainer.classList.remove('completed');

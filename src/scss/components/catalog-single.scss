@@ -1,0 +1,655 @@
+@use "../vars";
+@use "../responsive";
+
+.catalog-single {
+  &-page {
+    padding: 147px 0 140px;
+
+    @include responsive.media-breakpoint-down(md) {
+      padding: 117px 0 120px;
+    }
+
+    @include responsive.media-breakpoint-down(md) {
+      padding: 117px 0 78px;
+    }
+  }
+
+  &__container {
+    max-width: 1230px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 30px;
+
+    @include responsive.media-breakpoint-down(md) {
+      padding: 0 20px;
+    }
+
+    &.--desk {
+      @include responsive.media-breakpoint-down(md) {
+        padding: 0;
+      }
+    }
+  }
+
+  &-title {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    &__info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    &__text {
+      color: #2F3542;
+      font-family: Noto Sans;
+      font-size: 40px;
+      font-weight: 700;
+
+      @include responsive.media-breakpoint-down(md) {
+        font-size: 28px;
+      }
+    }
+  }
+
+  &-map {
+    padding: 4px 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &.--desk {
+      @include responsive.media-breakpoint-down(md) {
+        display: none;
+      }
+    }
+
+    &.--mobile {
+      display: none;
+      position: sticky;
+      bottom: 78px;
+      z-index: 1;
+      width: calc(100% - 40px);
+      margin: 10px auto 0;
+      justify-content: center;
+      border-radius: 16px;
+      background: #1E90FF;
+      padding: 12px 16px;
+      transition: all .3s;
+
+      @include responsive.media-breakpoint-down(md) {
+        display: flex;
+      }
+
+      &:hover {
+        background: #0566c7;
+      }
+    }
+
+    svg {
+      display: block;
+      opacity: 0.5;
+
+      @include responsive.media-breakpoint-down(md) {
+        opacity: 1;
+      }
+    }
+
+    span {
+      width: 1px;
+      height: 24px;
+      opacity: 0.5;
+      background: #2F3542;
+
+      @include responsive.media-breakpoint-down(md) {
+        background: #FFF;
+        opacity: 1;
+      }
+    }
+
+    p {
+      color: #000;
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0.5;
+
+      @include responsive.media-breakpoint-down(md) {
+        color: #FFF;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__content {
+    margin-bottom: 10px;
+    display: flex;
+    gap: 30px;
+
+    @include responsive.media-breakpoint-down(xl) {
+      margin-bottom: 20px;
+    }
+
+    @include responsive.media-breakpoint-down(elg) {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .side {
+      width: calc(50% - 15px);
+      flex: 1 0 auto;
+
+      @include responsive.media-breakpoint-down(elg) {
+        width: 100%;
+      }
+    }
+  }
+
+  &-contacts {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+
+    &__item {
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      border-radius: 1000px;
+      background: #2F3542;
+      cursor: pointer;
+
+      p {
+        color: #FFF;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+
+    svg {
+      display: block;
+      max-width: 24px;
+      max-height: 24px;
+    }
+  }
+
+  &-social {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+
+    &__item {
+      width: 40px;
+      height: 40px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 1000px;
+
+      &:hover {
+        .catalog-single-social__hover {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+
+      &.tg {
+        background: #4394D0;
+      }
+
+      &.inst {
+        background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      }
+
+      &.vk {
+        background: #3277F6;
+      }
+    }
+
+    &__hover {
+      max-width: 243px;
+      width: max-content;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 12px;
+      background: #F2F2F2;
+      padding: 10px;
+      color: #2F3542;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 500;
+      opacity: 0;
+      visibility: hidden;
+      transition: all .3s;
+
+      @include responsive.media-breakpoint-down(xl) {
+        left: 0;
+        transform: translateX(0);
+      }
+
+      @include responsive.media-breakpoint-down(elg) {
+        display: none;
+      }
+    }
+  }
+
+  &-tags {
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+
+    @include responsive.media-breakpoint-down(md) {
+      margin-bottom: 20px;
+      gap: 4px;
+    }
+
+    &__item {
+      padding: 8px 16px;
+      border-radius: 1000px;
+      border: 1px solid #2F3542;
+      color: #2F3542;
+      font-size: 14px;
+      font-weight: 500;
+
+      @include responsive.media-breakpoint-down(md) {
+        font-size: 12px;
+      }
+    }
+  }
+
+  &-text {
+    margin-bottom: 84px;
+    position: relative;
+    height: 282px;
+
+    @include responsive.media-breakpoint-down(xl) {
+      margin-bottom: 0;
+    }
+
+    @include responsive.media-breakpoint-down(elg) {
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    &__bg {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 80px;
+      background: linear-gradient(0deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%);
+      z-index: 1;
+
+      @include responsive.media-breakpoint-down(elg) {
+        display: none;
+      }
+    }
+
+    &__inner {
+      height: 100%;
+      overflow-y: auto;
+      scrollbar-width: none;
+
+      @include responsive.media-breakpoint-down(elg) {
+        -webkit-line-clamp: 9;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+
+        &.--visible {
+          -webkit-line-clamp: initial;
+          display: initial;
+          -webkit-box-orient: initial;
+          overflow: initial;
+        }
+      }
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      >*:last-child {
+        padding-bottom: 50px;
+
+        @include responsive.media-breakpoint-down(elg) {
+          padding-bottom: 0;
+        }
+      }
+    }
+
+    p {
+      font-family: Lato;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+
+      @include responsive.media-breakpoint-down(elg) {
+        font-size: 14px;
+      }
+    }
+
+    &__btn {
+      display: none;
+      margin-top: 12px;
+      width: fit-content;
+      color: #1E90FF;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 24px;
+      text-decoration-line: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
+      transition: all .3s;
+
+      @include responsive.media-breakpoint-down(elg) {
+        display: block;
+      }
+
+      &:hover {
+        color: #045eb8;
+      }
+    }
+  }
+
+  &-sliders {
+    position: relative;
+
+    &__big {
+      margin-bottom: 10px;
+
+      .swiper-slide {
+        height: 320px;
+
+        @include responsive.media-breakpoint-down(sm) {
+          height: 188px;
+        }
+      }
+    }
+
+    &__little {
+      display: flex;
+      gap: 12px;
+
+      @include responsive.media-breakpoint-down(md) {
+        display: none;
+      }
+
+      .swiper {
+        width: 100%;
+      }
+
+      .swiper-slide {
+        height: 198px;
+      }
+    }
+
+    .swiper {
+      &-slide {
+        border-radius: 24px;
+        overflow: hidden;
+
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    &__pagination {
+      position: absolute;
+      left: 20px;
+      bottom: 20px;
+      z-index: 1;
+
+      @include responsive.media-breakpoint-down(md) {
+        left: initial;
+        right: 13px;
+        bottom: 13px;
+      }
+    }
+
+    &__navigation {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      z-index: 1;
+      background: rgba(0, 0, 0, 0.40);
+
+      @include responsive.media-breakpoint-down(md) {
+        right: initial;
+        left: 13px;
+        bottom: 13px;
+      }
+
+      .swiper-navigation-button {
+        &:hover {
+          background: rgba(255, 255, 255, 0.10);
+        }
+      }
+    }
+  }
+
+  &__inner {
+    width: 100%;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: calc(50% - 15px) calc(50% - 15px);
+
+    @include responsive.media-breakpoint-down(xl) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+
+  &-news {
+    position: relative;
+
+    @include responsive.media-breakpoint-down(md) {
+      padding: 0 0 0 20px;
+    }
+
+    &__title {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 24px;
+
+      @include responsive.media-breakpoint-down(xl) {
+        position: static;
+        margin-bottom: 10px;
+      }
+    }
+
+    .swiper-slide {
+      @include responsive.media-breakpoint-down(md) {
+        width: fit-content;
+      }
+    }
+
+    &-slide {
+      display: block;
+      height: 140px;
+      padding: 20px;
+      border-radius: 24px;
+      background: #2F3542;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      @include responsive.media-breakpoint-down(md) {
+        width: 280px;
+      }
+
+      &__title {
+        color: #FFF;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 20px;
+        -webkit-line-clamp: 3;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      &__date {
+        color: rgba(255, 255, 255, 0.40);
+        font-size: 14px;
+        line-height: 24px;
+      }
+    }
+
+    &__navigation {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      z-index: 1;
+      background: rgba(0, 0, 0, 0.40);
+
+      @include responsive.media-breakpoint-down(md) {
+        right: initial;
+        left: 186px;
+      }
+
+      .swiper-navigation-button {
+        &:hover {
+          background: rgba(255, 255, 255, 0.10);
+        }
+      }
+    }
+  }
+
+  &-time {
+    @include responsive.media-breakpoint-down(md) {
+      padding: 0 20px;
+    }
+
+    &__inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 5px;
+
+      @include responsive.media-breakpoint-down(xl) {
+        justify-content: flex-start;
+        gap: 10px;
+      }
+
+      @include responsive.media-breakpoint-down(md) {
+        flex-wrap: wrap;
+      }
+
+      @include responsive.media-breakpoint-down(sm) {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
+
+      @include responsive.media-breakpoint-down(smxs) {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    &__item {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding: 15px;
+      border-radius: 16px;
+      background: #F2F2F2;
+      height: 140px;
+
+      &:nth-child(6) {
+        grid-column: span 2;
+
+        @include responsive.media-breakpoint-down(smxs) {
+          grid-column: span 1;
+        }
+      }
+
+      &:nth-child(7) {
+        @include responsive.media-breakpoint-down(smxs) {
+          grid-column: span 3;
+        }
+      }
+
+      &.--active {
+        background: #2F3542;
+
+        .catalog-single-time__title {
+          color: rgba(255, 255, 255, 0.40);
+        }
+
+        .catalog-single-time__info {
+          color: #FFF;
+        }
+      }
+    }
+
+    &__title {
+      color: rgba(47, 53, 66, 0.40);
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+    }
+
+    &__info {
+      color: #2F3542;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+    }
+  }
+
+  &-modal {
+    &__title {
+      margin-bottom: 16px;
+      color: #2F3542;
+      font-family: Noto Sans;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    &__inner {
+      margin-bottom: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 30px;
+    }
+
+    &__head {
+      color: #2F3542;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 24px;
+    }
+
+    &__link {
+      width: fit-content;
+      display: block;
+      color: #2F3542;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 24px;
+      opacity: 0.5;
+      transition: all .3s;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

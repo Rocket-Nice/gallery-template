@@ -3,6 +3,8 @@ import './bootstrap';
 import AboutCharSlider from './components/AboutCharSlider';
 import Burger from './components/Burger';
 import CatalogFilters from './components/CatalogFilters';
+import CatalogNewsSlider from './components/CatalogNewsSlider';
+import CatalogSingleImages from './components/CatalogSingleImages';
 import Form from './components/Form';
 import MainHoryzontalScroll from './components/MainHoryzontalScroll';
 import MainSlider from './components/MainSlider';
@@ -10,6 +12,7 @@ import MainVideo from './components/MainVideo';
 import Modal from './components/Modal';
 import NewsDetSlider from './components/NewsDetSlider';
 import NewsSlider from './components/NewsSlider';
+import ReadMore from './components/ReadMore';
 import SmoothScroll from './components/SmoothScroll';
 
 function main() {
@@ -24,6 +27,9 @@ function main() {
   Modal();
   Form();
   CatalogFilters();
+  CatalogSingleImages();
+  CatalogNewsSlider();
+  ReadMore();
 }
 
 document.addEventListener("DOMContentLoaded", main);
