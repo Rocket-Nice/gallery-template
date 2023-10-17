@@ -16,10 +16,20 @@
     svg {
       display: block;
     }
+
+    path {
+      transition: all .3s;
+    }
+
+    &.--reverse {
+      path {
+        fill: #FFF;
+      }
+    }
   }
 
   &-desc {
-    width: 100%;
+    max-width: 100%;
     padding: 0 30px;
     position: fixed;
     bottom: 40px;

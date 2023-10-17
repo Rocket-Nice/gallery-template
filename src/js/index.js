@@ -7,6 +7,7 @@ import CatalogNewsSlider from './components/CatalogNewsSlider';
 import CatalogSingleImages from './components/CatalogSingleImages';
 import Form from './components/Form';
 import MainHoryzontalScroll from './components/MainHoryzontalScroll';
+import MainPage from './components/MainPage';
 import MainSlider from './components/MainSlider';
 import MainVideo from './components/MainVideo';
 import Modal from './components/Modal';
@@ -16,7 +17,7 @@ import ReadMore from './components/ReadMore';
 import SmoothScroll from './components/SmoothScroll';
 
 function main() {
-  // SmoothScroll();
+  SmoothScroll();
   MainHoryzontalScroll();
   MainSlider();
   Burger();
@@ -30,6 +31,7 @@ function main() {
   CatalogSingleImages();
   CatalogNewsSlider();
   ReadMore();
+  MainPage();
 }
 
 document.addEventListener("DOMContentLoaded", main);

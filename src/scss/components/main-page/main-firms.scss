@@ -103,6 +103,7 @@
     background: rgba(255, 255, 255, 0.10);
     backdrop-filter: blur(12px);
     grid-column: span 3;
+    transition: all .3s;
 
     @include responsive.media-breakpoint-down(elg) {
       grid-column: span 4;
@@ -119,6 +120,10 @@
       @include responsive.media-breakpoint-down(elg) {
         grid-column: span 6;
       }
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.50);
     }
   }
 

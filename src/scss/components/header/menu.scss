@@ -7,7 +7,7 @@
   padding: 6px;
   gap: 2px;
   border-radius: 100px;
-  background: rgba(0, 0, 0, 0.40);
+  background: rgba(0, 0, 0, 0.05);
   backdrop-filter: blur(9px);
   overflow-x: auto;
   scrollbar-width: none;
@@ -15,17 +15,66 @@
   &::-webkit-scrollbar {
     display: none;
   }
+
+  &.--reverse {
+    background: rgba(0, 0, 0, 0.40);
+
+    .menu-item {
+      &:hover {
+        background: rgba(255, 255, 255, 0.10);
+      }
+
+      &__text {
+        color: #FFFFFF;
+      }
+
+      path {
+        stroke: #FFFFFF;
+      }
+
+      &.--white {
+        &:hover {
+          background: #FFF;
+
+          .menu-item__text {
+            color: #2F3542;
+          }
+        }
+
+        &:hover,
+        &.--active {
+          path {
+            stroke: #2F3542;
+          }
+        }
+      }
+
+      &.--active {
+        background: #FFFFFF;
+
+        .menu-item__text {
+          color: #2F3542;
+        }
+      }
+    }
+  }
 }
 
 .menu-item {
   display: block;
   width: fit-content;
-  padding: 12px 14px;
+  padding: 5px 14px;
+  height: 40px;
   display: flex;
   align-items: center;
   gap: 6px;
   border-radius: 1000px;
+  background: transparent;
   transition: all .3s;
+
+  @include responsive.media-breakpoint-down(md) {
+    padding: 12px 14px;
+  }
 
   &__icon {
     svg {
@@ -35,16 +84,110 @@
   }
 
   &__text {
-    color: vars.$white-text;
+    color: vars.$dark-text;
     font-family: Noto Sans;
     font-size: 12px;
     font-weight: 500;
     line-height: normal;
     white-space: nowrap;
+    transition: all .3s;
+
+    @include responsive.media-breakpoint-down(md) {
+      color: vars.$white-text;
+    }
   }
 
   &:hover {
-    background: rgba(255, 255, 255, 0.10);
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  path {
+    transition: all .3s;
+  }
+
+  &.--violet {
+
+    &:hover,
+    &.--active {
+      path {
+        stroke: #9747FF;
+      }
+    }
+  }
+
+  &.--yellow {
+
+    &:hover,
+    &.--active {
+      path {
+        stroke: #FFA502;
+      }
+    }
+  }
+
+  &.--blue {
+
+    &:hover,
+    &.--active {
+      path {
+        stroke: #1E90FF;
+      }
+    }
+  }
+
+  &.--red {
+
+    &:hover,
+    &.--active {
+      path {
+        stroke: #FF4757;
+      }
+    }
+  }
+
+  &.--green {
+
+    &:hover,
+    &.--active {
+      path {
+        stroke: #2ED573;
+      }
+    }
+  }
+
+  &.--white {
+    &:hover {
+      background: #2F3542;
+
+      .menu-item__text {
+        color: #FFFFFF;
+      }
+    }
+
+    &:hover,
+    &.--active {
+      path {
+        stroke: #FFFFFF;
+      }
+    }
+  }
+
+  &.--pink {
+
+    &:hover,
+    &.--active {
+      path {
+        stroke: #F963AB;
+      }
+    }
+  }
+
+  &.--active {
+    background: #2F3542;
+
+    .menu-item__text {
+      color: #FFFFFF;
+    }
   }
 }
 
@@ -61,6 +204,12 @@
   align-items: center;
   display: flex;
   transition: all .3s;
+
+  .menu-item {
+    &__text {
+      color: vars.$white-text;
+    }
+  }
 
   &.--open {
     right: 0;
