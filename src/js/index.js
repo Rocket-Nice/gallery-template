@@ -1,6 +1,7 @@
 import '../scss/app.scss';
 import './bootstrap';
 import AboutCharSlider from './components/AboutCharSlider';
+import AboutPage from './components/AboutPage';
 import Burger from './components/Burger';
 import CatalogFilters from './components/CatalogFilters';
 import CatalogNewsSlider from './components/CatalogNewsSlider';
@@ -32,6 +33,7 @@ function main() {
   CatalogNewsSlider();
   ReadMore();
   MainPage();
+  AboutPage();
 }
 
 document.addEventListener("DOMContentLoaded", main);
