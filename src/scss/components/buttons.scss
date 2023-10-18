@@ -36,6 +36,10 @@
   &.disabled {
     background: #495163;
     cursor: not-allowed;
+
+    .dark-btn__icon {
+      display: none;
+    }
   }
 }
 

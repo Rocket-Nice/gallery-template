@@ -163,8 +163,11 @@ Template Name: Renter
                                 <div class="form-file__btn">
                                     <span></span><span></span>
                                 </div>
-                                <div class="form-file__text">
+                                <div class="form-file__text --desk">
                                     Перетащите или нажмите<br>для добавления файлов
+                                </div>
+                                <div class="form-file__text --mobile">
+                                    Нажмите для добавления файлов
                                 </div>
                             </label>
                             <span class="form-file__err">

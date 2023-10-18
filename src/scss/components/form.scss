@@ -86,7 +86,6 @@
       letter-spacing: 0.28px;
       background: #fff;
       border-radius: 6px;
-      opacity: 0.5;
       cursor: pointer;
       transition: all .3s;
 
@@ -103,6 +102,10 @@
   &__item-wrapper {
     display: flex;
     gap: 20px;
+
+    @include responsive.media-breakpoint-down(md) {
+      display: block;
+    }
   }
 
   &__item-title {
@@ -118,6 +121,10 @@
     margin-bottom: 20px;
     width: 100%;
 
+    @include responsive.media-breakpoint-down(md) {
+      margin-bottom: 12px;
+    }
+
     input:not(input[type="checkbox"]),
     textarea {
       padding: 12px 14px;
@@ -125,7 +132,7 @@
       background: #FFFFFF;
       border-radius: 10px;
       border: 1px solid #2F3542;
-      color: #979aa0;
+      color: #2F3542;
       font-size: 14px;
       line-height: 130%;
       letter-spacing: 0.28px;
@@ -138,8 +145,18 @@
       }
     }
 
+    textarea {
+      @include responsive.media-breakpoint-down(md) {
+        height: 94px;
+      }
+    }
+
     &.err {
       margin-bottom: 3px;
+
+      @include responsive.media-breakpoint-down(md) {
+        margin-bottom: 12px;
+      }
 
       .err-text {
         display: block;
@@ -234,6 +251,10 @@
       cursor: pointer;
       transition: all .3s;
 
+      @include responsive.media-breakpoint-down(md) {
+        padding: 24px 14px;
+      }
+
       &.--hidden {
         display: none;
       }
@@ -284,6 +305,20 @@
       font-size: 12px;
       line-height: 150%;
       letter-spacing: 0.24px;
+
+      &.--desk {
+        @include responsive.media-breakpoint-down(elg) {
+          display: none;
+        }
+      }
+
+      &.--mobile {
+        display: none;
+
+        @include responsive.media-breakpoint-down(elg) {
+          display: block;
+        }
+      }
     }
 
     &__err {

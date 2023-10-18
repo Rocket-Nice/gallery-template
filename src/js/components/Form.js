@@ -26,6 +26,7 @@ export default function Form() {
         }
         const headElem = this.closest('.form-select').querySelector('.form-select-head__text');
         headElem.innerHTML = this.innerHTML;
+        headElem.style.opacity = 1;
         selectType.value = this.innerHTML;
       });
     });
@@ -223,6 +224,7 @@ export default function Form() {
             button.querySelector('.button-text').innerHTML = 'Отправить';
             form.reset();
             document.querySelector('.form-select-head__text').innerHTML = 'Выберите тип помещения';
+            document.querySelector('.form-select-head__text').style.opacity = 0.5;
             elements = [];
             dropArea.classList.remove('--hidden')
             dropList.innerHTML = '';
