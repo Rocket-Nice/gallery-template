@@ -12,7 +12,7 @@ Template Name: Front-page
                 <div class="horizontal-slider__container">
                     <div class="swiper horizontal-slider">
                         <div class="swiper-wrapper">
-                            <section class="swiper-slide main-slider full-window" data-scroll-slide>
+                            <section class="swiper-slide main-slider full-window" data-scroll-slide data-header="reverse">
                                 <div class="swiper">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide main-slider-slide">
@@ -108,7 +108,7 @@ Template Name: Front-page
                                     </div>
                                 </div>
                             </section>
-                            <section class="swiper-slide main-info" data-scroll-slide>
+                            <section class="swiper-slide main-info" data-scroll-slide data-header="default">
                                 <div class="main-info__container">
                                     <div class="main-info__inner">
                                         <a href="#" class="main-info__item --violet">
@@ -201,7 +201,7 @@ Template Name: Front-page
                                     </div>
                                 </div>
                             </section>
-                            <section class="swiper-slide main-firms" data-scroll-slide>
+                            <section class="swiper-slide main-firms" data-scroll-slide data-header="reverse">
                                 <div class="main-firms__wrapper">
                                     <div class="main-firms__bg">
                                         <img src="<?php bloginfo('template_url'); ?>/assets/images/firms-bg.jpg" loading="lazy" decoding= "async" alt="">
@@ -262,7 +262,7 @@ Template Name: Front-page
                                     </div>
                                 </div>
                             </section>
-                            <section class="swiper-slide main-video" data-scroll-slide>
+                            <section class="swiper-slide main-video" data-scroll-slide data-header="reverse">
                                 <div class="main-video__wrapper">
                                     <div class="main-video__container" data-video-bg>
                                         <div class="main-video__text">
@@ -275,10 +275,12 @@ Template Name: Front-page
                                             </svg>
                                         </div>
                                     </div>
-                                    <video class="main-video__item" src="<?php bloginfo('template_url'); ?>/assets/video/main.mp4" loop data-video></video>
+                                    <video class="main-video__item" loop data-video>
+                                        <source src="<?php bloginfo('template_url'); ?>/assets/video/main.mp4" type="video/mp4">
+                                    </video>
                                 </div>
                             </section>
-                            <section class="swiper-slide main-news" data-scroll-slide>
+                            <section class="swiper-slide main-news" data-scroll-slide data-header="default">
                                 <div class="main-news__container">
                                     <div class="main-news__inner">
                                         <div class="main-news__title">

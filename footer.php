@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer" data-header="default">
     <div class="footer__container">
         <a href="/" class="footer__logo">
             <svg width="211" height="40" viewBox="0 0 211 40" fill="none" xmlns="http://www.w3.org/2000/svg">

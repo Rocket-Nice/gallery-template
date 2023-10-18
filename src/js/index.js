@@ -17,7 +17,7 @@ import ReadMore from './components/ReadMore';
 import SmoothScroll from './components/SmoothScroll';
 
 function main() {
-  SmoothScroll();
+  // SmoothScroll();
   MainHoryzontalScroll();
   MainSlider();
   Burger();

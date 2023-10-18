@@ -6,6 +6,8 @@ SwiperCore.use([Keyboard, Mousewheel]);
 export default function MainHoryzontalScroll() {
   const isMainPage = document.querySelector('.main-page');
   if (isMainPage) {
+    const menu = document.querySelector('.header-desc .menu');
+    const logo = document.querySelector('.header-logo');
     let mql = window.matchMedia("(max-width: 1023px)");
     const swiperAtribute = {
       direction: "horizontal",
@@ -37,6 +39,8 @@ export default function MainHoryzontalScroll() {
       });
 
       if (sliderBlock && e.matches && isSwiperInit) {
+        menu.classList.add('--reverse');
+        logo.classList.add('--reverse');
         const swiper1 = sliderBlock.swiper;
         if (swiper1) {
           swiper1.destroy(true, true);
@@ -47,6 +51,7 @@ export default function MainHoryzontalScroll() {
           window.observer?.unobserve?.(document.querySelector('.horizontal-slider'));
         }
       } else if (containerSwiper && !e.matches && !isSwiperInit) {
+        logo.classList.add('--reverse');
         isSwiperInit = true;
         const swiper2 = new Swiper('.horizontal-slider', swiperAtribute);
         swiperEvents(swiper2);
@@ -69,6 +74,15 @@ export default function MainHoryzontalScroll() {
         } else {
           pagination.classList.add('--hidden');
           navigation.classList.add('--hidden');
+        }
+
+        // смена цвета лого и меню
+        if (swiper.activeIndex === 1 || swiper.activeIndex === 4) {
+          menu.classList.remove('--reverse');
+          logo.classList.remove('--reverse');
+        } else {
+          menu.classList.add('--reverse');
+          logo.classList.add('--reverse');
         }
       });
 
