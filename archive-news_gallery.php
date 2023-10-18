@@ -13,7 +13,7 @@ Template Name: About
                     <div class="news-title__text">События</div>
                     <div class="news-tags">
                         <a href="#" class="news-tags__item">Модный блог</a>
-                        <a href="#" class="news-tags__item">Новости</a>
+                        <a href="#" class="news-tags__item --active">Новости</a>
                         <a href="#" class="news-tags__item">Акция</a>
                     </div>
                 </div>

@@ -6,10 +6,6 @@
     padding: 147px 0 140px;
 
     @include responsive.media-breakpoint-down(md) {
-      padding: 117px 0 120px;
-    }
-
-    @include responsive.media-breakpoint-down(md) {
       padding: 117px 0 90px;
     }
   }

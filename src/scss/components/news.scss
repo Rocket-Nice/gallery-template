@@ -6,7 +6,11 @@
     max-width: 1230px;
     width: 100%;
     margin: 0 auto;
-    padding: 147px 30px 40px;
+    padding: 147px 30px 20px;
+
+    @include responsive.media-breakpoint-down(md) {
+      padding: 117px 20px 20px;
+    }
   }
 
   &-title {
@@ -14,18 +18,36 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 16px;
+
+    @include responsive.media-breakpoint-down(md) {
+      flex-direction: column;
+    }
 
     &__text {
       color: #2F3542;
       font-size: 48px;
       font-weight: 700;
       text-transform: uppercase;
+
+      @include responsive.media-breakpoint-down(md) {
+        font-size: 40px;
+      }
     }
   }
 
   &-tags {
     display: flex;
     gap: 8px;
+
+    @include responsive.media-breakpoint-down(gl) {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    @include responsive.media-breakpoint-down(smxs) {
+      flex-direction: column;
+    }
 
     &__item {
       display: block;
@@ -37,6 +59,7 @@
       font-family: Noto Sans;
       font-size: 16px;
       transition: all .3s;
+      white-space: nowrap;
 
       &:hover {
         color: vars.$white-text;
@@ -56,9 +79,34 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
+
+    @include responsive.media-breakpoint-down(xl) {
+      gap: 20px;
+    }
+
+    @include responsive.media-breakpoint-down(elg) {
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @include responsive.media-breakpoint-down(sm) {
+      grid-template-columns: 1fr;
+    }
   }
 
   .news-card {
     min-height: 600px;
+
+    @include responsive.media-breakpoint-down(xl) {
+      min-height: 500px;
+    }
+
+    @include responsive.media-breakpoint-down(md) {
+      min-height: 350px;
+    }
+
+    @include responsive.media-breakpoint-down(sm) {
+      min-height: 237px;
+    }
   }
 }
