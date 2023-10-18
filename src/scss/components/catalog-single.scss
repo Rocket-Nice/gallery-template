@@ -67,6 +67,15 @@
       @include responsive.media-breakpoint-down(md) {
         display: none;
       }
+
+      &:hover {
+
+        svg,
+        span,
+        p {
+          opacity: 1;
+        }
+      }
     }
 
     &.--mobile {
@@ -94,6 +103,7 @@
     svg {
       display: block;
       opacity: 0.5;
+      transition: all .3s;
 
       @include responsive.media-breakpoint-down(md) {
         opacity: 1;
@@ -105,6 +115,7 @@
       height: 24px;
       opacity: 0.5;
       background: #2F3542;
+      transition: all .3s;
 
       @include responsive.media-breakpoint-down(md) {
         background: #FFF;
@@ -117,6 +128,7 @@
       font-size: 14px;
       font-weight: 500;
       opacity: 0.5;
+      transition: all .3s;
 
       @include responsive.media-breakpoint-down(md) {
         color: #FFF;
@@ -164,6 +176,11 @@
       border-radius: 1000px;
       background: #2F3542;
       cursor: pointer;
+      transition: all .3s;
+
+      &:hover {
+        background: #585d66;
+      }
 
       p {
         color: #FFF;

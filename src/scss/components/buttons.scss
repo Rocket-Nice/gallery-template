@@ -116,4 +116,9 @@
   justify-content: center;
   border-radius: 100px;
   background: #F2F2F2;
+  transition: all .3s;
+
+  &:hover {
+    background: #e1e1e1;
+  }
 }
