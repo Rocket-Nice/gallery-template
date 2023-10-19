@@ -100,8 +100,7 @@
     align-items: center;
     gap: 12px;
     border-radius: 18px;
-    background: rgba(255, 255, 255, 0.10);
-    backdrop-filter: blur(12px);
+    background: rgba(36, 36, 36, 0.9);
     grid-column: span 3;
     transition: all .3s;
 
@@ -123,7 +122,7 @@
     }
 
     &:hover {
-      background: rgba(255, 255, 255, 0.50);
+      background: rgba(106, 106, 106, 0.90);
     }
   }
 
