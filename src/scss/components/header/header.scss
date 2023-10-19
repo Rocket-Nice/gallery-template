@@ -21,7 +21,8 @@
       transition: all .3s;
     }
 
-    &.--reverse {
+    &.--reverse,
+    &.--burger {
       path {
         fill: #FFF;
       }
