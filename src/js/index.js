@@ -1,6 +1,5 @@
 import '../scss/app.scss';
 import './bootstrap';
-import AboutCharSlider from './components/AboutCharSlider';
 import AboutPage from './components/AboutPage';
 import Burger from './components/Burger';
 import CatalogFilters from './components/CatalogFilters';
@@ -14,6 +13,7 @@ import MainVideo from './components/MainVideo';
 import Modal from './components/Modal';
 import NewsDetSlider from './components/NewsDetSlider';
 import NewsSlider from './components/NewsSlider';
+import { PlaceLink } from './components/PlaceLink';
 import ReadMore from './components/ReadMore';
 import SmoothScroll from './components/SmoothScroll';
 
@@ -24,7 +24,6 @@ function main() {
   Burger();
   MainVideo();
   NewsSlider();
-  // AboutCharSlider();
   NewsDetSlider();
   Modal();
   Form();
@@ -34,6 +33,7 @@ function main() {
   ReadMore();
   MainPage();
   AboutPage();
+  PlaceLink();
 }
 
 document.addEventListener("DOMContentLoaded", main);

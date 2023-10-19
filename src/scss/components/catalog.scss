@@ -140,6 +140,7 @@
   border-radius: 24px;
   background: #F2F2F2;
   overflow: hidden;
+  cursor: pointer;
 
   &__img {
     border-radius: 20px;
@@ -202,6 +203,11 @@
     font-family: Noto Sans;
     font-size: 12px;
     cursor: pointer;
+    transition: all .3s;
+
+    &:hover {
+      color: rgba(47, 53, 66, 1);
+    }
   }
 }
 
