@@ -1,5 +1,6 @@
 import '../scss/app.scss';
 import './bootstrap';
+import AboutChar from './components/AboutChar';
 import AboutPage from './components/AboutPage';
 import Burger from './components/Burger';
 import CatalogFilters from './components/CatalogFilters';
@@ -18,6 +19,7 @@ import ReadMore from './components/ReadMore';
 import SmoothScroll from './components/SmoothScroll';
 
 function main() {
+  AboutChar();
   SmoothScroll();
   MainHoryzontalScroll();
   MainSlider();

@@ -23,7 +23,7 @@ Template Name: About
                         </div>
                     </div>
                 </section>
-                <!-- <section class="about-char" data-header="reverse">
+                <section class="about-char" data-header="reverse">
                     <div class="swiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
@@ -32,7 +32,7 @@ Template Name: About
                                         <div class="about-char-slide__icon">
                                             <img src="<?php bloginfo('template_url'); ?>/assets/icons/about-char-1.svg" width="48" height="48" loading="lazy" decoding= "async" alt="">
                                         </div>
-                                        <div class="about-char-slide__title">9533м<sup>2</sup></div>
+                                        <div class="about-char-slide__title">First</div>
                                         <div class="about-char-slide__desc">площадь</div>
                                     </div>
                                 </div>
@@ -43,7 +43,7 @@ Template Name: About
                                         <div class="about-char-slide__icon">
                                             <img src="<?php bloginfo('template_url'); ?>/assets/icons/about-char-1.svg" width="48" height="48" loading="lazy" decoding= "async" alt="">
                                         </div>
-                                        <div class="about-char-slide__title">9533м<sup>2</sup></div>
+                                        <div class="about-char-slide__title">2</div>
                                         <div class="about-char-slide__desc">площадь</div>
                                     </div>
                                 </div>
@@ -54,14 +54,14 @@ Template Name: About
                                         <div class="about-char-slide__icon">
                                             <img src="<?php bloginfo('template_url'); ?>/assets/icons/about-char-1.svg" width="48" height="48" loading="lazy" decoding= "async" alt="">
                                         </div>
-                                        <div class="about-char-slide__title">9533м<sup>2</sup></div>
+                                        <div class="about-char-slide__title">Last</div>
                                         <div class="about-char-slide__desc">площадь</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section> -->
+                </section>
                 <section class="about-marquee" data-header="reverse">
                     <div class="about-marquee__block" data-marquee-wrapper>
                         <div class="about-marquee__item" data-marquee="left">

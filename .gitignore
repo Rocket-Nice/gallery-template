@@ -33,3 +33,6 @@ Thumbs.db
 .npm/
 .bash_history
 .mysql_history
+
+/mapplic-admin
+/mapplic
