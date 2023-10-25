@@ -15,7 +15,6 @@ export default function AboutCharSlider() {
 
     const aboutChar = document.querySelector('.about-char');
     const swiperBlock = aboutChar.querySelector('.swiper');
-    console.log(swiperBlock);
     const aboutMarquee = document.querySelector('.about-marquee');
 
 
@@ -23,6 +22,10 @@ export default function AboutCharSlider() {
         document.body.style.overflow = 'hidden';
         swiperChar.enable();
         swiperChar.mousewheel.enable();
+        window.scrollTo({
+            top: swiperBlock.offsetTop,
+            behavior: "instant",
+        });
     }
 
     function disableSwiper() {
@@ -52,7 +55,6 @@ export default function AboutCharSlider() {
      */
 
     function checkVisibility(event) {
-        console.log(event);
         const direction = lastPageScroll - window.scrollY < 0 ? "DOWN" : "UP";
         lastPageScroll = window.scrollY;
         const isFirstSlide = swiperChar.isBeginning;
@@ -62,15 +64,13 @@ export default function AboutCharSlider() {
         // }
 
         const rect = aboutChar.getBoundingClientRect();
-        console.log(rect);
-        console.log(window.scrollY)
-        if (rect.top <= 0 && rect.top >= -200) {
-            if ((isEndSlide && direction === "UP") || (direction === "DOWN" && isFirstSlide)) {
+        if (direction === "UP" && isEndSlide) {
+            if (rect.bottom <= window.innerhHeight && rect.bottom > 0) {
                 activeSwiper();
-                window.scrollTo({
-                    top: swiperBlock.offsetTop,
-                    behavior: "instant",
-                });
+            }
+        } if (direction === "DOWN" && isFirstSlide) {
+            if (rect.top <= 0 && rect.top >= -swiperBlock.clientHeight) {
+                activeSwiper();
             }
         }
     }
