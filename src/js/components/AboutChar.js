@@ -20,13 +20,13 @@ export default function AboutCharSlider() {
 
 
     function activeSwiper() {
-        // document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden';
         swiperChar.enable();
         swiperChar.mousewheel.enable();
     }
 
     function disableSwiper() {
-        // document.body.style.overflow = '';
+        document.body.style.overflow = '';
         swiperChar.disable();
         swiperChar.mousewheel.disable();
     }
@@ -45,12 +45,16 @@ export default function AboutCharSlider() {
         }
     });
 
+    let lastPageScroll = window.scrollY;
+
     /** 
      * @param {EventHandler} event 
      */
+
     function checkVisibility(event) {
         console.log(event);
-        const direction = event.deltaY > 0 ? "DOWN" : "UP"
+        const direction = lastPageScroll - window.scrollY < 0 ? "DOWN" : "UP";
+        lastPageScroll = window.scrollY;
         const isFirstSlide = swiperChar.isBeginning;
         const isEndSlide = swiperChar.isEnd;
         // if (direction === "UP" && isFirstSlide || direction === "DOWN" && isEndSlide) {
@@ -73,5 +77,5 @@ export default function AboutCharSlider() {
 
     window.addEventListener('load', checkVisibility);
     window.addEventListener('resize', checkVisibility);
-    window.addEventListener('wheel', checkVisibility);
+    window.addEventListener('scroll', checkVisibility);
 }
