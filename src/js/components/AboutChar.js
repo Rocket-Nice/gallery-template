@@ -36,11 +36,15 @@ if (window.scrollY > upperBound) {
 }
 
 function sliderToView() {
+    const isLargeScreen = window.innerWidth > 1024;
+    const offset = isLargeScreen ? 80 : 60;
+
     return new Promise((resolve) => {
         window.scrollTo({
-            top: upperBound+80,
-            behavior: "instant",
+            top: upperBound + offset,
+            behavior: isLargeScreen ? "instant" : "smooth",
         });
+
         const endScroll = () => {
             window.removeEventListener('scrollend', endScroll)
             resolve()
@@ -83,8 +87,10 @@ function checkVisibility(event) {
     lastScrollY = scrollY;
     const isLastSlide = swiperChar.isEnd;
     const isFirstSlide = swiperChar.isBeginning;
-    const nearUpperBound = scrollY >= Math.max(upperBound - 200, 0)
-    const nearLowerBound = scrollY + window.innerHeight <= lowerBound + 200
+    const offset = window.innerWidth <= 1024 ? 200 : 150;
+    const nearUpperBound = scrollY >= Math.max(upperBound - offset, 0);
+    const nearLowerBound = scrollY + window.innerHeight <= lowerBound + offset;
+
 
     if (direction === SCROLL_DIRECTION.DOWN && nearUpperBound && isFirstSlide) {
         sliderToView().then(activeSwiper)
