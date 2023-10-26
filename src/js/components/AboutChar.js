@@ -87,10 +87,9 @@ function checkVisibility(event) {
     lastScrollY = scrollY;
     const isLastSlide = swiperChar.isEnd;
     const isFirstSlide = swiperChar.isBeginning;
-    const offset = window.innerWidth <= 1024 ? 200 : 150;
+    const offset = window.innerWidth <= 668 ? 10 : (window.innerWidth <= 992 ? 50 : (window.innerWidth <= 1024 ? 200 : 150));
     const nearUpperBound = scrollY >= Math.max(upperBound - offset, 0);
     const nearLowerBound = scrollY + window.innerHeight <= lowerBound + offset;
-
 
     if (direction === SCROLL_DIRECTION.DOWN && nearUpperBound && isFirstSlide) {
         sliderToView().then(activeSwiper)
