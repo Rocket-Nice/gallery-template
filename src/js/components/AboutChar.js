@@ -6,6 +6,7 @@ const swiperChar = new Swiper('.about-char .swiper', {
     direction: 'vertical',
     slidesPerView: "auto",
     spaceBetween: 0,
+    speed: 1000,
     preloadImages: false,
     centeredSlides: true,
     loop: false,
@@ -38,7 +39,7 @@ function sliderToView() {
     return new Promise((resolve) => {
         window.scrollTo({
             top: upperBound+80,
-            behavior: "smooth",
+            behavior: "instant",
         });
         const endScroll = () => {
             window.removeEventListener('scrollend', endScroll)
@@ -57,23 +58,23 @@ function activeSwiper() {
 }
 
 function disableSwiper() {
-    swiperChar.disable();
-    swiperChar.mousewheel.disable();
-    scrollController.enable()
-    isSliderActive = false;
+    setTimeout(function() {
+        swiperChar.disable();
+        swiperChar.mousewheel.disable();
+        scrollController.enable()
+        isSliderActive = false;
+    }, 1000);
 }
 disableSwiper()
 
-swiperChar.on('slideNextTransitionEnd', function () {
+swiperChar.on('slideChange', function () {
     if (swiperChar.isEnd) {
-        disableSwiper()
+        disableSwiper();
+    } else if (swiperChar.isBeginning) {
+        disableSwiper();
     }
 });
-swiperChar.on('slidePrevTransitionEnd', function () {
-    if (swiperChar.isBeginning) {
-        disableSwiper()
-    }
-});
+
 
 let lastScrollY = window.scrollY;
 function checkVisibility(event) {
