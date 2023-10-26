@@ -13,6 +13,10 @@ function main() {
         });
       })
     }
+
+    const sidebar = document.querySelector('#map').shadowRoot.querySelector('.mapplic-sidebar');
+    const sidebarTabs = document.querySelector('.sidebar-tabs');
+    sidebar.insertBefore(sidebarTabs, sidebar.firstChild);
   }, 100);
 }
 

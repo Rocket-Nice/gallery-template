@@ -1695,7 +1695,56 @@ body {
     padding: 10px 30px 0;
 }
 
+.sidebar-buttons-tab {
+    display: none;
+}
 
+.sidebar-tabs {
+    width: calc(100% - 4px);
+    margin-right: auto;
+    display: flex;
+    gap: 2px;
+    align-items: center;
+    border-radius: 1000px;
+    background: #2F3542;
+    padding: 2px;
+}
+
+.sidebar-tabs__item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 12px;
+    border-radius: 100px;
+    background: transparent;
+    transition: all .3s ease-in;
+    cursor: pointer;
+}
+
+.sidebar-tabs__item path {
+    transition: all .3s ease-in;
+}
+
+.sidebar-tabs__item.--active {
+    background: #FFF;
+}
+
+.sidebar-tabs__item.--active path {
+    stroke: #2F3542;
+}
+
+.sidebar-tabs__item.--active .sidebar-tabs__text {
+    color: #2F3542;
+}
+
+.sidebar-tabs__text {
+    color: #FFF;
+    font-size: 14px;
+    line-height: 18px;
+    transition: all .3s ease-in;
+}
 
 
 
