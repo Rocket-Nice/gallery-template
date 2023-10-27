@@ -1,117 +1,118 @@
 import Swiper from 'swiper';
 
 export default function AboutChar() {
-
 const swiperChar = new Swiper('.about-char .swiper', {
-    direction: 'vertical',
-    slidesPerView: "auto",
-    spaceBetween: 0,
-    speed: 1000,
-    preloadImages: false,
-    centeredSlides: true,
-    loop: false,
-    mousewheel: true,
-});
+        direction: 'vertical',
+        slidesPerView: "auto",
+        spaceBetween: 0,
+        speed: 1000,
+        preloadImages: false,
+        centeredSlides: true,
+        loop: false,
+        mousewheel: true,
+    });
 
-const SCROLL_DIRECTION = {
-    DOWN: "DOWN",
-    UP: "UP",
-}
-
-const scrollController = {
-    disable: () => {
-        document.body.style.overflow = 'hidden';
-    },
-    enable: () => {
-        document.body.style.overflow = '';
+    const SCROLL_DIRECTION = {
+        DOWN: "DOWN",
+        UP: "UP",
     }
-}
 
-const slider = document.querySelector('.about-char');
-let upperBound = slider.offsetTop;
-let lowerBound = upperBound + slider.clientHeight;
-
-if (window.scrollY > upperBound) {
-    swiperChar.slideTo(3)
-}
-
-function sliderToView() {
-    const isLargeScreen = window.innerWidth > 1024;
-    const offset = isLargeScreen ? 80 : 60;
-
-    return new Promise((resolve) => {
-        window.scrollTo({
-            top: upperBound + offset,
-            behavior: isLargeScreen ? "instant" : "smooth",
-        });
-
-        const endScroll = () => {
-            window.removeEventListener('scrollend', endScroll)
-            resolve()
+    const scrollController = {
+        disable: () => {
+            document.body.style.overflow = 'hidden';
+        },
+        enable: () => {
+            document.body.style.overflow = '';
         }
-        window.addEventListener('scrollend', endScroll)
-    })
-}
+    }
 
-let isSliderActive = false;
-function activeSwiper() {
-    swiperChar.enable();
-    swiperChar.mousewheel.enable();
-    scrollController.disable()
-    isSliderActive = true;
-}
+    const swiperContainer = document.querySelector('.about-char');
+    let upperBound = swiperContainer.offsetTop;
+    let lowerBound = upperBound + swiperContainer.clientHeight;
 
-function disableSwiper() {
-    setTimeout(function() {
+
+    function sliderToView() {
+        scrollController.disable()
+        window.scrollTo({
+            top: upperBound,
+            behavior: "smooth",
+        });
+    }
+
+    let isSliderActive = false;
+
+    if (window.scrollY > upperBound) {
+        swiperChar.slideTo(3)
+    }
+
+
+    function activeSwiper() {
+        scrollController.disable()
+        swiperChar.enable();
+        swiperChar.mousewheel.enable();
+        isSliderActive = true;
+    }
+
+    function disableSwiper() {
         swiperChar.disable();
         swiperChar.mousewheel.disable();
         scrollController.enable()
         isSliderActive = false;
-    }, 1000);
-}
-disableSwiper()
-
-swiperChar.on('slideChange', function () {
-    if (swiperChar.isEnd) {
-        disableSwiper();
-    } else if (swiperChar.isBeginning) {
-        disableSwiper();
     }
-});
 
+    disableSwiper()
 
-let lastScrollY = window.scrollY;
-function checkVisibility(event) {
-    const scrollY = window.scrollY;
-    const direction = scrollY > lastScrollY ? SCROLL_DIRECTION.DOWN : SCROLL_DIRECTION.UP;
-    lastScrollY = scrollY;
-    const isLastSlide = swiperChar.isEnd;
-    const isFirstSlide = swiperChar.isBeginning;
-    const offset = window.innerWidth <= 668 ? 10 : (window.innerWidth <= 992 ? 50 : (window.innerWidth <= 1024 ? 200 : 150));
-    const nearUpperBound = scrollY >= Math.max(upperBound - offset, 0);
-    const nearLowerBound = scrollY + window.innerHeight <= lowerBound + offset;
-
-    if (direction === SCROLL_DIRECTION.DOWN && nearUpperBound && isFirstSlide) {
-        sliderToView().then(activeSwiper)
-    } else if (direction === SCROLL_DIRECTION.UP && nearLowerBound && isLastSlide) {
-        sliderToView().then(activeSwiper)
+    if (window.scrollY === upperBound){
+        activeSwiper()
     }
-}
-window.addEventListener('scroll', checkVisibility);
 
-window.addEventListener('wheel', (e) => {
-    if (isSliderActive) {
-        const direction = e.deltaY > 0 ? SCROLL_DIRECTION.DOWN : SCROLL_DIRECTION.UP
-        if (swiperChar.isBeginning && direction === SCROLL_DIRECTION.UP) {
-            disableSwiper()
-        } else if (swiperChar.isEnd && direction === SCROLL_DIRECTION.DOWN) {
+    swiperChar.on('slideNextTransitionEnd', function () {
+        if (swiperChar.isEnd) {
             disableSwiper()
         }
-    }
-});
+    });
 
-window.addEventListener('resize', () => {
-    upperBound = slider.offsetTop;
-    lowerBound = upperBound + slider.clientHeight;
-});
+    swiperChar.on('slidePrevTransitionEnd', function () {
+        if (swiperChar.isBeginning) {
+            disableSwiper()
+        }
+    });
+
+    let lastScrollY = window.scrollY;
+    function checkVisibility() {
+        const scrollY = window.scrollY;
+        const direction = scrollY > lastScrollY ? SCROLL_DIRECTION.DOWN : SCROLL_DIRECTION.UP;
+        lastScrollY = scrollY;
+        const isLastSlide = swiperChar.isEnd;
+        const isFirstSlide = swiperChar.isBeginning;
+        const nearUpperBound = scrollY >= Math.max(upperBound - 200, 0)
+        const nearLowerBound = scrollY + window.innerHeight <= lowerBound + 200
+
+        if (
+            (direction === SCROLL_DIRECTION.DOWN && nearUpperBound && isFirstSlide) ||
+            (direction === SCROLL_DIRECTION.UP && nearLowerBound && isLastSlide)
+        ) {
+            sliderToView()
+            activeSwiper()
+        }
+    }
+
+    window.addEventListener('scroll', checkVisibility);
+    window.addEventListener('wheel', (e) => {
+        if (isSliderActive) {
+            const direction = e.deltaY > 0 ? SCROLL_DIRECTION.DOWN : SCROLL_DIRECTION.UP
+            if (
+                (swiperChar.isBeginning && direction === SCROLL_DIRECTION.UP) ||
+                (swiperChar.isEnd && direction === SCROLL_DIRECTION.DOWN)
+            ) {
+                setTimeout(() => {
+                    if(isSliderActive && (swiperChar.isBeginning || swiperChar.isEnd)) { disableSwiper() }
+                }, 1000)
+            }
+        }
+    });
+    window.addEventListener('resize', () => {
+        upperBound = swiperContainer.offsetTop;
+        lowerBound = upperBound + swiperContainer.clientHeight;
+    });
 }
