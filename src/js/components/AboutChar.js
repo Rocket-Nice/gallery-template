@@ -115,4 +115,21 @@ const swiperChar = new Swiper('.about-char .swiper', {
         upperBound = swiperContainer?.offsetTop;
         lowerBound = upperBound + swiperContainer?.clientHeight;
     });
+    
+    if (window.innerWidth <= 1024) {
+        swiperChar.destroy(true, true);
+        swiperChar.disable();
+        
+        const swiperElement = swiperContainer.querySelector('.swiper');
+        const wrapperElement = swiperContainer.querySelector('.swiper-wrapper');
+        const slideElements = swiperContainer.querySelectorAll('.swiper-slide');
+    
+        swiperElement.classList.remove('swiper');
+        wrapperElement.classList.remove('swiper-wrapper');
+        slideElements.forEach(element => element.classList.remove('swiper-slide'));
+    
+        swiperElement.classList.add('about-char__mobile-swiper');
+        wrapperElement.classList.add('about-char__mobile-swiper-wrapper');
+        slideElements.forEach(element => element.classList.add('about-char__mobile-swiper-slide'));
+    }     
 }
