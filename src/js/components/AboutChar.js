@@ -1,7 +1,11 @@
 import Swiper from 'swiper';
 
 export default function AboutChar() {
-const swiperChar = new Swiper('.about-char .swiper', {
+
+const swiperContainer = document.querySelector('.about-char');
+
+if(swiperContainer){
+    const swiperChar = new Swiper('.about-char .swiper', {
         direction: 'vertical',
         slidesPerView: "auto",
         spaceBetween: 0,
@@ -26,7 +30,6 @@ const swiperChar = new Swiper('.about-char .swiper', {
         }
     }
 
-    const swiperContainer = document.querySelector('.about-char');
     let upperBound = swiperContainer?.offsetTop;
     let lowerBound = upperBound + swiperContainer?.clientHeight;
 
@@ -114,8 +117,7 @@ const swiperChar = new Swiper('.about-char .swiper', {
     window.addEventListener('resize', () => {
         upperBound = swiperContainer?.offsetTop;
         lowerBound = upperBound + swiperContainer?.clientHeight;
-    });
-    
+    });    
     if (window.innerWidth <= 1024) {
         swiperChar.destroy(true, true);
         swiperChar.disable();
@@ -131,5 +133,5 @@ const swiperChar = new Swiper('.about-char .swiper', {
         swiperElement.classList.add('about-char__mobile-swiper');
         wrapperElement.classList.add('about-char__mobile-swiper-wrapper');
         slideElements.forEach(element => element.classList.add('about-char__mobile-swiper-slide'));
-    }     
-}
+    } 
+}}

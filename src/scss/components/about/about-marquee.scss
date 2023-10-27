@@ -11,7 +11,7 @@ $speed: 25s;
   white-space: nowrap;
   background: #000;
 
-  @include responsive.media-breakpoint-down(elg) {
+  @media (max-width: 1024px) {
     padding: 100px 0;
   }
 

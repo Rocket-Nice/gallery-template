@@ -32,8 +32,19 @@ Template Name: About
                                         <div class="about-char-slide__icon">
                                             <img src="<?php bloginfo('template_url'); ?>/assets/icons/about-char-1.svg" width="48" height="48" loading="lazy" decoding= "async" alt="">
                                         </div>
-                                        <div class="about-char-slide__title">First</div>
+                                        <div class="about-char-slide__title">9533м2</div>
                                         <div class="about-char-slide__desc">площадь</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="about-char-slide">
+                                    <div class="about-char-slide__container">
+                                        <div class="about-char-slide__icon">
+                                            <img src="<?php bloginfo('template_url'); ?>/assets/icons/about-char-2.svg" width="48" height="48" loading="lazy" decoding= "async" alt="">
+                                        </div>
+                                        <div class="about-char-slide__title">2970м2</div>
+                                        <div class="about-char-slide__desc">арендопригодная площадь</div>
                                     </div>
                                 </div>
                             </div>
@@ -43,8 +54,8 @@ Template Name: About
                                         <div class="about-char-slide__icon">
                                             <img src="<?php bloginfo('template_url'); ?>/assets/icons/about-char-1.svg" width="48" height="48" loading="lazy" decoding= "async" alt="">
                                         </div>
-                                        <div class="about-char-slide__title">2</div>
-                                        <div class="about-char-slide__desc">площадь</div>
+                                        <div class="about-char-slide__title">5 этажей</div>
+                                        <div class="about-char-slide__desc">3 надземных и 2 надземных</div>
                                     </div>
                                 </div>
                             </div>
@@ -52,10 +63,21 @@ Template Name: About
                                 <div class="about-char-slide">
                                     <div class="about-char-slide__container">
                                         <div class="about-char-slide__icon">
-                                            <img src="<?php bloginfo('template_url'); ?>/assets/icons/about-char-1.svg" width="48" height="48" loading="lazy" decoding= "async" alt="">
+                                            <img src="<?php bloginfo('template_url'); ?>/assets/icons/about-char-4.svg" width="48" height="48" loading="lazy" decoding= "async" alt="">
                                         </div>
-                                        <div class="about-char-slide__title">Last</div>
-                                        <div class="about-char-slide__desc">площадь</div>
+                                        <div class="about-char-slide__title">30</div>
+                                        <div class="about-char-slide__desc">магазинов</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="about-char-slide">
+                                    <div class="about-char-slide__container">
+                                        <div class="about-char-slide__icon">
+                                            <img src="<?php bloginfo('template_url'); ?>/assets/icons/about-char-5.svg" width="48" height="48" loading="lazy" decoding= "async" alt="">
+                                        </div>
+                                        <div class="about-char-slide__title">10</div>
+                                        <div class="about-char-slide__desc">торговых островов</div>
                                     </div>
                                 </div>
                             </div>
