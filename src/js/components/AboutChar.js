@@ -27,8 +27,8 @@ const swiperChar = new Swiper('.about-char .swiper', {
     }
 
     const swiperContainer = document.querySelector('.about-char');
-    let upperBound = swiperContainer.offsetTop;
-    let lowerBound = upperBound + swiperContainer.clientHeight;
+    let upperBound = swiperContainer?.offsetTop;
+    let lowerBound = upperBound + swiperContainer?.clientHeight;
 
 
     function sliderToView() {
@@ -112,7 +112,7 @@ const swiperChar = new Swiper('.about-char .swiper', {
         }
     });
     window.addEventListener('resize', () => {
-        upperBound = swiperContainer.offsetTop;
-        lowerBound = upperBound + swiperContainer.clientHeight;
+        upperBound = swiperContainer?.offsetTop;
+        lowerBound = upperBound + swiperContainer?.clientHeight;
     });
 }
