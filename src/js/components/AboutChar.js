@@ -106,9 +106,7 @@ const swiperChar = new Swiper('.about-char .swiper', {
                 (swiperChar.isEnd && direction === SCROLL_DIRECTION.DOWN)
             ) {
                 setTimeout(() => {
-                    if (isSliderActive) {
-                        disableSwiper()
-                    }
+                    if(isSliderActive && (swiperChar.isBeginning || swiperChar.isEnd)) { disableSwiper() }
                 }, 1000)
             }
         }
