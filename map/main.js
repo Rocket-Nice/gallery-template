@@ -30,7 +30,7 @@ function main() {
         // sidebarBlockTitle.insertBefore(document.querySelector('.sidebar-arrow'), sidebarBlockTitle.firstChild);
       });
     }
-  }, 300);
+  }, 150);
 }
 
 document.addEventListener("DOMContentLoaded", main);
