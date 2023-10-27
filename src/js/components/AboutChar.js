@@ -133,5 +133,8 @@ if(swiperContainer){
         swiperElement.classList.add('about-char__mobile-swiper');
         wrapperElement.classList.add('about-char__mobile-swiper-wrapper');
         slideElements.forEach(element => element.classList.add('about-char__mobile-swiper-slide'));
-    } 
+    
+        const lastSlide = slideElements[slideElements.length - 1];
+        lastSlide.classList.add('--width-full');
+    }     
 }}

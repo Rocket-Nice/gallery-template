@@ -101,5 +101,9 @@
     @include responsive.media-breakpoint-down(lg) {
       width: 100%;
     }
+
+    &.--width-full {
+      width: 100%;
+    }
   }
 }
