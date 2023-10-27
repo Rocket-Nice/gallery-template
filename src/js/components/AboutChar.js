@@ -112,7 +112,7 @@ const swiperChar = new Swiper('.about-char .swiper', {
         }
     });
     window.addEventListener('resize', () => {
-        upperBound = swiperContainer.offsetTop;
-        lowerBound = upperBound + swiperContainer.clientHeight;
+        upperBound = swiperContainer?.offsetTop;
+        lowerBound = upperBound + swiperContainer?.clientHeight;
     });
 }
