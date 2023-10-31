@@ -1663,7 +1663,15 @@ body {
 .mapplic-dir-group {
   background: #F2F2F2;
   border-radius: 16px;
-  padding: 16px;
+  padding: 0;
+}
+
+.mapplic-dir-group.--open {
+  padding: 0 16px 16px 16px;
+}
+
+.mapplic-dir-group.--open .sidebar-arrow {
+  right: 0;
 }
 
 .mapplic-dir-group .mapplic-dir-items {
@@ -1678,7 +1686,7 @@ body {
 
 .mapplic-dir-group.--open .mapplic-dir-group-title {
   border-bottom: 1px solid rgb(47, 53, 66, 0.1);
-  padding: 0 30px 12px 0;
+  padding: 16px 30px 12px 0;
 }
 
 .mapplic-dir-group.--open .sidebar-arrow {
@@ -1692,8 +1700,7 @@ body {
 
 .mapplic-dir-group-title {
   position: relative;
-  padding: 0;
-  padding-right: 30px;
+  padding: 16px 46px 16px 16px;
   cursor: pointer;
 }
 
@@ -1803,8 +1810,8 @@ main {
   justify-content: center;
   align-items: center;
   position: absolute;
-  right: 0;
-  transition: all .3s;
+  right: 16px;
+  transition: transform .3s;
 }
 
 .sidebar-arrow>img {
