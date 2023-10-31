@@ -6,6 +6,7 @@ SwiperCore.use([Keyboard, Mousewheel]);
 export default function MainHoryzontalScroll() {
   const isMainPage = document.querySelector('.main-page');
   if (isMainPage) {
+    const body = document.querySelector('body');
     const menu = document.querySelector('.header-desc .menu');
     const logo = document.querySelector('.header-logo');
     let mql = window.matchMedia("(max-width: 1023px)");
@@ -22,6 +23,7 @@ export default function MainHoryzontalScroll() {
 
     let isSwiperInit = false;
     if (window.innerWidth > 1023) {
+      body.classList.add('hidden');
       const swiper = new Swiper('.horizontal-slider', swiperAtribute);
       swiperEvents(swiper);
       isSwiperInit = true;
@@ -41,6 +43,7 @@ export default function MainHoryzontalScroll() {
       if (sliderBlock && e.matches && isSwiperInit) {
         menu.classList.add('--reverse');
         logo.classList.add('--reverse');
+        body.classList.remove('hidden');
         const swiper1 = sliderBlock.swiper;
         if (swiper1) {
           swiper1.destroy(true, true);
@@ -55,6 +58,7 @@ export default function MainHoryzontalScroll() {
         isSwiperInit = true;
         const swiper2 = new Swiper('.horizontal-slider', swiperAtribute);
         swiperEvents(swiper2);
+        body.classList.add('hidden');
       }
     };
 
@@ -66,6 +70,7 @@ export default function MainHoryzontalScroll() {
       swiper.on('slideChange', function () {
         setTimeout(() => {
           swiper.params.mousewheel.releaseOnEdges = false;
+          body.classList.add('hidden');
         }, 500);
         // отключение навигации и пагинации внутреннего слайдера на первой экране
         if (swiper.activeIndex === 0) {
@@ -90,6 +95,7 @@ export default function MainHoryzontalScroll() {
       swiper.on('reachEnd', function () {
         setTimeout(() => {
           swiper.params.mousewheel.releaseOnEdges = true;
+          body.classList.remove('hidden');
         }, 1000);
       });
 
