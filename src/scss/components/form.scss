@@ -199,6 +199,9 @@
     background: #FFF;
     cursor: pointer;
     transition: all .3s;
+    flex: 1 0 auto;
+    max-width: 24px;
+    align-self: flex-start;
 
     img {
       opacity: 0;
@@ -356,6 +359,17 @@
         display: flex;
         align-items: center;
         gap: 6px;
+        max-width: calc(100% - 44px);
+
+        span {
+          width: 100%;
+          overflow-x: auto;
+          scrollbar-width: none;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        }
       }
 
       &__delete {

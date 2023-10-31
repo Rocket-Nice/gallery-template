@@ -144,7 +144,7 @@ Template Name: Renter
                     <div class="form__item-wrapper">
                         <div class="form__item">
                             <label class="form__item-title" for="email">Электронная почта</label>
-                            <input type="text" id="email" name="email" placeholder="Введите">
+                            <input type="email" id="email" name="email" placeholder="Введите">
                         </div>
                         <div class="form__item">
                             <label class="form__item-title" for="phone">Ваш телефон</label>
