@@ -1095,7 +1095,6 @@
   opacity: 1
 }
 
-.mapplic-dir-item.mapplic-highlight .mapplic-item-body h4,
 .mapplic-dir-item:hover .mapplic-item-body h4,
 .mapplic-dir-item:focus-visible .mapplic-item-body h4 {
   color: #2F3542;
