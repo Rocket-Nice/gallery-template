@@ -11,7 +11,7 @@ Template Name: Catalog_single
             <div class="catalog-single__container">
                 <div class="catalog-single-title">
                     <div class="catalog-single-title__info">
-                        <a href="#" class="btn-back-simple">
+                        <a href="/catalog-open" class="btn-back-simple">
                             <div class="btn-back__icon">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M15 6L9 12L15 18" stroke="#2F3542" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

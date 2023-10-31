@@ -184,7 +184,7 @@ Template Name: Catalog_variables
                                     <img src="<?php bloginfo('template_url'); ?>/assets/images/catalog-1.png" loading="lazy" decoding= "async" alt="">
                                 </div>
                                 <div class="catalog-card__content">
-                                    <a href="#" class="catalog-card__title" data-link>[Corner]</a>
+                                    <a href="/catalog-single" class="catalog-card__title" data-link>[Corner]</a>
                                     <div class="catalog-card__tags">Одежда, Женская одежда, Аксессуары, Обувь, Локальные бренды</div>
                                     <div class="catalog-card__info">
                                         <div class="catalog-card__floor">3 этаж</div>
@@ -197,7 +197,7 @@ Template Name: Catalog_variables
                                     <img src="<?php bloginfo('template_url'); ?>/assets/images/catalog-2.png" loading="lazy" decoding= "async" alt="">
                                 </div>
                                 <div class="catalog-card__content">
-                                    <a href="#" class="catalog-card__title" data-link>12 STOREEZ</a>
+                                    <a href="/catalog-single" class="catalog-card__title" data-link>12 STOREEZ</a>
                                     <div class="catalog-card__tags">Одежда, Женская одежда</div>
                                     <div class="catalog-card__info">
                                         <div class="catalog-card__floor">3 этаж</div>
@@ -210,7 +210,7 @@ Template Name: Catalog_variables
                                     <img src="<?php bloginfo('template_url'); ?>/assets/images/catalog-3.png" loading="lazy" decoding= "async" alt="">
                                 </div>
                                 <div class="catalog-card__content">
-                                    <a href="#" class="catalog-card__title" data-link>Aeronautica Militare</a>
+                                    <a href="/catalog-single" class="catalog-card__title" data-link>Aeronautica Militare</a>
                                     <div class="catalog-card__tags">Аксессуары, Локальные бренды, Подарки и сувениры, Ювелирные изделия и часы, Подарки и сувениры</div>
                                     <div class="catalog-card__info">
                                         <div class="catalog-card__floor">3 этаж</div>
@@ -223,7 +223,7 @@ Template Name: Catalog_variables
                                     <img src="<?php bloginfo('template_url'); ?>/assets/images/catalog-3.png" loading="lazy" decoding= "async" alt="">
                                 </div>
                                 <div class="catalog-card__content">
-                                    <a href="#" class="catalog-card__title" data-link>12 STOREEZ</a>
+                                    <a href="/catalog-single" class="catalog-card__title" data-link>12 STOREEZ</a>
                                     <div class="catalog-card__tags">Одежда, Женская одежда, Аксессуары, Обувь, Локальные бренды</div>
                                     <div class="catalog-card__info">
                                         <div class="catalog-card__floor">3 этаж</div>
@@ -236,7 +236,7 @@ Template Name: Catalog_variables
                                     <img src="<?php bloginfo('template_url'); ?>/assets/images/catalog-1.png" loading="lazy" decoding= "async" alt="">
                                 </div>
                                 <div class="catalog-card__content">
-                                    <a href="#" class="catalog-card__title" data-link>[Corner]</a>
+                                    <a href="/catalog-single" class="catalog-card__title" data-link>[Corner]</a>
                                     <div class="catalog-card__tags">Одежда, Женская одежда, Аксессуары, Обувь, Локальные бренды</div>
                                     <div class="catalog-card__info">
                                         <div class="catalog-card__floor">3 этаж</div>
@@ -249,7 +249,7 @@ Template Name: Catalog_variables
                                     <img src="<?php bloginfo('template_url'); ?>/assets/images/catalog-2.png" loading="lazy" decoding= "async" alt="">
                                 </div>
                                 <div class="catalog-card__content">
-                                    <a href="#" class="catalog-card__title" data-link>Aeronautica Militare</a>
+                                    <a href="/catalog-single" class="catalog-card__title" data-link>Aeronautica Militare</a>
                                     <div class="catalog-card__tags">Одежда, Женская одежда, Аксессуары, Обувь, Локальные бренды</div>
                                     <div class="catalog-card__info">
                                         <div class="catalog-card__floor">3 этаж</div>

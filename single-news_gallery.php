@@ -13,7 +13,7 @@ Template Post Type: news_gallery
                 <div class="news-det__inner">
                     <div class="news-det__left">
                         <div class="news-det-title">
-                            <a href="#" class="news-det-title__arrow">
+                            <a href="/news" class="news-det-title__arrow">
                                 <div class="news-det-title__arrow-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
                                         <path d="M7 1L1 7L7 13" stroke="#2F3542" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

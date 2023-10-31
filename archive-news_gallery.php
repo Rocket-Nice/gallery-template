@@ -18,7 +18,7 @@ Template Name: About
                     </div>
                 </div>
                 <div class="news__inner">
-                    <a href="#" class="news-card">
+                    <a href="/news/news-1" class="news-card">
                         <div class="news-card__bg">
                             <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
                             <div class="news-card__bg-hover"></div>
@@ -35,7 +35,7 @@ Template Name: About
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="news-card">
+                    <a href="/news/news-1" class="news-card">
                         <div class="news-card__bg">
                             <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
                             <div class="news-card__bg-hover"></div>
@@ -52,7 +52,7 @@ Template Name: About
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="news-card">
+                    <a href="/news/news-1" class="news-card">
                         <div class="news-card__bg">
                             <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
                             <div class="news-card__bg-hover"></div>

@@ -32,7 +32,7 @@ Template Name: Catalog
                                 </a>
                             </div>
                             <div class="sidebar-block">
-                                <a href="#" class="sidebar-block-head">
+                                <a href="/catalog-open" class="sidebar-block-head">
                                     <div class="sidebar-block-head__title">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M13.9998 5C13.9998 4.46957 13.7891 3.96086 13.414 3.58579C13.039 3.21071 12.5303 3 11.9998 3C11.4694 3 10.9607 3.21071 10.5856 3.58579C10.2105 3.96086 9.99983 4.46957 9.99983 5M19.2598 9.696L20.6448 18.696C20.6886 18.9808 20.6704 19.2718 20.5913 19.5489C20.5122 19.8261 20.3741 20.0828 20.1865 20.3016C19.999 20.5204 19.7663 20.6961 19.5045 20.8167C19.2428 20.9372 18.958 20.9997 18.6698 21H5.32983C5.04146 21 4.7565 20.9377 4.49447 20.8173C4.23245 20.6969 3.99956 20.5212 3.81177 20.3024C3.62399 20.0836 3.48575 19.8267 3.40653 19.5494C3.32732 19.2721 3.309 18.981 3.35283 18.696L4.73783 9.696C4.81048 9.22359 5.04991 8.79282 5.41275 8.4817C5.7756 8.17059 6.23787 7.9997 6.71583 8H17.2838C17.7616 7.99994 18.2236 8.17094 18.5863 8.48203C18.9489 8.79312 19.1872 9.22376 19.2598 9.696Z" stroke="#2F3542" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -45,7 +45,7 @@ Template Name: Catalog
                                 </a>
                             </div>
                             <div class="sidebar-block">
-                                <a href="#" class="sidebar-block-head">
+                                <a href="/catalog-open" class="sidebar-block-head">
                                     <div class="sidebar-block-head__title">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M14 9.01002L14.01 8.99902M8 8.01002L8.01 7.99902M8 14.01L8.01 13.999" stroke="#2F3542" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -60,7 +60,7 @@ Template Name: Catalog
                                 </a>
                             </div>
                             <div class="sidebar-block">
-                                <a href="#" class="sidebar-block-head">
+                                <a href="/catalog-open" class="sidebar-block-head">
                                     <div class="sidebar-block-head__title">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M9.00007 11V18M15.0001 11V18M14.0001 5C14.0001 4.46957 13.7894 3.96086 13.4143 3.58579C13.0392 3.21071 12.5305 3 12.0001 3C11.4696 3 10.9609 3.21071 10.5859 3.58579C10.2108 3.96086 10.0001 4.46957 10.0001 5M19.2601 9.696L20.6451 18.696C20.6889 18.9808 20.6706 19.2718 20.5915 19.5489C20.5124 19.8261 20.3743 20.0828 20.1868 20.3016C19.9992 20.5204 19.7666 20.6961 19.5048 20.8167C19.243 20.9372 18.9583 20.9997 18.6701 21H5.33007C5.04171 21 4.75674 20.9377 4.49472 20.8173C4.23269 20.6969 3.9998 20.5212 3.81202 20.3024C3.62423 20.0836 3.48599 19.8267 3.40678 19.5494C3.32756 19.2721 3.30924 18.981 3.35307 18.696L4.73807 9.696C4.81072 9.22359 5.05015 8.79282 5.413 8.4817C5.77584 8.17059 6.23811 7.9997 6.71607 8H17.2841C17.7619 7.99994 18.2239 8.17094 18.5865 8.48203C18.9492 8.79312 19.1874 9.22376 19.2601 9.696Z" stroke="#2F3542" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
