@@ -219,11 +219,11 @@
     width: 100%;
     max-height: 100%;
     overflow-y: auto;
-    scrollbar-width: none;
+    // scrollbar-width: none;
 
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    // &::-webkit-scrollbar {
+    //   display: none;
+    // }
   }
 
   &__list {
