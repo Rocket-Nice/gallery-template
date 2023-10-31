@@ -14,6 +14,7 @@ import MainVideo from './components/MainVideo';
 import Modal from './components/Modal';
 import NewsDetSlider from './components/NewsDetSlider';
 import NewsSlider from './components/NewsSlider';
+import NewsSort from './components/NewsSort';
 import { PlaceLink } from './components/PlaceLink';
 import ReadMore from './components/ReadMore';
 import SmoothScroll from './components/SmoothScroll';
@@ -36,6 +37,7 @@ function main() {
   MainPage();
   AboutPage();
   PlaceLink();
+  NewsSort();
 }
 
 document.addEventListener("DOMContentLoaded", main);

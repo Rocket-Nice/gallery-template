@@ -39,6 +39,12 @@
   &-tags {
     display: flex;
     gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     @include responsive.media-breakpoint-down(gl) {
       width: 100%;
