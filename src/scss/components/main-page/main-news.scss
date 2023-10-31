@@ -21,10 +21,6 @@
     font-weight: 700;
     text-transform: uppercase;
 
-    @include responsive.media-breakpoint-down(elg) {
-      padding: 0;
-    }
-
     @include responsive.media-breakpoint-down(md) {
       margin-bottom: 20px;
       font-size: 40px;
@@ -35,7 +31,7 @@
     width: 100%;
 
     @include responsive.media-breakpoint-down(elg) {
-      padding: 120px 20px;
+      padding: 120px 0;
     }
   }
 
@@ -48,6 +44,7 @@
 
     &.--mobile {
       display: none;
+      padding: 0 20px;
 
       @include responsive.media-breakpoint-down(elg) {
         display: block;
