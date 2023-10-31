@@ -84,6 +84,7 @@
       padding: 16px;
       border-radius: 20px;
       background: rgba(255, 255, 255, 0.05);
+      width: 100%;
     }
 
     @include responsive.media-breakpoint-down(md) {
