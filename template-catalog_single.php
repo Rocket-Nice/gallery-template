@@ -18,7 +18,7 @@ Template Name: Catalog_single
                                 </svg>
                             </div>
                         </a>
-                        <div class="catalog-single-title__text">Armani Exchange</div>
+                        <h1 class="catalog-single-title__text">Armani Exchange</h1>
                     </div>
                     <a href="#" class="catalog-single-map --desk">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -71,14 +71,14 @@ Template Name: Catalog_single
                             <div class="catalog-single-text__bg"></div>
                             <div class="catalog-single-text__inner" data-read-text="catalog-single">
                                 <p>
-                                    Armani Exchange – молодежная линия стильной одежды и аксессуаров итальянского модного дома Giorgio Armani. Философия бренда Armani Exchange заключается в идее о глобальном стиле, который сочетает в себе итальянскую изысканность и остромодные молодежные элементы. Смелость и демократичность — основные отличия этой марки от других брендов, выпускаемых Джорджио Армани.<br>
+                                    Armani Exchange – молодежная линия стильной одежды и аксессуаров итальянского модного дома Giorgio Armani. Философия бренда Armani Exchange заключается в идее о глобальном стиле, который сочетает в себе итальянскую изысканность и остромодные молодежные элементы. Смелость и демократичность — основные отличия этой марки от других брендов, выпускаемых <a href="#">Джорджио Армани</a>.<br>
                                     Armani Exchange — это стиль амбициозных молодых людей, которых привлекает качество и модные тренды. Коллекции Armani Exchange выбирают Рианна, Перис Хилтон, Блейк Лайвли, Линдси Лохан, Ева Лонгория, Николь Ричи и другие известные персоны.<br>
                                     В магазине Armani Exchange действует бонусная программа по картам FASHION CLUB.<br>
                                     Совершайте покупки в магазине, получайте от 3% до 20% бонусных баллов на карту с каждой покупки и списывайте их с любого уровня бонусной карты. Все коллекции представленные в магазине Armani Exchange, можно найти в интернет-магазине www.lgcity.ru и мобильном приложении сети.<br>
                                     В магазинах сети также можно приобрести подарочные карты Armani Exchange с различными номиналами.<br>
                                 </p>
                             </div>
-                            <div class="catalog-single-text__btn" data-read-more="catalog-single">Читать полностью</div>
+                            <button class="catalog-single-text__btn" data-read-more="catalog-single">Читать полностью</button>
                         </div>
                     </div>
                     <div class="side">
