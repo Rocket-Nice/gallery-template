@@ -16,6 +16,8 @@ Template Name: Map
 		<link rel="stylesheet" href="<?= get_template_directory_uri()?>/map/mapplic.css">
 		<link rel="preload" href="/wp-content/themes/gallery/assets/fonts/Lato-Medium.woff2" as="font" crossorigin>
     	<link rel="preload" href="/wp-content/themes/gallery/assets/fonts/Lato-Regular.woff2" as="font" crossorigin>
+		<link rel="preload" href="/wp-content/themes/gallery/assets/fonts/NotoSans-Regular.ttf" as="font" crossorigin>
+		<link rel="preload" href="/wp-content/themes/gallery/assets/fonts/NotoSans-SemiBold.ttf" as="font" crossorigin>
 	</head>
 	<body>
 		<main>
@@ -57,18 +59,6 @@ Template Name: Map
 				</div>
 				<div class="title-sidebar-icon" data-icon="3">
 					<img src="<?php bloginfo('template_url'); ?>/assets/icons/services-icon.svg" width="24" height="24" decoding= "async" alt="">
-				</div>
-				<div class="title-sidebar-icon" data-icon="4">
-					<img src="<?php bloginfo('template_url'); ?>/assets/icons/shop-icon.svg" width="24" height="24" decoding= "async" alt="">
-				</div>
-				<div class="title-sidebar-icon" data-icon="5">
-					<img src="<?php bloginfo('template_url'); ?>/assets/icons/shop-icon.svg" width="24" height="24" decoding= "async" alt="">
-				</div>
-				<div class="title-sidebar-icon" data-icon="6">
-					<img src="<?php bloginfo('template_url'); ?>/assets/icons/shop-icon.svg" width="24" height="24" decoding= "async" alt="">
-				</div>
-				<div class="title-sidebar-icon" data-icon="7">
-					<img src="<?php bloginfo('template_url'); ?>/assets/icons/shop-icon.svg" width="24" height="24" decoding= "async" alt="">
 				</div>
 			</div>
 			<div id="content">

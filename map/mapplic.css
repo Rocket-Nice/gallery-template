@@ -100,13 +100,14 @@
   left: 0 !important;
   width: 100%;
   max-width: 100%;
-  padding: 8px 0 0 !important;
+  padding: 15px 0 0 !important;
   transition: margin-top .2s, max-width .2s
 }
 
 .mapplic-portrait .mapplic-container {
   margin: 0 !important;
-  max-width: 100%
+  max-width: 100%;
+  min-height: 300px;
 }
 
 .mapplic-portrait.mapplic-sidebar-closed .mapplic-sidebar {
@@ -328,18 +329,21 @@
 }
 
 .mapplic-popup-title h4 {
-  font-weight: 600;
+  color: #2F3542;
+  font-family: Noto Sans;
   font-size: 18px;
-  line-height: 24px
+  font-weight: 600;
+  line-height: normal;
 }
 
 .mapplic-popup-title h5 {
   display: flex;
   gap: 4px;
+  color: rgba(47, 53, 66, 0.4);
+  font-family: Noto Sans;
+  font-size: 12px;
   font-weight: 400;
-  font-size: 13px;
-  line-height: 16px;
-  color: var(--neutral-500)
+  line-height: normal;
 }
 
 .mapplic-popup-close {
@@ -388,7 +392,10 @@
   font-size: 13px;
   color: var(--neutral-700);
   line-height: 1.4em;
-  overflow-y: auto
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .mapplic-popup-body>* {
@@ -750,12 +757,12 @@
 }
 
 .mapplic-button.mapplic-button-primary:not(:disabled) {
-  background-color: var(--primary);
+  background: #2F3542 !important;
   border: none;
   padding: 8px 12px;
   color: #fff;
-  font-weight: 600;
-  transition: filter .2s
+  font-weight: 500;
+  transition: background .3s
 }
 
 .mapplic-button.mapplic-button-icon {
@@ -763,11 +770,11 @@
 }
 
 .mapplic-button.mapplic-button-primary:not(:disabled):hover {
-  filter: brightness(1.2)
+  background: #424853 !important;
 }
 
 .mapplic-button.mapplic-button-primary:not(:disabled):active {
-  filter: brightness(.8)
+  background: #424853 !important;
 }
 
 .mapplic-button.mapplic-button-primary:disabled {
@@ -960,9 +967,7 @@
   gap: 8px;
   align-items: center;
   padding: 8px;
-  text-transform: uppercase;
   font-weight: 700;
-  letter-spacing: 1px;
   transition: color .2s
 }
 
@@ -1009,8 +1014,17 @@
 }
 
 .mapplic-grid-item h3 {
-  font-weight: 600;
-  font-size: 16px
+  color: rgba(47, 53, 66, 0.50);
+  font-family: Lato;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  transition: all .3s;
+  width: fit-content;
+}
+
+.mapplic-grid-item:hover h3 {
+  color: #2F3542;
 }
 
 .mapplic-grid-item>.mapplic-thumbnail {
@@ -1674,6 +1688,7 @@ body {
 
 .mapplic-dir-group .mapplic-dir-item {
   padding: 0;
+  width: fit-content;
 }
 
 .mapplic-dir-group-title {
@@ -1796,13 +1811,28 @@ main {
   display: block;
 }
 
+@media(max-width:1023px) {
+  main {
+    height: initial;
+    padding: 147px 0 30px;
+  }
+
+  body {
+    overflow: initial;
+  }
+}
+
 @media(max-width:767px) {
   main {
-    padding: 117px 0 0;
+    padding: 117px 0 30px;
   }
 
   .header-logo {
     top: 30px;
+  }
+
+  #content {
+    padding: 0 20px;
   }
 }
 
@@ -1821,6 +1851,22 @@ main {
   src: url('../assets/fonts/Lato-Medium.woff2') format('woff2'),
     url('../assets/fonts/Lato-Medium.ttf') format('truetype');
   font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Noto Sans;
+  src: url('../assets/fonts/NotoSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Noto Sans;
+  src: url('../assets/fonts/NotoSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
   font-display: swap;
   font-style: normal;
 }
