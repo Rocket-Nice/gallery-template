@@ -1753,6 +1753,7 @@ body {
   background: transparent;
   transition: all .3s ease-in;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .sidebar-tabs__item path {
