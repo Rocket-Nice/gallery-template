@@ -35,10 +35,15 @@
 
   &-title {
     margin-bottom: 20px;
+    margin-top: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
+
+    &:first-child {
+      margin-top: 0;
+    }
 
     &-head {
       display: flex;
@@ -53,8 +58,22 @@
         height: 52px;
         border-radius: 1000px;
 
+        svg {
+          width: 32px;
+          height: 32px;
+          display: block;
+        }
+
         &.--violet {
           background: vars.$violet;
+        }
+
+        &.--yellow {
+          background: vars.$yellow;
+        }
+
+        &.--blue {
+          background: vars.$blue;
         }
       }
 
