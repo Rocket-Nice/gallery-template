@@ -32,7 +32,7 @@ Template Name: About
                                         <div class="about-char-slide__icon">
                                             <img src="<?php bloginfo('template_url'); ?>/assets/icons/about-char-1.svg" width="48" height="48" loading="lazy" decoding= "async" alt="">
                                         </div>
-                                        <div class="about-char-slide__title">9533м2</div>
+                                        <div class="about-char-slide__title">9533м<sup>2</sup></div>
                                         <div class="about-char-slide__desc">площадь</div>
                                     </div>
                                 </div>
@@ -43,7 +43,7 @@ Template Name: About
                                         <div class="about-char-slide__icon">
                                             <img src="<?php bloginfo('template_url'); ?>/assets/icons/about-char-2.svg" width="48" height="48" loading="lazy" decoding= "async" alt="">
                                         </div>
-                                        <div class="about-char-slide__title">2970м2</div>
+                                        <div class="about-char-slide__title">2970м<sup>2</sup></div>
                                         <div class="about-char-slide__desc">арендопригодная площадь</div>
                                     </div>
                                 </div>
