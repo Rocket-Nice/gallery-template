@@ -20,59 +20,92 @@ Template Post Type: news_gallery
                                     </svg>
                                 </div>
                             </a>
-                            <div class="news-det-title__text">Скидки до 40% на летней распродаже в «Estelle A-Store»!</div>
+                            <h1 class="news-det-title__text"><?= the_title(); ?></h1>
                         </div>
-                        <div class="news-det__date --mobile">22:38 | 25.08.2022</div>
+                        <div class="news-det__date --mobile"><?php
+                                $created_date = get_the_date('H:i | d.m.Y', get_the_ID());
+                                echo $created_date;
+                                ?></div>
                         <div class="custom-tag__wrapper">
-                            <div class="custom-tag --blue">Новости</div>
-                            <div class="custom-tag --black">c 1 авг. по 23 авг.</div>
+                        <?php
+                            $terms = get_the_terms(get_the_ID(), 'news-page-type');
+                            if ($terms && !is_wp_error($terms)) {
+                                $term = array_shift($terms);
+                                $term_name = $term->name;
+                                ?>
+                                <div class="custom-tag <?php if($term_name === "Новости") { ?>--blue <?php } elseif ($term_name === "Акция") {?> --yellow <?php } else { ?>--red <?php } ?>"><?= $term_name; ?></div>
+                                <?php
+                            }
+                            ?>
+                            <?php
+                                $beginning_date = get_field('beginning_date');
+                                $end_date = get_field('end_date');
+
+                                $month_shortenings = array(
+                                    'января' => 'янв.',
+                                    'февраля' => 'фев.',
+                                    'марта' => 'мар.',
+                                    'апреля' => 'апр.',
+                                    'мая' => 'мая',
+                                    'июня' => 'июн.',
+                                    'июля' => 'июл.',
+                                    'августа' => 'авг.',
+                                    'сентября' => 'сен.',
+                                    'октября' => 'окт.',
+                                    'ноября' => 'нояб.',
+                                    'декабря' => 'дек.'
+                                );
+
+                                $beginning_date_formatted = date_i18n('j F', strtotime($beginning_date));
+                                $end_date_formatted = date_i18n('j F', strtotime($end_date));
+
+                                $beginning_date_formatted = strtr($beginning_date_formatted, $month_shortenings);
+                                $end_date_formatted = strtr($end_date_formatted, $month_shortenings);
+
+                                echo '<div class="custom-tag --black">с ' . $beginning_date_formatted . ' по ' . $end_date_formatted . '</div>';
+                                ?>
                         </div>
                         <div class="news-det__content">
-                            <p>
-                                Еще больше моделей знаменитых европейских брендов со скидками 30% и 40% ждут вас в салоне <strong>«Estelle A-Store»</strong>. Не упустите возможность купить модные купальники, изящное белье и стильную одежду для летнего отдыха по приятным ценам!
-                            </p>
-                            <div class="gray-bg-block">
-                                Еще больше моделей знаменитых европейских брендов со скидками 30% и 40% ждут вас в салоне «Estelle A-Store». Не упустите возможность купить модные купальники, изящное белье и стильную одежду для летнего отдыха по приятным ценам!
-                            </div>
-                            <p>
-                                Еще больше <a href="#">моделей</a> знаменитых европейских брендов со скидками 30% и 40% ждут вас в салоне <strong>«Estelle A-Store»</strong>. Не упустите возможность купить модные купальники, изящное белье и стильную одежду для летнего отдыха по приятным ценам!
-                            </p>
-                            <p>
-                                В нашем магазине вы найдете такие товары, как :
-                            </p>
-                            <ul>
-                                <li>Джинсы</li>
-                                <li>Футболки</li>
-                                <li>Пиджаки</li>
-                            </ul>
-                            <p>
-                                В нашем магазине вы найдете такие товары, как :
-                            </p>
-                            <ol>
-                                <li>Джинсы</li>
-                                <li>Футболки</li>
-                                <li>Пиджаки</li>
-                            </ol>
-                            <p>
-                                Еще больше моделей знаменитых европейских брендов со скидками 30% и 40% ждут вас в салоне <strong>«Estelle A-Store»</strong>. Не упустите возможность купить модные купальники, изящное белье и стильную одежду для летнего отдыха по приятным ценам!
-                            </p>
+                        <?php if (have_rows('news_content_page')):
+
+                            while (have_rows('news_content_page')):
+                                the_row();
+
+                                ?>
+                                <?php if (get_row_layout() == 'block_news_main_text'):
+                                    the_sub_field('news_main_text');
+                                elseif(get_row_layout() == 'block_news_text_in_color_block' ): ?>
+                                    <div class="gray-bg-block"><?php the_sub_field('news_text_in_color_block'); ?></div>
+                                <?php
+                                endif;
+                                endwhile;
+                            endif;
+                                ?>
                         </div>
                     </div>
                     <div class="news-det__right">
                         <div class="sticky-block">
-                            <div class="news-det__date --desc">22:38 | 25.08.2022</div>
+                            <div class="news-det__date --desc">
+                            <?php
+                                $created_date = get_the_date('H:i | d.m.Y', get_the_ID());
+                                echo $created_date;
+                                ?>
+                            </div>
                             <div class="news-det-slider">
                                 <div class="swiper">
                                     <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/news-det.jpg" width="" height="" loading="lazy" decoding= "async" alt="">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/news-det.jpg" width="" height="" loading="lazy" decoding= "async" alt="">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/news-det.jpg" width="" height="" loading="lazy" decoding= "async" alt="">
-                                        </div>
+                                        <?php
+                                        $newsPages = get_field('news_gallery');
+                                        if ($newsPages ?? false) {
+                                            foreach ($newsPages as $image_id) {
+                                                ?>
+                                                <div class="swiper-slide">
+                                                    <img src="<?= esc_url($image_id["url"]); ?>" width="" height="" loading="lazy" decoding= "async" alt="">
+                                                </div>
+                                                <?php
+                                            }
+                                        }                        
+                                        ?>
                                     </div>
                                     <div class="news-det-slider__navigation swiper-navigation">
                                         <div class="swiper-navigation-button swiper-navigation-prev">
