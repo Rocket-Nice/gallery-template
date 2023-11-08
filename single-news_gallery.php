@@ -20,7 +20,7 @@ Template Post Type: news_gallery
                                     </svg>
                                 </div>
                             </a>
-                            <div class="news-det-title__text"><?= the_title(); ?></div>
+                            <h1 class="news-det-title__text"><?= the_title(); ?></h1>
                         </div>
                         <div class="news-det__date --mobile"><?php
                                 $created_date = get_the_date('H:i | d.m.Y', get_the_ID());
@@ -32,7 +32,9 @@ Template Post Type: news_gallery
                             if ($terms && !is_wp_error($terms)) {
                                 $term = array_shift($terms);
                                 $term_name = $term->name;
-                                echo '<div class="custom-tag --blue">' . $term_name . '</div>';
+                                ?>
+                                <div class="custom-tag <?php if($term_name === "Новости") { ?>--blue <?php } elseif ($term_name === "Акция") {?> --yellow <?php } else { ?>--red <?php } ?>"><?= $term_name; ?></div>
+                                <?php
                             }
                             ?>
                             <?php
