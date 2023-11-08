@@ -188,7 +188,7 @@ Template Name: About
                             </div>
                         </div>
                         <a href="#" class="dark-btn">
-                            <div class="dark-btn__text">Как добраться</div>
+                            <div class="dark-btn__text">О ТЦ</div>
                             <div class="dark-btn__icon">
                                 <img src="<?php bloginfo('template_url'); ?>/assets/icons/btn-arrow.svg" width="24" height="24" loading="lazy" decoding= "async" alt="">
                             </div>
