@@ -5,6 +5,42 @@ Template Name: About
 ?>
 
 <?php get_header(); ?>
+<?php
+    // Акции
+    $typePromotion = array('post_type' => 'news_gallery', 'posts_per_page' => -1, 'orderby' => 'date', 'news-page-type' => 'type_promotion');
+    $listTypePromotion = new WP_Query($typePromotion);
+    if ($listTypePromotion->have_posts()) {
+        foreach ($listTypePromotion as $listTypePromotions) {
+            $pagedMedia = $listTypePromotions["news-page-type"];
+            break;
+        }
+    }
+    // Модный блог
+    $typeFashion = array('post_type' => 'news_gallery', 'posts_per_page' => -1, 'orderby' => 'date', 'news-page-type' => 'type_fashion');
+    $typeFashionList = new WP_Query($typeFashion);
+    if ($typeFashionList->have_posts()) {
+        foreach ($typeFashionList as $typeFashionLists) {
+            $pagedMedia = $typeFashionLists["news-page-type"];
+            break;
+        }
+    }
+    // Новости
+    $typeNews = array('post_type' => 'news_gallery', 'posts_per_page' => -1, 'orderby' => 'date', 'news-page-type' => 'type-news');
+    $typeNewsList = new WP_Query($typeNews);
+    if ($typeNewsList->have_posts()) {
+        foreach ($typeNewsList as $typeNewsLists) {
+            $pagedMedia = $typeNewsLists["news-page-type"];
+            break;
+        }
+    }
+
+    var_dump($_GET["type"]);
+    // Весь список
+    $allElementsNews = array('post_type' => 'news_gallery', 'posts_per_page' => -1, 'orderby' => 'date');
+    $allElementsNewsList = new WP_Query($allElementsNews);
+
+    wp_reset_postdata();
+?>
 
     <main>
         <section class="news">
@@ -12,9 +48,12 @@ Template Name: About
                 <div class="news-title">
                     <div class="news-title__text">События</div>
                     <div class="news-tags">
-                        <a class="news-tags__item">Модный блог</a>
-                        <a class="news-tags__item">Новости</a>
-                        <a class="news-tags__item">Акция</a>
+                        <input class="news-tags__item-checkbox" data-news-type="fashion" id="1" type="checkbox">
+                        <label for="1" class="news-tags__item">Модный блог</label>
+                        <input class="news-tags__item-checkbox" data-news-type="news" id="2" type="checkbox">
+                        <label for="2" class="news-tags__item">Новости</label>
+                        <input class="news-tags__item-checkbox" data-news-type="promotion" id="3" type="checkbox">
+                        <label for="3" class="news-tags__item">Акции</label>
                     </div>
                 </div>
                 <div class="news__inner">

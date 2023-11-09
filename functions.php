@@ -17,3 +17,11 @@ require_once(__DIR__ . "/inc/AddPanelSettings.php");
  * Тэг <title> в header должен отсутствовать.
  */
 add_theme_support( 'title-tag' );
+
+add_action('wp_ajax_feedbackFunction', 'feedbackFunction');
+function feedbackFunction()
+ {
+    $checkedNews = $_POST['checkedNews'];
+    var_dump($checkedNews);
+    wp_die();
+ }

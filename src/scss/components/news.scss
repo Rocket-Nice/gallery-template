@@ -116,3 +116,13 @@
     }
   }
 }
+
+.news-tags__item-checkbox{
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+
+.news-tags__item:hover{
+  cursor: pointer;
+}
