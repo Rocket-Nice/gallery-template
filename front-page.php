@@ -12,102 +12,52 @@ Template Name: Front-page
                 <div class="horizontal-slider__container">
                     <div class="swiper horizontal-slider">
                         <div class="swiper-wrapper">
-                            <section class="swiper-slide main-slider full-window" data-scroll-slide data-header="reverse">
-                                <div class="swiper">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide main-slider-slide">
-                                            <div class="main-slider-slide__bg">
-                                                <img src="<?php bloginfo('template_url'); ?>/assets/images/main-slider-1.jpg" width="1920" height="1080" loading="lazy" decoding= "async" alt="">
-                                            </div>
-                                            <div class="main-slider-slide__content">
-                                                <div class="main-slider__pagination pagination-fraction --mob">
-                                                    <div class="fraction-wrapper">
-                                                        <span class="current">1</span>&nbsp;/&nbsp;<span class="total">3</span>
+                            <?php
+                            /*
+                                Блок Слайден на главной
+                            */
+                            $frontSlider = get_field('slide');
+                            if ($frontSlider) {
+                            ?>
+                                <section class="swiper-slide main-slider full-window" data-scroll-slide data-header="reverse">
+                                    <div class="swiper">
+                                        <div class="swiper-wrapper">
+                                            <?php foreach($frontSlider as $slide) { ?>
+                                                <div class="swiper-slide main-slider-slide">
+                                                    <div class="main-slider-slide__bg">
+                                                        <img src="<?= $slide["slide-img"]["url"] ?>" width="1920" height="1080" loading="lazy" decoding= "async" alt="">
+                                                    </div>
+                                                    <div class="main-slider-slide__content">
+                                                        <div class="main-slider__pagination pagination-fraction --mob">
+                                                            <div class="fraction-wrapper">
+                                                                <span class="current">1</span>&nbsp;/&nbsp;<span class="total">3</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="main-slider-slide__title">
+                                                           <?= $slide["slide-title"] ?>
+                                                        </div>
+                                                        <div class="main-slider-slide__subtitle">
+                                                            <?= $slide["slide-desc"] ?>
+                                                        </div>
+                                                        <div class="main-slider__navigation swiper-navigation --mob">
+                                                            <div class="swiper-navigation-button swiper-navigation-prev">
+                                                                <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M5 1L1 5L5 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="swiper-navigation-button swiper-navigation-next">
+                                                                <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M1 1L5 5L1 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="main-slider-slide__title">
-                                                    Новая коллекция<br>в TOM TAILOR!
-                                                </div>
-                                                <div class="main-slider-slide__subtitle">
-                                                    Настройся на динамичный ритм мегаполиса и размеренную атмосферу осени с новой коллекцией от Tom Tailor.
-                                                </div>
-                                                <div class="main-slider__navigation swiper-navigation --mob">
-                                                    <div class="swiper-navigation-button swiper-navigation-prev">
-                                                        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M5 1L1 5L5 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="swiper-navigation-button swiper-navigation-next">
-                                                        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M1 1L5 5L1 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide main-slider-slide">
-                                            <div class="main-slider-slide__bg">
-                                                <img src="<?php bloginfo('template_url'); ?>/assets/images/main-slider-1.jpg" width="1920" height="1080" loading="lazy" decoding= "async" alt="">
-                                            </div>
-                                            <div class="main-slider-slide__content">
-                                                <div class="main-slider__pagination pagination-fraction --mob">
-                                                    <div class="fraction-wrapper">
-                                                        <span class="current">2</span>&nbsp;/&nbsp;<span class="total">3</span>
-                                                    </div>
-                                                </div>
-                                                <div class="main-slider-slide__title">
-                                                    Новая коллекция<br>в TOM TAILOR!
-                                                </div>
-                                                <div class="main-slider-slide__subtitle">
-                                                    Настройся на динамичный ритм мегаполиса и размеренную атмосферу осени с новой коллекцией от Tom Tailor.
-                                                </div>
-                                                <div class="main-slider__navigation swiper-navigation --mob">
-                                                    <div class="swiper-navigation-button swiper-navigation-prev">
-                                                        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M5 1L1 5L5 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="swiper-navigation-button swiper-navigation-next">
-                                                        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M1 1L5 5L1 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide main-slider-slide">
-                                            <div class="main-slider-slide__bg">
-                                                <img src="<?php bloginfo('template_url'); ?>/assets/images/main-slider-1.jpg" width="1920" height="1080" loading="lazy" decoding= "async" alt="">
-                                            </div>
-                                            <div class="main-slider-slide__content">
-                                                <div class="main-slider__pagination pagination-fraction --mob">
-                                                    <div class="fraction-wrapper">
-                                                        <span class="current">3</span>&nbsp;/&nbsp;<span class="total">3</span>
-                                                    </div>
-                                                </div>
-                                                <div class="main-slider-slide__title">
-                                                    Новая коллекция<br>в TOM TAILOR!
-                                                </div>
-                                                <div class="main-slider-slide__subtitle">
-                                                    Настройся на динамичный ритм мегаполиса и размеренную атмосферу осени с новой коллекцией от Tom Tailor.
-                                                </div>
-                                                <div class="main-slider__navigation swiper-navigation --mob">
-                                                    <div class="swiper-navigation-button swiper-navigation-prev">
-                                                        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M5 1L1 5L5 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="swiper-navigation-button swiper-navigation-next">
-                                                        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M1 1L5 5L1 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <?php } ?>
                                         </div>
                                     </div>
-                                </div>
-                            </section>
+                                </section>
+                            <?php } ?>
                             <section class="swiper-slide main-info" data-scroll-slide data-header="default">
                                 <div class="main-info__container">
                                     <div class="main-info__inner">
@@ -124,7 +74,7 @@ Template Name: Front-page
                                             </div>
                                         </a>
                                         <a href="/catalog-open" class="main-info__item --yellow">
-                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/1.jpg" loading="lazy" decoding= "async" alt="">
+                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/2.jpg" loading="lazy" decoding= "async" alt="">
                                             <div class="main-info__hover"></div>
                                             <div class="main-info-desc">
                                                 <div class="main-info-desc__icon">
@@ -138,7 +88,7 @@ Template Name: Front-page
                                             </div>
                                         </a>
                                         <a href="/catalog-open" class="main-info__item --blue">
-                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/1.jpg" loading="lazy" decoding= "async" alt="">
+                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/3.jpg" loading="lazy" decoding= "async" alt="">
                                             <div class="main-info__hover"></div>
                                             <div class="main-info-desc">
                                                 <div class="main-info-desc__icon">
@@ -150,7 +100,7 @@ Template Name: Front-page
                                             </div>
                                         </a>
                                         <a href="/news" class="main-info__item --red">
-                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/1.jpg" loading="lazy" decoding= "async" alt="">
+                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/4.jpg" loading="lazy" decoding= "async" alt="">
                                             <div class="main-info__hover"></div>
                                             <div class="main-info-desc">
                                                 <div class="main-info-desc__icon">
@@ -162,7 +112,7 @@ Template Name: Front-page
                                             </div>
                                         </a>
                                         <a href="/map" class="main-info__item --green">
-                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/1.jpg" loading="lazy" decoding= "async" alt="">
+                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/5.jpg" loading="lazy" decoding= "async" alt="">
                                             <div class="main-info__hover"></div>
                                             <div class="main-info-desc">
                                                 <div class="main-info-desc__icon">
@@ -170,11 +120,11 @@ Template Name: Front-page
                                                         <path d="M9 19.5L3.79 21.237C3.69973 21.2671 3.60358 21.2754 3.5095 21.261C3.41542 21.2467 3.32611 21.2101 3.24893 21.1544C3.17175 21.0988 3.10893 21.0255 3.06565 20.9408C3.02236 20.856 2.99986 20.7622 3 20.667V5.933C3.00003 5.80714 3.03963 5.68447 3.11321 5.58236C3.18679 5.48025 3.29062 5.40386 3.41 5.364L9 3.5M9 19.5L15 21.5M9 19.5V3.5M9 3.5L15 5.5M15 21.5L20.59 19.637C20.7095 19.5971 20.8135 19.5205 20.8871 19.4182C20.9607 19.3159 21.0002 19.193 21 19.067V4.332C21 4.23692 20.9774 4.1432 20.934 4.05857C20.8907 3.97394 20.8278 3.90083 20.7507 3.84526C20.6735 3.78969 20.5843 3.75325 20.4902 3.73895C20.3962 3.72465 20.3002 3.73289 20.21 3.763L15 5.5M15 21.5V5.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                                     </svg>
                                                 </div>
-                                                <div class="main-info-desc__text">Схема ТРЦ</div>
+                                                <div class="main-info-desc__text">Схема ТЦ</div>
                                             </div>
                                         </a>
                                         <a href="/about" class="main-info__item --pink">
-                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/1.jpg" loading="lazy" decoding= "async" alt="">
+                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/6.jpg" loading="lazy" decoding= "async" alt="">
                                             <div class="main-info__hover"></div>
                                             <div class="main-info-desc">
                                                 <div class="main-info-desc__icon">
@@ -183,11 +133,11 @@ Template Name: Front-page
                                                         <path d="M12 11.5C12.2652 11.5 12.5196 11.3946 12.7071 11.2071C12.8946 11.0196 13 10.7652 13 10.5C13 10.2348 12.8946 9.98043 12.7071 9.79289C12.5196 9.60536 12.2652 9.5 12 9.5C11.7348 9.5 11.4804 9.60536 11.2929 9.79289C11.1054 9.98043 11 10.2348 11 10.5C11 10.7652 11.1054 11.0196 11.2929 11.2071C11.4804 11.3946 11.7348 11.5 12 11.5Z" fill="#F963AB" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                                     </svg>
                                                 </div>
-                                                <div class="main-info-desc__text">Как добраться</div>
+                                                <div class="main-info-desc__text">О ТЦ</div>
                                             </div>
                                         </a>
                                         <a href="/renter" class="main-info__item --white">
-                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/1.jpg" loading="lazy" decoding= "async" alt="">
+                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/7.jpg" loading="lazy" decoding= "async" alt="">
                                             <div class="main-info__hover"></div>
                                             <div class="main-info-desc">
                                                 <div class="main-info-desc__icon">
@@ -201,14 +151,22 @@ Template Name: Front-page
                                     </div>
                                 </div>
                             </section>
+                            <?php
+                            /*
+                                Блок Лучшие Мгазины
+                            */
+                            $bestShop_title = get_field('bestShop_title');
+                            $bestShop_subtitle = get_field('bestShop_subtitle');
+                            $bestShop_bg = get_field('bestShop_bg');
+                             ?>
                             <section class="swiper-slide main-firms" data-scroll-slide data-header="reverse">
                                 <div class="main-firms__wrapper">
                                     <div class="main-firms__bg">
-                                        <img src="<?php bloginfo('template_url'); ?>/assets/images/firms-bg.jpg" loading="lazy" decoding= "async" alt="">
+                                        <img src="<?= $bestShop_bg["url"] ?>" loading="lazy" decoding= "async" alt="">
                                     </div>
                                     <div class="main-firms__container">
-                                        <div class="main-firms__subtitle">У нас представлены</div>
-                                        <div class="main-firms__title">лучшие<br>из лучших</div>
+                                        <div class="main-firms__subtitle"><?= $bestShop_subtitle ?></div>
+                                        <div class="main-firms__title"><?= $bestShop_title ?></div>
                                         <div class="main-firms__inner">
                                             <a href="#" class="main-firms__item">
                                                 <div class="main-firms__logo">
@@ -262,24 +220,34 @@ Template Name: Front-page
                                     </div>
                                 </div>
                             </section>
-                            <section class="swiper-slide main-video" data-scroll-slide data-header="reverse">
-                                <div class="main-video__wrapper">
-                                    <div class="main-video__container" data-video-bg>
-                                        <div class="main-video__text">
-                                            Стиль прошлого,<br>презентация коллекции
+                            <?php
+                            /*
+                                Блок Видео на главной
+                            */
+                            $videoBlockTitle = get_field('video_title');
+                            $videoBlockVideos = get_field('video_videos');
+                            if($videoBlockVideos["video_mp4"] || $videoBlockVideos["video_webm"] ) {
+                            ?>
+                                <section class="swiper-slide main-video" data-scroll-slide data-header="reverse">
+                                    <div class="main-video__wrapper">
+                                        <div class="main-video__container" data-video-bg>
+                                            <div class="main-video__text">
+                                               <?= $videoBlockTitle ?>
+                                            </div>
+                                            <div class="main-video__bg"></div>
+                                            <div class="main-video__play" data-video-play>
+                                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M37.0171 22.7699C38.3459 23.5406 38.3459 25.4594 37.0171 26.2301L18.0034 37.258C16.6701 38.0313 15 37.0693 15 35.5279L15 13.4721C15 11.9307 16.6701 10.9687 18.0034 11.742L37.0171 22.7699Z" fill="white"/>
+                                                </svg>
+                                            </div>
                                         </div>
-                                        <div class="main-video__bg"></div>
-                                        <div class="main-video__play" data-video-play>
-                                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M37.0171 22.7699C38.3459 23.5406 38.3459 25.4594 37.0171 26.2301L18.0034 37.258C16.6701 38.0313 15 37.0693 15 35.5279L15 13.4721C15 11.9307 16.6701 10.9687 18.0034 11.742L37.0171 22.7699Z" fill="white"/>
-                                            </svg>
-                                        </div>
+                                        <video class="main-video__item" loop data-video>
+                                            <source src="<?= $videoBlockVideos["video_mp4"]["url"] ?>" type="video/mp4">
+                                            <source src="<?= $videoBlockVideos["video_webm"]["url"] ?>" type="video/webm">
+                                        </video>
                                     </div>
-                                    <video class="main-video__item" loop data-video>
-                                        <source src="<?php bloginfo('template_url'); ?>/assets/video/main.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                            </section>
+                                </section>
+                            <?php } ?>
                             <section class="swiper-slide main-news" data-scroll-slide data-header="default">
                                 <div class="main-news__container">
                                     <div class="main-news__inner">

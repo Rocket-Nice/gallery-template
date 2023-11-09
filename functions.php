@@ -10,7 +10,7 @@ add_filter( 'show_admin_bar', '__return_false' );
  */
 require_once( 'inc/script_and_styles.php' );
 require_once(__DIR__ . "/inc/FormSend.php"); // отправка формы
-
+require_once(__DIR__ . "/inc/AddPanelSettings.php");
 /**
  * Включение автоматической подстановки title страниц.
  * В данном случае title прописывает плагин Yoast SEO

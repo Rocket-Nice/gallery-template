@@ -1,3 +1,4 @@
+<?php $options = get_option('gallery_settings'); ?>
 <footer class="footer" data-header="default">
     <div class="footer__container">
         <a href="/" class="footer__logo">
@@ -22,19 +23,27 @@
         <div class="footer-info">
             <div class="footer-info__item">
                 <div class="footer-info__title">Адрес</div>
-                <div class="footer-info__desc">Г.Владикавказ, Ул. Тамаева , д.22</div>
+                 <?php if ($options['gallery_contact_address'] !== ""){ ?>
+                    <div class="footer-info__desc"><?= $options['gallery_contact_address'] ?></div>
+                <?php } ?>
             </div>
             <div class="footer-info__item">
                 <div class="footer-info__title">Время работы</div>
-                <div class="footer-info__desc">10:00 - 22:00</div>
+                <?php if ($options['gallery_contact_time'] !== ""){ ?>
+                    <div class="footer-info__desc"><?= $options['gallery_contact_time'] ?></div>
+                <?php } ?>
             </div>
             <div class="footer-social">
-                <a href="#" class="footer-social__item">
-                    <img src="<?php bloginfo('template_url'); ?>/assets/icons/tg.svg" width="24" height="24" loading="lazy" decoding= "async" alt="">
-                </a>
-                <a href="#" class="footer-social__item">
-                    <img src="<?php bloginfo('template_url'); ?>/assets/icons/inst.svg" width="24" height="24" loading="lazy" decoding= "async" alt="">
-                </a>
+                 <?php if ($options['gallery_telegram_link'] !== ""){ ?>
+                    <a href="<?= $options['gallery_telegram_link'] ?>" class="footer-social__item">
+                        <img src="<?php bloginfo('template_url'); ?>/assets/icons/tg.svg" width="24" height="24" loading="lazy" decoding= "async" alt="">
+                    </a>
+                <?php } ?>
+                <?php if ($options['gallery_instagram_link'] !== ""){ ?>
+                    <a href="<?= $options['gallery_instagram_link'] ?>" class="footer-social__item">
+                        <img src="<?php bloginfo('template_url'); ?>/assets/icons/inst.svg" width="24" height="24" loading="lazy" decoding= "async" alt="">
+                    </a>
+                <?php } ?>
             </div>
         </div>
         <div class="footer-bottom">
