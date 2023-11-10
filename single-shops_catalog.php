@@ -76,87 +76,95 @@
                                  <?php } ?>
                             </div>
                         </div>
+                        <?php $post_terms = wp_get_post_terms($post->ID, 'shop_type');?>
                         <div class="catalog-single-tags">
-                            <div class="catalog-single-tags__item">Женская одежда</div>
-                            <div class="catalog-single-tags__item">Мужская одежда</div>
-                            <div class="catalog-single-tags__item">Обувь</div>
-                            <div class="catalog-single-tags__item">Аксессуары</div>
-                            <div class="catalog-single-tags__item">Одежда</div>
+                            <?php
+                            foreach($post_terms as $post_term) {
+                                if(!$post_term->parent) continue;
+                                ?>
+                                <div class="catalog-single-tags__item"><?= $post_term->name ?></div>
+                            <?php } ?>
                         </div>
                         <div class="catalog-single-text">
                             <div class="catalog-single-text__bg"></div>
                             <div class="catalog-single-text__inner" data-read-text="catalog-single">
-                                <p>
-                                    Armani Exchange – молодежная линия стильной одежды и аксессуаров итальянского модного дома Giorgio Armani. Философия бренда Armani Exchange заключается в идее о глобальном стиле, который сочетает в себе итальянскую изысканность и остромодные молодежные элементы. Смелость и демократичность — основные отличия этой марки от других брендов, выпускаемых <a href="#">Джорджио Армани</a>.<br>
-                                    Armani Exchange — это стиль амбициозных молодых людей, которых привлекает качество и модные тренды. Коллекции Armani Exchange выбирают Рианна, Перис Хилтон, Блейк Лайвли, Линдси Лохан, Ева Лонгория, Николь Ричи и другие известные персоны.<br>
-                                    В магазине Armani Exchange действует бонусная программа по картам FASHION CLUB.<br>
-                                    Совершайте покупки в магазине, получайте от 3% до 20% бонусных баллов на карту с каждой покупки и списывайте их с любого уровня бонусной карты. Все коллекции представленные в магазине Armani Exchange, можно найти в интернет-магазине www.lgcity.ru и мобильном приложении сети.<br>
-                                    В магазинах сети также можно приобрести подарочные карты Armani Exchange с различными номиналами.<br>
-                                </p>
+                              <?php $main_info = get_field('shop_description');
+                              echo $main_info; ?>
                             </div>
                             <button class="catalog-single-text__btn" data-read-more="catalog-single">Читать полностью</button>
                         </div>
                     </div>
-                    <div class="side">
-                        <div class="catalog-single-sliders">
-                            <div class="catalog-single-sliders__big">
-                                <div class="swiper">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/single-1.jpg" loading="lazy" decoding= "async" alt="">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/single-2.jpg" loading="lazy" decoding= "async" alt="">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/single-3.jpg" loading="lazy" decoding= "async" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="catalog-single-sliders__little">
-                                <div class="swiper">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/single-2.jpg" loading="lazy" decoding= "async" alt="">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/single-3.jpg" loading="lazy" decoding= "async" alt="">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/single-1.jpg" loading="lazy" decoding= "async" alt="">
+                    <?php
+                    $gallery = get_field('shop_gallery');
+                    if($gallery) {
+                    ?>
+                        <div class="side">
+                            <div class="catalog-single-sliders">
+                                <div class="catalog-single-sliders__big">
+                                    <div class="swiper">
+                                        <div class="swiper-wrapper">
+                                            <?php
+                                           foreach($gallery as $gallery_item) { ?>
+                                               <div class="swiper-slide">
+                                                   <img src="<?= $gallery_item["url"] ?>" loading="lazy" decoding= "async" alt="">
+                                               </div>
+                                           <?php } ?>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="swiper">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/single-3.jpg" loading="lazy" decoding= "async" alt="">
+                                <div class="catalog-single-sliders__little">
+                                    <div class="swiper">
+                                        <div class="swiper-wrapper">
+                                            <?php
+                                            for($i = 1; $i < count($gallery); $i++ ) {?>
+                                                <div class="swiper-slide">
+                                                    <img src="<?= $gallery[$i]["url"] ?>" loading="lazy" decoding= "async" alt="">
+                                                </div>
+                                            <?php }
+                                            if(count($gallery) >= 1) {?>
+                                                <div class="swiper-slide">
+                                                    <img src="<?= $gallery[0]["url"] ?>" loading="lazy" decoding= "async" alt="">
+                                                </div>
+                                            <?php } ?>
                                         </div>
-                                        <div class="swiper-slide">
-                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/single-1.jpg" loading="lazy" decoding= "async" alt="">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/single-2.jpg" loading="lazy" decoding= "async" alt="">
+                                    </div>
+                                    <div class="swiper">
+                                        <div class="swiper-wrapper">
+                                            <?php
+                                           for($i = 2; $i < count($gallery); $i++ ) { ?>
+                                               <div class="swiper-slide">
+                                                   <img src="<?= $gallery[$i]["url"] ?>" loading="lazy" decoding= "async" alt="">
+                                               </div>
+                                           <?php }
+                                           if(count($gallery) >= 1) { ?>
+                                               <div class="swiper-slide">
+                                                   <img src="<?= $gallery[0]["url"] ?>" loading="lazy" decoding= "async" alt="">
+                                               </div>
+                                           <?php }
+                                           if(count($gallery) >= 2) { ?>
+                                              <div class="swiper-slide">
+                                                  <img src="<?= $gallery[1]["url"] ?>" loading="lazy" decoding= "async" alt="">
+                                              </div>
+                                           <?php } ?>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="catalog-single-sliders__navigation swiper-navigation">
-                                <div class="swiper-navigation-button swiper-navigation-prev">
-                                    <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5 1L1 5L5 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
+                                <div class="catalog-single-sliders__navigation swiper-navigation">
+                                    <div class="swiper-navigation-button swiper-navigation-prev">
+                                        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 1L1 5L5 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="swiper-navigation-button swiper-navigation-next">
+                                        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1 1L5 5L1 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
                                 </div>
-                                <div class="swiper-navigation-button swiper-navigation-next">
-                                    <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M1 1L5 5L1 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </div>
+                                <div class="catalog-single-sliders__pagination pagination-fraction"></div>
                             </div>
-                            <div class="catalog-single-sliders__pagination pagination-fraction"></div>
                         </div>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
             <div class="catalog-single__container --desk">
@@ -209,33 +217,34 @@
                     <div class="side">
                         <div class="catalog-single-time">
                             <div class="catalog-single-time__inner">
-                                <div class="catalog-single-time__item">
+                            <?php $weekDay = date('w'); ?>
+                                <div class="catalog-single-time__item <?php if($weekDay === '0') echo '--active' ?>">
                                     <div class="catalog-single-time__title">Пн</div>
-                                    <div class="catalog-single-time__info">10:00<br>22:00</div>
+                                    <div class="catalog-single-time__info"><?= get_field('monday_time') ?></div>
                                 </div>
-                                <div class="catalog-single-time__item">
+                                <div class="catalog-single-time__item <?php if($weekDay === '1') echo '--active' ?>">
                                     <div class="catalog-single-time__title">Вт</div>
-                                    <div class="catalog-single-time__info">10:00<br>22:00</div>
+                                    <div class="catalog-single-time__info"><?= get_field('tuesday_time') ?></div>
                                 </div>
-                                <div class="catalog-single-time__item">
+                                <div class="catalog-single-time__item <?php if($weekDay === '2') echo '--active' ?>">
                                     <div class="catalog-single-time__title">Ср</div>
-                                    <div class="catalog-single-time__info">10:00<br>22:00</div>
+                                    <div class="catalog-single-time__info"><?= get_field('wednesday_time') ?></div>
                                 </div>
-                                <div class="catalog-single-time__item">
+                                <div class="catalog-single-time__item <?php if($weekDay === '3') echo '--active' ?>">
                                     <div class="catalog-single-time__title">Чт</div>
-                                    <div class="catalog-single-time__info">10:00<br>22:00</div>
+                                    <div class="catalog-single-time__info"><?= get_field('thursday_time') ?></div>
                                 </div>
-                                <div class="catalog-single-time__item">
+                                <div class="catalog-single-time__item <?php if($weekDay === '4') echo '--active' ?>">
                                     <div class="catalog-single-time__title">Пт</div>
-                                    <div class="catalog-single-time__info">10:00<br>22:00</div>
+                                    <div class="catalog-single-time__info"><?= get_field('friday_time') ?></div>
                                 </div>
-                                <div class="catalog-single-time__item --active">
+                                <div class="catalog-single-time__item <?php if($weekDay === '5') echo '--active' ?>">
                                     <div class="catalog-single-time__title">Сб</div>
-                                    <div class="catalog-single-time__info">10:00<br>22:00</div>
+                                    <div class="catalog-single-time__info"><?= get_field('saturday_time') ?></div>
                                 </div>
-                                <div class="catalog-single-time__item">
+                                <div class="catalog-single-time__item <?php if($weekDay === '6') echo '--active' ?>">
                                     <div class="catalog-single-time__title">Вс</div>
-                                    <div class="catalog-single-time__info">10:00<br>22:00</div>
+                                    <div class="catalog-single-time__info"><?= get_field('sunday_time') ?></div>
                                 </div>
                             </div>
                         </div>
