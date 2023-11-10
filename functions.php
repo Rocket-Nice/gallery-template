@@ -18,7 +18,15 @@ require_once(__DIR__ . "/inc/AddPanelSettings.php");
  */
 add_theme_support( 'title-tag' );
 
-add_action('wp_ajax_feedbackFunction', 'feedbackFunction');
+// скрипт добавления ajax в скрипт NewsSort.js
+function enqueue_custom_scripts() {
+    wp_enqueue_script('your-custom-script', get_template_directory_uri() . '/js/NewsSort.js', array('jquery'), null, true);
+    wp_localize_script('your-custom-script', 'custom_vars', array(
+        'ajaxurl' => admin_url('admin-ajax.php'),
+    ));
+}
+add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
+
 function feedbackFunction()
  {
     $checkedNews = $_POST['checkedNews'];
@@ -26,6 +34,7 @@ function feedbackFunction()
     wp_die();
  }
  
+add_action('wp_ajax_feedbackFunction', 'feedbackFunction');
  function load_more_posts() {
    $page = $_POST['page'];
    

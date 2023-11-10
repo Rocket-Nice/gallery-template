@@ -104,53 +104,6 @@ Template Name: About
                     }
                 ?>
                 </div>
-                <script>
-                    let page = 2;
-                    let loading = false;
-                    let postsPerPage = 6;
-                    let offsetBeforeLoad = 250;
-
-                    function loadMorePosts() {
-                        if (loading) {
-                            return;
-                        }
-
-                        loading = true;
-
-                        let ajaxurl = '<?php echo admin_url('/admin-ajax.php'); ?>';
-                        let container = document.querySelector('.news__inner');
-                        let urlParams = new URLSearchParams(window.location.search);
-                        let newsType = urlParams.getAll('type');
-
-                        let xhr = new XMLHttpRequest();
-                        xhr.open('POST', ajaxurl, true);
-
-                        let data = new FormData();
-                        data.append('action', 'load_more_posts');
-                        data.append('posts_per_page', postsPerPage);
-                        data.append('page', page);
-                        data.append('news_type', newsType);
-
-                        xhr.onreadystatechange = function () {
-                            if (xhr.readyState === 4 && xhr.status === 200) {
-                                let response = JSON.parse(xhr.responseText);
-                                if (response.success) {
-                                    container.innerHTML += response.data.html;
-                                    loading = false;
-                                    page++;
-                                }
-                            }
-                        };
-
-                        xhr.send(data);
-                    }
-
-                    window.onscroll = function () {
-                        if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - offsetBeforeLoad)) {
-                            loadMorePosts();
-                        }
-                    };
-                </script>
             </div>
         </section>
     </main>

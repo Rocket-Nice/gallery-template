@@ -1,62 +1,62 @@
 export default function NewsSort() {
   const checkedCheckboxes = document.querySelectorAll('input[type="checkbox"].news-tags__item-checkbox');
   let currentTypes = [];
-  
+
   // запоминалка состояния чекбоксов
   function restoreCheckboxState() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const typeParam = urlParams.get('type');
-  
-    if (typeParam) {
-      currentTypes = typeParam.split(',');
-  
-      checkedCheckboxes.forEach(btn => {
-        const newsType = btn.dataset.newsType;
-        const isChecked = currentTypes.includes(newsType);
-  
-        btn.checked = isChecked;
-        if (isChecked) {
-          btn.nextElementSibling.classList.add('--active');
-        } else {
-          btn.nextElementSibling.classList.remove('--active');
-        }
-      });
-    }
-  }
-  
-  restoreCheckboxState();
-  
-  checkedCheckboxes.forEach(btn => {
-    btn.addEventListener('change', (event) => {
       const urlParams = new URLSearchParams(window.location.search);
-      let label = document.querySelector(`[for="${event.target.id}"]`);
-      const newsType = event.target.dataset.newsType;
-  
-      if (event.currentTarget.checked) {
-        currentTypes.push(newsType);
-        label.classList.add('--active');
-      } else {
-        label.classList.remove('--active');
-        const index = currentTypes.indexOf(newsType);
-        if (index !== -1) {
-          currentTypes.splice(index, 1);
-        }
-      }
-  
-      if (currentTypes.length > 0) {
-        urlParams.set('type', currentTypes.join(','));
-      } else {
-        urlParams.delete('type');
-      }
-  
-      const newUrl = window.location.origin + window.location.pathname + '?' + urlParams.toString();
+      const typeParam = urlParams.get('type');
 
-      window.location.replace(newUrl);
-  
-      sendForm(newUrl);
-    });
+      if (typeParam) {
+          currentTypes = typeParam.split(',');
+
+          checkedCheckboxes.forEach(btn => {
+              const newsType = btn.dataset.newsType;
+              const isChecked = currentTypes.includes(newsType);
+
+              btn.checked = isChecked;
+              if (isChecked) {
+                  btn.nextElementSibling.classList.add('--active');
+              } else {
+                  btn.nextElementSibling.classList.remove('--active');
+              }
+          });
+      }
+  }
+
+  restoreCheckboxState();
+
+  checkedCheckboxes.forEach(btn => {
+      btn.addEventListener('change', (event) => {
+          const urlParams = new URLSearchParams(window.location.search);
+          let label = document.querySelector(`[for="${event.target.id}"]`);
+          const newsType = event.target.dataset.newsType;
+
+          if (event.currentTarget.checked) {
+              currentTypes.push(newsType);
+              label.classList.add('--active');
+          } else {
+              label.classList.remove('--active');
+              const index = currentTypes.indexOf(newsType);
+              if (index !== -1) {
+                  currentTypes.splice(index, 1);
+              }
+          }
+
+          if (currentTypes.length > 0) {
+              urlParams.set('type', currentTypes.join(','));
+          } else {
+              urlParams.delete('type');
+          }
+
+          const newUrl = window.location.origin + window.location.pathname + '?' + urlParams.toString();
+
+          window.location.replace(newUrl);
+
+          sendForm(newUrl);
+      });
   });
-  
+
   // вариант без обновления страницы
 
   /** 
@@ -120,30 +120,77 @@ export default function NewsSort() {
     });
   */
 
-// функция обработки бэкенда
-async function sendForm(checkedNews) {
-  const data = new FormData();
-  data.append('action', 'feedbackFunction'); 
-  data.append('checkedNews', checkedNews);
-  
-  await fetch("/gallery/wp-admin/admin-ajax.php", { //удалить /gallery/
-      method: "POST",
-      body: data,
-  })
+  // функция бесконечной загрузки постов новостей
+  let page = 2;
+  let loading = false;
+  let postsPerPage = 6;
+  let offsetBeforeLoad = 250;
 
-      .then((response) => {
-          if (response.status !== 200) {
-              return Promise.reject();
+  function loadMorePosts() {
+      if (loading) {
+          return;
+      }
+
+      loading = true;
+
+      let ajaxurl = custom_vars.ajaxurl;
+      let container = document.querySelector('.news__inner');
+      let urlParams = new URLSearchParams(window.location.search);
+      let newsType = urlParams.getAll('type');
+
+      let xhr = new XMLHttpRequest();
+      xhr.open('POST', ajaxurl, true);
+
+      let data = new FormData();
+      data.append('action', 'load_more_posts');
+      data.append('posts_per_page', postsPerPage);
+      data.append('page', page);
+      data.append('news_type', newsType);
+
+      xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+              let response = JSON.parse(xhr.responseText);
+              if (response.success) {
+                  container.innerHTML += response.data.html;
+                  loading = false;
+                  page++;
+              }
           }
-          return response.text()
-      })
-      .then((response) => {
-          console.log(response);
-          return true;
-      })
-      .catch(() => {
-          console.log('ошибка');
-          return false;
-      });
-}
+      };
+
+      xhr.send(data);
+  }
+
+  window.onscroll = function() {
+      if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - offsetBeforeLoad)) {
+          loadMorePosts();
+      }
+  };
+
+  // функция обработки бэкенда
+  async function sendForm(checkedNews) {
+      const data = new FormData();
+      data.append('action', 'feedbackFunction');
+      data.append('checkedNews', checkedNews);
+
+      await fetch("/gallery/wp-admin/admin-ajax.php", { //удалить /gallery/
+              method: "POST",
+              body: data,
+          })
+
+          .then((response) => {
+              if (response.status !== 200) {
+                  return Promise.reject();
+              }
+              return response.text()
+          })
+          .then((response) => {
+              console.log(response);
+              return true;
+          })
+          .catch(() => {
+              console.log('ошибка');
+              return false;
+          });
+  }
 }
