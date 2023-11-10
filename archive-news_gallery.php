@@ -6,38 +6,33 @@ Template Name: About
 
 <?php get_header(); ?>
 <?php
-    // Акции
-    $typePromotion = array('post_type' => 'news_gallery', 'posts_per_page' => -1, 'orderby' => 'date', 'news-page-type' => 'type_promotion');
-    $listTypePromotion = new WP_Query($typePromotion);
-    if ($listTypePromotion->have_posts()) {
-        foreach ($listTypePromotion as $listTypePromotions) {
-            $pagedMedia = $listTypePromotions["news-page-type"];
-            break;
-        }
-    }
-    // Модный блог
-    $typeFashion = array('post_type' => 'news_gallery', 'posts_per_page' => -1, 'orderby' => 'date', 'news-page-type' => 'type_fashion');
-    $typeFashionList = new WP_Query($typeFashion);
-    if ($typeFashionList->have_posts()) {
-        foreach ($typeFashionList as $typeFashionLists) {
-            $pagedMedia = $typeFashionLists["news-page-type"];
-            break;
-        }
-    }
-    // Новости
-    $typeNews = array('post_type' => 'news_gallery', 'posts_per_page' => -1, 'orderby' => 'date', 'news-page-type' => 'type-news');
-    $typeNewsList = new WP_Query($typeNews);
-    if ($typeNewsList->have_posts()) {
-        foreach ($typeNewsList as $typeNewsLists) {
-            $pagedMedia = $typeNewsLists["news-page-type"];
-            break;
+
+    $listResp = explode(",", $_GET['type']);
+    $arr = [];
+
+    foreach ($listResp as $k) {
+        if ($k === "news") {
+            $arr[] = 'news';
+        } elseif ($k === "fashion") {
+            $arr[] = 'fashion';
+        } elseif ($k === "promotion") {
+            $arr[] = 'promotion';
         }
     }
 
-    var_dump($_GET["type"]);
-    // Весь список
-    $allElementsNews = array('post_type' => 'news_gallery', 'posts_per_page' => -1, 'orderby' => 'date');
-    $allElementsNewsList = new WP_Query($allElementsNews);
+    $typePromotion = array('post_type' => 'news_gallery', 'posts_per_page' => 6, 'orderby' => 'date');
+
+    if (!empty($arr)) {
+        $typePromotion['tax_query'] = array(
+            array(
+                'taxonomy' => 'news-page-type',
+                'field'    => 'slug',
+                'terms'    => $arr,
+            ),
+        );
+    }
+
+    $listTypePromotion = new WP_Query($typePromotion);
 
     wp_reset_postdata();
 ?>
@@ -57,58 +52,105 @@ Template Name: About
                     </div>
                 </div>
                 <div class="news__inner">
-                    <a href="/news/news-1" class="news-card">
-                        <div class="news-card__bg">
-                            <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
-                            <div class="news-card__bg-hover"></div>
-                        </div>
-                        <div class="news-card__content">
-                            <div class="news-card__info">
-                                <div class="news-card__tag --yellow">Акция</div>
-                                <div class="news-card__date">24.07 – 05.08</div>
-                            </div>
-                            <div class="news-card__text">
-                                <div class="news-card__title">SALE до 30%</div>
-                                <div class="news-card__subtitle">в lady & gentleman CITY</div>
-                                <div class="news-card__desc">На старт, внимание, SALE*! В магазине lady & gentleman CITY вас ждут скидки до 30%** на коллекцию Весна-Лето.</div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="/news/news-1" class="news-card">
-                        <div class="news-card__bg">
-                            <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
-                            <div class="news-card__bg-hover"></div>
-                        </div>
-                        <div class="news-card__content">
-                            <div class="news-card__info">
-                                <div class="news-card__tag --red">Модный блог</div>
-                                <div class="news-card__date">22.07</div>
-                            </div>
-                            <div class="news-card__text">
-                                <div class="news-card__title">SALE до 30%</div>
-                                <div class="news-card__subtitle">в lady & gentleman CITY</div>
-                                <div class="news-card__desc">На старт, внимание, SALE*! В магазине lady & gentleman CITY вас ждут скидки до 30%** на коллекцию Весна-Лето.</div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="/news/news-1" class="news-card">
-                        <div class="news-card__bg">
-                            <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
-                            <div class="news-card__bg-hover"></div>
-                        </div>
-                        <div class="news-card__content">
-                            <div class="news-card__info">
-                                <div class="news-card__tag --blue">Новости</div>
-                                <div class="news-card__date">21.07</div>
-                            </div>
-                            <div class="news-card__text">
-                                <div class="news-card__title">SALE до 30%</div>
-                                <div class="news-card__subtitle">в lady & gentleman CITY</div>
-                                <div class="news-card__desc">На старт, внимание, SALE*! В магазине lady & gentleman CITY вас ждут скидки до 30%** на коллекцию Весна-Лето.</div>
-                            </div>
-                        </div>
-                    </a>
+                <?php
+                    if ($listTypePromotion->have_posts()) {
+                        while ($listTypePromotion->have_posts()) {
+                            $listTypePromotion->the_post();
+                            ?>
+                            <a href="<?= get_post_permalink() ?>" class="news-card">
+                                <div class="news-card__bg">
+                                    <?php if( get_field('news_photo_title') ) { ?>
+                                        <img src="<?= get_field('news_photo_title')["url"]; ?>" loading="lazy" decoding= "async" alt="">
+                                    <?php } ?>
+                                    <div class="news-card__bg-hover"></div>
+                                </div>
+                                <div class="news-card__content">
+                                    <div class="news-card__info">
+                                        <?php
+                                            $terms = get_the_terms(get_the_ID(), 'news-page-type');
+                                            if ($terms && !is_wp_error($terms)) {
+                                                $term = array_shift($terms);
+                                                $term_name = $term->name;
+                                                ?>
+                                                <div class="news-card__tag <?php if($term_name === "Новости") { ?>--blue <?php } elseif ($term_name === "Акция") {?> --yellow <?php } else { ?>--red <?php } ?>"><?= $term_name; ?></div>
+                                                <?php
+                                            }
+                                            ?>
+                                        <?php
+                                            $beginning_date = get_field('beginning_date');
+                                            $end_date = get_field('end_date');
+                                            $single_date_news = get_field("single_news_date");
+
+                                            if ($beginning_date && $end_date) {
+                                                $beginning_date_formatted = date_i18n('j.m', strtotime($beginning_date));
+                                                $end_date_formatted = date_i18n('j.m', strtotime($end_date));
+
+                                                echo '<div class="news-card__date">' . $beginning_date_formatted . ' – ' . $end_date_formatted . '</div>';
+                                            } elseif ($single_date_news) {
+                                                $single_date_formatted = date_i18n('j.m', strtotime($single_date_news));
+                                                echo '<div class="news-card__date">' . $single_date_formatted . '</div>';
+                                            }
+                                        ?>
+                                    </div>
+                                    <div class="news-card__text">
+                                        <div class="news-card__title"><?= get_field("news_title_archive"); ?></div>
+                                        <div class="news-card__subtitle"><?= get_field("news_subtitle_archive"); ?></div>
+                                        <div class="news-card__desc"><?= get_field("news_desc_title_archive"); ?></div>
+                                    </div>
+                                </div>
+                            </a>
+                    <?php
+                        }
+                    }
+                ?>
                 </div>
+                <script>
+                    let page = 2;
+                    let loading = false;
+                    let postsPerPage = 6;
+                    let offsetBeforeLoad = 250;
+
+                    function loadMorePosts() {
+                        if (loading) {
+                            return;
+                        }
+
+                        loading = true;
+
+                        let ajaxurl = '<?php echo admin_url('/admin-ajax.php'); ?>';
+                        let container = document.querySelector('.news__inner');
+                        let urlParams = new URLSearchParams(window.location.search);
+                        let newsType = urlParams.getAll('type');
+
+                        let xhr = new XMLHttpRequest();
+                        xhr.open('POST', ajaxurl, true);
+
+                        let data = new FormData();
+                        data.append('action', 'load_more_posts');
+                        data.append('posts_per_page', postsPerPage);
+                        data.append('page', page);
+                        data.append('news_type', newsType);
+
+                        xhr.onreadystatechange = function () {
+                            if (xhr.readyState === 4 && xhr.status === 200) {
+                                let response = JSON.parse(xhr.responseText);
+                                if (response.success) {
+                                    container.innerHTML += response.data.html;
+                                    loading = false;
+                                    page++;
+                                }
+                            }
+                        };
+
+                        xhr.send(data);
+                    }
+
+                    window.onscroll = function () {
+                        if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - offsetBeforeLoad)) {
+                            loadMorePosts();
+                        }
+                    };
+                </script>
             </div>
         </section>
     </main>
