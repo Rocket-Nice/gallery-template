@@ -8,26 +8,16 @@ Template Name: About
 <?php
 
     $listResp = explode(",", $_GET['type']);
-    $arr = [];
-
-    foreach ($listResp as $k) {
-        if ($k === "news") {
-            $arr[] = 'news';
-        } elseif ($k === "fashion") {
-            $arr[] = 'fashion';
-        } elseif ($k === "promotion") {
-            $arr[] = 'promotion';
-        }
-    }
+    $listResp = array_filter(array_map('trim', $listResp));
 
     $typePromotion = array('post_type' => 'news_gallery', 'posts_per_page' => 6, 'orderby' => 'date');
 
-    if (!empty($arr)) {
+    if (!empty($listResp)) {
         $typePromotion['tax_query'] = array(
             array(
                 'taxonomy' => 'news-page-type',
                 'field'    => 'slug',
-                'terms'    => $arr,
+                'terms'    => $listResp,
             ),
         );
     }

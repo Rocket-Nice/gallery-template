@@ -57,69 +57,6 @@ export default function NewsSort() {
       });
   });
 
-  // вариант без обновления страницы
-
-  /** 
-   const checkedCheckboxes = document.querySelectorAll('input[type="checkbox"].news-tags__item-checkbox');
-    let currentTypes = [];
-  
-    function restoreCheckboxState() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const typeParam = urlParams.get('type');
-  
-      if (typeParam) {
-        currentTypes = typeParam.split(',');
-  
-        checkedCheckboxes.forEach(btn => {
-          const newsType = btn.dataset.newsType;
-          const isChecked = currentTypes.includes(newsType);
-  
-          btn.checked = isChecked;
-          if (isChecked) {
-            btn.nextElementSibling.classList.add('--active');
-          } else {
-            btn.nextElementSibling.classList.remove('--active');
-          }
-        });
-      }
-    }
-
-    restoreCheckboxState();
-  
-    checkedCheckboxes.forEach(btn => {
-      btn.addEventListener('change', (event) => {
-        const urlParams = new URLSearchParams(window.location.search);
-        let label = document.querySelector(`[for="${event.target.id}"]`);
-        const newsType = event.target.dataset.newsType;
-  
-        if (event.currentTarget.checked) {
-          currentTypes.push(newsType);
-          label.classList.add('--active');
-        } else {
-          label.classList.remove('--active');
-          const index = currentTypes.indexOf(newsType);
-          if (index !== -1) {
-            currentTypes.splice(index, 1);
-          }
-        }
-  
-        if (currentTypes.length > 0) {
-          urlParams.set('type', currentTypes.join(','));
-        } else {
-          urlParams.delete('type');
-        }
-  
-        const newUrl = window.location.origin + window.location.pathname + '?' + urlParams.toString();
-  
-        const prettyParams = decodeURIComponent(urlParams.toString()).replace(/%2C/g, ",");
-  
-        history.replaceState(null, null, newUrl);
-  
-        sendForm(prettyParams);
-      });
-    });
-  */
-
   // функция бесконечной загрузки постов новостей
   let page = 2;
   let loading = false;
