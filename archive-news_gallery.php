@@ -89,6 +89,9 @@
                     }
                 ?>
                 </div>
+                <div class="lds-ellipsis--container">
+                    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                </div>
             </div>
         </section>
     </main>

@@ -62,46 +62,63 @@ export default function NewsSort() {
   let loading = false;
   let postsPerPage = 6;
   let offsetBeforeLoad = 250;
+  let noMorePosts = false;
 
   function loadMorePosts() {
-      if (loading) {
+      if (loading || noMorePosts) {
           return;
       }
 
       loading = true;
+      document.querySelector('.lds-ellipsis--container').style.display = "flex";
 
-      let ajaxurl = "/gallery/wp-admin/admin-ajax.php";
+      let ajaxurl = "/wp-admin/admin-ajax.php";
       let container = document.querySelector('.news__inner');
       let urlParams = new URLSearchParams(window.location.search);
       let newsType = urlParams.getAll('type');
 
       if (container) {
-        let xhr = new XMLHttpRequest();
-        xhr.open('POST', ajaxurl, true);
+          let xhr = new XMLHttpRequest();
+          xhr.open('POST', ajaxurl, true);
 
-        let data = new FormData();
-        data.append('action', 'load_more_posts');
-        data.append('posts_per_page', postsPerPage);
-        data.append('page', page);
-        data.append('news_type', newsType);
+          let data = new FormData();
+          data.append('action', 'load_more_posts');
+          data.append('posts_per_page', postsPerPage);
+          data.append('page', page);
+          data.append('news_type', newsType);
 
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                let response = JSON.parse(xhr.responseText);
-                if (response.success) {
-                    container.innerHTML += response.data.html;
-                    loading = false;
-                    page++;
-                }
-            }
-        };
+          xhr.onreadystatechange = function () {
+              if (xhr.readyState === 4) {
+                  setTimeout(function () {
+                      document.querySelector('.lds-ellipsis--container').style.display = "none";
+                  }, 200);
 
-        xhr.send(data);
+                  if (xhr.status === 200) {
+                      let response = JSON.parse(xhr.responseText);
+                      if (response.success) {
+                          container.innerHTML += response.data.html;
+                          loading = false;
+                          page++;
+
+                          // Проверка, было ли установлено noMorePosts до завершения запроса
+                          if (!response.data.has_more_posts) {
+                              noMorePosts = true;
+                              // Отключите обработчик скролла
+                              window.onscroll = null;
+                          }
+                      }
+                  }
+              }
+          };
+
+          xhr.send(data);
       }
   }
 
-  window.onscroll = function() {
-      if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - offsetBeforeLoad)) {
+  window.onscroll = function () {
+      if (noMorePosts) {
+          window.onscroll = null;
+      } else if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - offsetBeforeLoad)) {
           loadMorePosts();
       }
   };
