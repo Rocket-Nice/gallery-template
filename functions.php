@@ -18,23 +18,6 @@ require_once(__DIR__ . "/inc/AddPanelSettings.php");
  */
 add_theme_support( 'title-tag' );
 
-// скрипт добавления ajax в скрипт NewsSort.js
-function enqueue_custom_scripts() {
-    wp_enqueue_script('your-custom-script', get_template_directory_uri() . '/js/NewsSort.js', array('jquery'), null, true);
-    wp_localize_script('your-custom-script', 'custom_vars', array(
-        'ajaxurl' => admin_url('admin-ajax.php'),
-    ));
-}
-add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
-
-function feedbackFunction()
- {
-    $checkedNews = $_POST['checkedNews'];
-    var_dump($checkedNews);
-    wp_die();
- }
- 
-add_action('wp_ajax_feedbackFunction', 'feedbackFunction');
  function load_more_posts() {
    $page = $_POST['page'];
    
@@ -100,7 +83,9 @@ add_action('wp_ajax_feedbackFunction', 'feedbackFunction');
                        ?>
                    </div>
                    <div class="news-card__text">
-                       <div class="news-card__title"><?= get_field("news_title_archive"); ?></div>
+                        <div class="news-card__title"><?php if (get_field("news_title_archive") === "") {
+                                            echo the_title();
+                                        } else { echo get_field("news_title_archive"); }?></div>
                        <div class="news-card__subtitle"><?= get_field("news_subtitle_archive"); ?></div>
                        <div class="news-card__desc"><?= get_field("news_desc_title_archive"); ?></div>
                    </div>

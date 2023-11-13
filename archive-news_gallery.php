@@ -1,12 +1,5 @@
-<?php
-/*
-Template Name: About
-*/
-?>
-
 <?php get_header(); ?>
 <?php
-
     $listResp = explode(",", $_GET['type']);
     $listResp = array_filter(array_map('trim', $listResp));
 
@@ -83,7 +76,9 @@ Template Name: About
                                         ?>
                                     </div>
                                     <div class="news-card__text">
-                                        <div class="news-card__title"><?= get_field("news_title_archive"); ?></div>
+                                        <div class="news-card__title"><?php if (get_field("news_title_archive") === "") {
+                                            echo the_title();
+                                        } else { echo get_field("news_title_archive"); }?></div>
                                         <div class="news-card__subtitle"><?= get_field("news_subtitle_archive"); ?></div>
                                         <div class="news-card__desc"><?= get_field("news_desc_title_archive"); ?></div>
                                     </div>

@@ -129,16 +129,16 @@ Template Post Type: news_gallery
                                     </div>
                                 </div>
                             </div>
-                            <a href="#" class="dark-btn --desc">
-                                <div class="dark-btn__text">Перейти в магазин</div>
+                            <a href="<?= get_field("link_news"); ?>" <?php if (get_field("add_remove_target_blank")) { ?> target="_blank" <?php } ?> class="dark-btn --desc">
+                                <div class="dark-btn__text"><?= get_field("title_news_button"); ?></div>
                                 <div class="dark-btn__icon">
                                     <img src="<?php bloginfo('template_url'); ?>/assets/icons/btn-arrow.svg" width="24" height="24" loading="lazy" decoding= "async" alt="">
                                 </div>
                             </a>
                         </div>
                     </div>
-                    <a href="#" class="dark-btn --mobile">
-                        <div class="dark-btn__text">Перейти в магазин</div>
+                    <a href="<?= get_field("link_news"); ?>" <?php if (get_field("add_remove_target_blank")) { ?> target="_blank" <?php } ?> class="dark-btn --mobile">
+                        <div class="dark-btn__text"><?= get_field("title_news_button"); ?></div>
                         <div class="dark-btn__icon">
                             <img src="<?php bloginfo('template_url'); ?>/assets/icons/btn-arrow.svg" width="24" height="24" loading="lazy" decoding= "async" alt="">
                         </div>

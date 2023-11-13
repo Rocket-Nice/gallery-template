@@ -70,32 +70,34 @@ export default function NewsSort() {
 
       loading = true;
 
-      let ajaxurl = custom_vars.ajaxurl;
+      let ajaxurl = "/gallery/wp-admin/admin-ajax.php";
       let container = document.querySelector('.news__inner');
       let urlParams = new URLSearchParams(window.location.search);
       let newsType = urlParams.getAll('type');
 
-      let xhr = new XMLHttpRequest();
-      xhr.open('POST', ajaxurl, true);
+      if (container) {
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', ajaxurl, true);
 
-      let data = new FormData();
-      data.append('action', 'load_more_posts');
-      data.append('posts_per_page', postsPerPage);
-      data.append('page', page);
-      data.append('news_type', newsType);
+        let data = new FormData();
+        data.append('action', 'load_more_posts');
+        data.append('posts_per_page', postsPerPage);
+        data.append('page', page);
+        data.append('news_type', newsType);
 
-      xhr.onreadystatechange = function() {
-          if (xhr.readyState === 4 && xhr.status === 200) {
-              let response = JSON.parse(xhr.responseText);
-              if (response.success) {
-                  container.innerHTML += response.data.html;
-                  loading = false;
-                  page++;
-              }
-          }
-      };
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                let response = JSON.parse(xhr.responseText);
+                if (response.success) {
+                    container.innerHTML += response.data.html;
+                    loading = false;
+                    page++;
+                }
+            }
+        };
 
-      xhr.send(data);
+        xhr.send(data);
+      }
   }
 
   window.onscroll = function() {
@@ -103,31 +105,4 @@ export default function NewsSort() {
           loadMorePosts();
       }
   };
-
-  // функция обработки бэкенда
-  async function sendForm(checkedNews) {
-      const data = new FormData();
-      data.append('action', 'feedbackFunction');
-      data.append('checkedNews', checkedNews);
-
-      await fetch("/gallery/wp-admin/admin-ajax.php", { //удалить /gallery/
-              method: "POST",
-              body: data,
-          })
-
-          .then((response) => {
-              if (response.status !== 200) {
-                  return Promise.reject();
-              }
-              return response.text()
-          })
-          .then((response) => {
-              console.log(response);
-              return true;
-          })
-          .catch(() => {
-              console.log('ошибка');
-              return false;
-          });
-  }
 }
