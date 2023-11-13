@@ -40,6 +40,7 @@ Template Post Type: news_gallery
                             <?php
                                 $beginning_date = get_field('beginning_date');
                                 $end_date = get_field('end_date');
+                                $single_date_news = get_field("single_news_date");
 
                                 $month_shortenings = array(
                                     'января' => 'янв.',
@@ -55,14 +56,21 @@ Template Post Type: news_gallery
                                     'ноября' => 'нояб.',
                                     'декабря' => 'дек.'
                                 );
+                                if ($beginning_date && $end_date) {
+                                    $beginning_date_formatted = date_i18n('j F', strtotime($beginning_date));
+                                    $end_date_formatted = date_i18n('j F', strtotime($end_date));
 
-                                $beginning_date_formatted = date_i18n('j F', strtotime($beginning_date));
-                                $end_date_formatted = date_i18n('j F', strtotime($end_date));
+                                    $beginning_date_formatted = strtr($beginning_date_formatted, $month_shortenings);
+                                    $end_date_formatted = strtr($end_date_formatted, $month_shortenings);
 
-                                $beginning_date_formatted = strtr($beginning_date_formatted, $month_shortenings);
-                                $end_date_formatted = strtr($end_date_formatted, $month_shortenings);
-
-                                echo '<div class="custom-tag --black">с ' . $beginning_date_formatted . ' по ' . $end_date_formatted . '</div>';
+                                    echo '<div class="custom-tag --black">с ' . $beginning_date_formatted . ' по ' . $end_date_formatted . '</div>';
+                                } elseif($single_date_news) {
+                                    $single_date_formatted = date_i18n('j F', strtotime($single_date_news));
+    
+                                    $single_date_formatted = strtr($single_date_formatted, $month_shortenings);
+    
+                                    echo '<div class="custom-tag --black">' . $single_date_formatted . '</div>';
+                                }
                                 ?>
                         </div>
                         <div class="news-det__content">
@@ -121,16 +129,18 @@ Template Post Type: news_gallery
                                     </div>
                                 </div>
                             </div>
-                            <a href="#" class="dark-btn --desc">
-                                <div class="dark-btn__text">Перейти в магазин</div>
-                                <div class="dark-btn__icon">
-                                    <img src="<?php bloginfo('template_url'); ?>/assets/icons/btn-arrow.svg" width="24" height="24" loading="lazy" decoding= "async" alt="">
-                                </div>
-                            </a>
+                            <?php if (get_field("title_news_button") !== NULL){ ?>
+                                <a href="<?= get_field("link_news"); ?>" <?php if (get_field("add_remove_target_blank")) { ?> target="_blank" <?php } ?> class="dark-btn --desc">
+                                    <div class="dark-btn__text"><?= get_field("title_news_button"); ?></div>
+                                    <div class="dark-btn__icon">
+                                        <img src="<?php bloginfo('template_url'); ?>/assets/icons/btn-arrow.svg" width="24" height="24" loading="lazy" decoding= "async" alt="">
+                                    </div>
+                                </a>
+                            <?php } ?>
                         </div>
                     </div>
-                    <a href="#" class="dark-btn --mobile">
-                        <div class="dark-btn__text">Перейти в магазин</div>
+                    <a href="<?= get_field("link_news"); ?>" <?php if (get_field("add_remove_target_blank")) { ?> target="_blank" <?php } ?> class="dark-btn --mobile">
+                        <div class="dark-btn__text"><?= get_field("title_news_button"); ?></div>
                         <div class="dark-btn__icon">
                             <img src="<?php bloginfo('template_url'); ?>/assets/icons/btn-arrow.svg" width="24" height="24" loading="lazy" decoding= "async" alt="">
                         </div>
