@@ -1,0 +1,28 @@
+@use "../vars";
+@use "../responsive";
+
+.error-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    h1 {
+        font-size: 187px;
+        line-height: 1.2;
+        font-weight: bold;
+        color: #2F3542;
+
+        @media(max-width: 576px) {
+            font-size: 140px;
+        }
+    }
+
+    span {
+        font-size: 20px;
+        line-height: 1.2;
+        font-weight: bold;
+        color: #2F3542;
+        margin-bottom: 20px;
+    }
+}
