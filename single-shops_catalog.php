@@ -18,7 +18,8 @@
                             <path d="M20 10C20 14.418 12 22 12 22C12 22 4 14.418 4 10C4 7.87827 4.84285 5.84344 6.34315 4.34315C7.84344 2.84285 9.87827 2 12 2C14.1217 2 16.1566 2.84285 17.6569 4.34315C19.1571 5.84344 20 7.87827 20 10Z" stroke="#2F3542" stroke-width="1.5"/>
                             <path d="M12 11C12.2652 11 12.5196 10.8946 12.7071 10.7071C12.8946 10.5196 13 10.2652 13 10C13 9.73478 12.8946 9.48043 12.7071 9.29289C12.5196 9.10536 12.2652 9 12 9C11.7348 9 11.4804 9.10536 11.2929 9.29289C11.1054 9.48043 11 9.73478 11 10C11 10.2652 11.1054 10.5196 11.2929 10.7071C11.4804 10.8946 11.7348 11 12 11Z" fill="#2F3542" stroke="#2F3542" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        <p>3 этаж</p>
+                        <?php $postFloor = get_field('shop_floor'); ?>
+                        <p><?= $postFloor ?></p>
                         <span></span>
                         <p>Посмотреть на карте</p>
                     </a>
@@ -76,11 +77,15 @@
                                  <?php } ?>
                             </div>
                         </div>
-                        <?php $post_terms = wp_get_post_terms($post->ID, 'shop_type');?>
+                        <?php
+                        $post_terms = [];
+                        $post_terms = array_merge($post_terms, wp_get_post_terms($post->ID, 'shop_type'));
+                        $post_terms = array_merge($post_terms, wp_get_post_terms($post->ID, 'food_type'));
+                        $post_terms = array_merge($post_terms, wp_get_post_terms($post->ID, 'services_type'));
+                        ?>
                         <div class="catalog-single-tags">
                             <?php
                             foreach($post_terms as $post_term) {
-                                if(!$post_term->parent) continue;
                                 ?>
                                 <div class="catalog-single-tags__item"><?= $post_term->name ?></div>
                             <?php } ?>

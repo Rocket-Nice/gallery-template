@@ -2,6 +2,13 @@
 @use "../responsive";
 
 .catalog {
+  &__content {
+    display: none;
+    &.--show {
+      display: block;
+    }
+  }
+
   &-page {
     padding: 147px 0 140px;
 
@@ -411,6 +418,15 @@
           }
         }
       }
+    }
+  }
+}
+
+.cards-catalog {
+  .catalog-title-head {
+    display: none;
+    &.--show {
+      display: flex;
     }
   }
 }
