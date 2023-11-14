@@ -1,29 +1,5 @@
 <?php get_header(); ?>
 <?php
-    // before variant
-
-    // $listResp = explode(",", $_GET['type']);
-    // $arr = [];
-    // foreach ($listResp as $k) {
-    //     if ($k === "news") {
-    //         $arr[] = 'news';
-    //     } elseif ($k === "fashion") {
-    //         $arr[] = 'fashion';
-    //     } elseif ($k === "promotion") {
-    //         $arr[] = 'promotion';
-    //     }
-    // }
-    // $typePromotion = array('post_type' => 'news_gallery', 'posts_per_page' => 6, 'orderby' => 'date');
-    // if (!empty($arr)) {
-    //     $typePromotion['tax_query'] = array(
-    //         array(
-    //             'taxonomy' => 'news-page-type',
-    //             'field'    => 'slug',
-    //             'terms'    => $arr,
-    //         ),
-    //     );
-    // }
-
     $listResp = explode(",", $_GET['type']);
     $listResp = array_filter(array_map('trim', $listResp));
 
