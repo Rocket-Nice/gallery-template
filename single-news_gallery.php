@@ -129,7 +129,7 @@ Template Post Type: news_gallery
                                     </div>
                                 </div>
                             </div>
-                            <?php if (get_field("title_news_button") !== NULL){ ?>
+                            <?php if ((get_field("title_news_button") !== NULL) && (get_field("title_news_button") !== "")){ ?>
                                 <a href="<?= get_field("link_news"); ?>" <?php if (get_field("add_remove_target_blank")) { ?> target="_blank" <?php } ?> class="dark-btn --desc">
                                     <div class="dark-btn__text"><?= get_field("title_news_button"); ?></div>
                                     <div class="dark-btn__icon">

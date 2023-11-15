@@ -163,6 +163,4 @@ export default function NewsSort() {
     }
     // Установка обработчика скролла
     window.onscroll = handleScroll;
-
-  loadPosts();
 }
