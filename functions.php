@@ -191,3 +191,66 @@ function load_posts() {
 
 add_action('wp_ajax_load_more_posts', 'load_more_posts');
 add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
+
+function load_catalog_posts() {
+    $page = $_POST["page"];
+    $args = array(
+        'post_type' => 'shops_catalog',
+        'posts_per_page' => 9,
+        'paged' => $page,
+    );
+
+    if ($_POST["type"] !== 'null') {
+        $args['tax_query'] = array(
+            array(
+                'taxonomy' => $_POST["type"]."_type",
+                'operator' => 'EXISTS'
+            ),
+        );
+    }
+
+    if ($_POST["category"] !== 'null') {
+        $args['tax_query'] = array(
+            array(
+                'taxonomy' => $_POST["type"]."_type",
+                'field'    => 'slug',
+                'terms'    => $categoryList,
+            ),
+        );
+    }
+    $query = new WP_Query($args);
+    ob_start();
+    if($query->have_posts()) {
+        while($query->have_posts()) {
+        $query->the_post();
+        $postLogo = get_field('shop_logo');
+        $postFloor = get_field('shop_floor');
+        $postTags = [];
+        $postTags = array_merge($postTags, wp_get_post_terms($post->ID, 'shop_type'));
+        $postTags = array_merge($postTags, wp_get_post_terms($post->ID, 'food_type'));
+        $postTags = array_merge($postTags, wp_get_post_terms($post->ID, 'services_type'));
+        $postTags = wp_list_pluck($postTags, "name");
+    ?>
+        <div class="catalog-card" data-place>
+            <div class="catalog-card__img">
+                <img src="<?= $postLogo['url'] ?>" loading="lazy" decoding= "async" alt="">
+            </div>
+            <div class="catalog-card__content">
+                <a href="<?= get_post_permalink() ?>" class="catalog-card__title" data-link><?php the_title() ?></a>
+                <div class="catalog-card__tags"><?= implode(', ', $postTags) ?></div>
+                <div class="catalog-card__info">
+                    <div class="catalog-card__floor"><?= $postFloor ?></div>
+                    <a href="#map" class="catalog-card__map">Показать на карте</a>
+                </div>
+            </div>
+        </div>
+    <?php }
+    }
+    $output = ob_get_clean();
+    wp_send_json_success(array('html' => $output, 'post' => $query->have_posts()));
+    die();
+}
+
+add_action('wp_ajax_load_catalog_posts', 'load_catalog_posts');
+add_action('wp_ajax_nopriv_load_catalog_posts', 'load_catalog_posts');
+

@@ -1,6 +1,9 @@
 export default function CatalogFilters() {
   const mainContent = document.querySelector('.catalog__content.main-content ');
   const cardsCatalog = document.querySelector('.catalog__content.cards-catalog ');
+  if (cardsCatalog) {
+    const cardsContainer = cardsCatalog.querySelector('.catalog-cards');
+  }
 
   const filterButtons = document.querySelectorAll('.sidebar-block-body__item');
   if (filterButtons.length > 0) {
@@ -8,6 +11,7 @@ export default function CatalogFilters() {
       btn.addEventListener('click', () => {
         btn.classList.toggle('--checked');
         window.history.replaceState("object or string", "Title", '?' + getUrl());
+        updateCatalog()
       });
     });
   }
@@ -20,7 +24,7 @@ export default function CatalogFilters() {
       if (openedContainer) {
         openedContainer.classList.remove('--open');
         const selectedChars = openedContainer.querySelectorAll('.sidebar-block-body__item.--checked');
-        selectedChars.forEach((selectedChar)=> {
+        selectedChars.forEach((selectedChar) => {
           selectedChar.classList.remove('--checked');
         })
       }
@@ -31,26 +35,74 @@ export default function CatalogFilters() {
         container.classList.toggle('--open');
         // Скрытие/открытие заголовка таблиы с магазинами
         const showedTitle = cardsCatalog.querySelector('.catalog-title-head.--show');
-        if(showedTitle) {
+        if (showedTitle) {
           showedTitle.classList.remove('--show');
         }
         const checkedTitle = cardsCatalog.querySelector(`[data-title="${headBtn.dataset.type}"]`);
-        if(checkedTitle) {
+        if (checkedTitle) {
           checkedTitle.classList.add('--show');
         }
 
         cardsCatalog.classList.add('--show');
         mainContent.classList.remove('--show');
+        // Добаление гет параметров
+        window.history.replaceState("object or string", "Title", '?' + getUrl());
+        updateCatalog()
       } else { // Только смена контейнеров при ситуации когда все элементы свернуты
         mainContent.classList.add('--show');
         cardsCatalog.classList.remove('--show');
+        // Добаление гет параметров
+        window.history.replaceState("object or string", "Title", '?' + getUrl());
       }
 
-      // Добаление гет параметров
-      window.history.replaceState("object or string", "Title", '?' + getUrl());
     })
   })
 
+}
+
+function updateCatalog(page = 1) {
+  // Получаем параметры для фитльтрации
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const typeParams = urlParams.get('type');
+  const categoryParams = urlParams.get('category');
+
+  const cardsCatalog = document.querySelector('.catalog__content.cards-catalog ');
+
+    const cardsContainer = cardsCatalog.querySelector('.catalog-cards');
+    cardsContainer.innerHTML = '';
+
+
+  document.querySelector('.lds-ellipsis--container').style.display = "flex";
+
+  // Построение запроса
+  let ajaxurl = "/wp-admin/admin-ajax.php";
+  let xhr = new XMLHttpRequest();
+  xhr.open('POST', ajaxurl, true);
+
+  let data = new FormData();
+  data.append('action', 'load_catalog_posts');
+  data.append('page', page);
+  data.append('type', typeParams);
+  data.append('category', categoryParams);
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      setTimeout(function () {
+        document.querySelector('.lds-ellipsis--container').style.display = "none";
+      }, 200);
+
+      if (xhr.status === 200) {
+        let response = JSON.parse(xhr.responseText);
+        if (response.success) {
+          console.log(response.data.post)
+          cardsContainer.innerHTML = response.data.html;
+        }
+      }
+    }
+  };
+
+  xhr.send(data);
 }
 
 function getUrl() {

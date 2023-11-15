@@ -289,6 +289,9 @@ $query = new WP_Query($args);
                                 </div>
                             </a>
                         </div>
+                        <div class="lds-ellipsis--container">
+                            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                        </div>
                         <div class="catalog-cards">
                             <?php
                             if($query->have_posts()) {
