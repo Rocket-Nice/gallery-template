@@ -33,7 +33,7 @@ Template Name: About
                                             <img src="<?php bloginfo('template_url'); ?>/assets/icons/about-char-1.svg" width="48" height="48" loading="lazy" decoding= "async" alt="">
                                         </div>
                                         <div class="about-char-slide__title"><?= get_field("first_text_slider"); ?>м<sup>2</sup></div>
-                                        <div class="about-char-slide__desc">площадь</div>
+                                        <div class="about-char-slide__desc"><?= get_field("first_text_slider_down"); ?></div>
                                     </div>
                                 </div>
                             </div>
@@ -44,7 +44,7 @@ Template Name: About
                                             <img src="<?php bloginfo('template_url'); ?>/assets/icons/about-char-2.svg" width="48" height="48" loading="lazy" decoding= "async" alt="">
                                         </div>
                                         <div class="about-char-slide__title"><?= get_field("second_text_slider"); ?>м<sup>2</sup></div>
-                                        <div class="about-char-slide__desc">арендопригодная площадь</div>
+                                        <div class="about-char-slide__desc"><?= get_field("second_text_slider_down"); ?></div>
                                     </div>
                                 </div>
                             </div>
@@ -55,7 +55,7 @@ Template Name: About
                                             <img src="<?php bloginfo('template_url'); ?>/assets/icons/about-char-1.svg" width="48" height="48" loading="lazy" decoding= "async" alt="">
                                         </div>
                                         <div class="about-char-slide__title"><?= get_field("third_text_slider"); ?></div>
-                                        <div class="about-char-slide__desc">3 надземных и 2 надземных</div>
+                                        <div class="about-char-slide__desc"><?= get_field("third_text_slider_down"); ?><</div>
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@ Template Name: About
                                             <img src="<?php bloginfo('template_url'); ?>/assets/icons/about-char-4.svg" width="48" height="48" loading="lazy" decoding= "async" alt="">
                                         </div>
                                         <div class="about-char-slide__title"><?= get_field("fourth_text_slider"); ?></div>
-                                        <div class="about-char-slide__desc">магазинов</div>
+                                        <div class="about-char-slide__desc"><?= get_field("fourth_text_slider_down"); ?></div>
                                     </div>
                                 </div>
                             </div>
@@ -77,7 +77,7 @@ Template Name: About
                                             <img src="<?php bloginfo('template_url'); ?>/assets/icons/about-char-5.svg" width="48" height="48" loading="lazy" decoding= "async" alt="">
                                         </div>
                                         <div class="about-char-slide__title"><?= get_field("fifth_text_slider"); ?></div>
-                                        <div class="about-char-slide__desc">торговых островов</div>
+                                        <div class="about-char-slide__desc"><?= get_field("fifth_text_slider_down"); ?></div>
                                     </div>
                                 </div>
                             </div>
@@ -169,7 +169,27 @@ Template Name: About
                                     }
                                 }
                         ?>
-                        <a href="#about-contacts" class="dark-btn">
+                        <?php if( have_rows('title_and_elements_2') ){ ?>
+                            <?php while( have_rows('title_and_elements_2') ){ the_row(); 
+                                ?>
+                                <div class="about-info__block">
+                                    <div class="about-info__title"><?= get_sub_field("title_third_section"); ?></div>
+                                    <div class="about-info__inner">
+                                        <?php if( have_rows('title_and_text_element') ){ ?>
+                                            <?php while( have_rows('title_and_text_element') ){ the_row(); 
+                                                ?>
+                                            <div class="about-info__item <?php if(get_sub_field("green_or_not_bg")) { ?> --green <?php } ?>">
+                                                <div class="about-info__head"><?= get_sub_field("title_element"); ?></div>
+                                                <div class="about-info__desc"><?= get_sub_field("text_for_element"); ?></div>
+                                            </div>
+                                        <?php } }?>
+                                    </div>
+                            </div>
+                                <?php
+                                    }
+                                }
+                        ?>
+                        <a href="#about-contacts" class="dark-btn link-to">
                             <div class="dark-btn__text">О ТЦ</div>
                             <div class="dark-btn__icon">
                                 <img src="<?php bloginfo('template_url'); ?>/assets/icons/btn-arrow.svg" width="24" height="24" loading="lazy" decoding= "async" alt="">
@@ -184,8 +204,8 @@ Template Name: About
                     <div class="about-rates__container">
                         <div class="about-rates__title"><?= get_field("big_text_fourth_section"); ?></div>
                         <div class="about-rates__subtitle"><?= get_field("small_text_fourth_section"); ?></div>
-                        <a href="#" class="dark-btn" style="display: none;">
-                            <div class="dark-btn__text">Иформация о тарифах</div>
+                        <a href="#" class="dark-btn dis-none">
+                            <div class="dark-btn__text">Информация о тарифах</div>
                             <div class="dark-btn__icon">
                                 <img src="<?php bloginfo('template_url'); ?>/assets/icons/btn-arrow.svg" width="24" height="24" loading="lazy" decoding= "async" alt="">
                             </div>

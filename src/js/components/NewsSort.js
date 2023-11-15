@@ -1,4 +1,6 @@
 export default function NewsSort() {
+
+  // Смена табов новостей
   const checkedCheckboxes = document.querySelectorAll('input[type="checkbox"].news-tags__item-checkbox');
   let currentTypes = [];
 
@@ -51,16 +53,56 @@ export default function NewsSort() {
 
           const newUrl = window.location.origin + window.location.pathname + '?' + urlParams.toString();
 
-          window.location.replace(newUrl);
-
-          sendForm(newUrl);
+          history.replaceState(null, null, newUrl);
+          loadPosts();
+          noMorePosts = false;
+          page = 2;
+          window.onscroll = handleScroll;
       });
-  });
+  });  
+ 
+  // загрузка постов при смене табов без перезагрузки
+  let loadingPosts = false;
+
+  function loadPosts() {
+    if (loadingPosts) {
+        return;
+    }
+
+    loadingPosts = true;
+
+    let ajaxurl = "/gallery/wp-admin/admin-ajax.php";
+    let container = document.querySelector('.news__inner');
+    let urlParams = new URLSearchParams(window.location.search);
+    let newsType = urlParams.getAll('type');
+
+    if (container) {
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', ajaxurl, true);
+
+        let data = new FormData();
+        data.append('action', 'load_posts');
+        data.append('news_type', newsType);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    let response = JSON.parse(xhr.responseText);
+                    if (response.success) {
+                        container.innerHTML = response.data.html; // Заменяем содержимое контейнера
+                        loadingPosts = false;
+                    }
+                }
+            }
+        };
+
+        xhr.send(data);
+    }
+  }
 
   // функция бесконечной загрузки постов новостей
   let page = 2;
   let loading = false;
-  let postsPerPage = 6;
   let offsetBeforeLoad = 250;
   let noMorePosts = false;
 
@@ -70,20 +112,19 @@ export default function NewsSort() {
       }
 
       loading = true;
-      document.querySelector('.lds-ellipsis--container').style.display = "flex";
 
-      let ajaxurl = "/wp-admin/admin-ajax.php";
+      let ajaxurl = "/gallery/wp-admin/admin-ajax.php";
       let container = document.querySelector('.news__inner');
       let urlParams = new URLSearchParams(window.location.search);
       let newsType = urlParams.getAll('type');
 
       if (container) {
+          document.querySelector('.lds-ellipsis--container').style.display = "flex";
           let xhr = new XMLHttpRequest();
           xhr.open('POST', ajaxurl, true);
 
           let data = new FormData();
           data.append('action', 'load_more_posts');
-          data.append('posts_per_page', postsPerPage);
           data.append('page', page);
           data.append('news_type', newsType);
 
@@ -100,11 +141,8 @@ export default function NewsSort() {
                           loading = false;
                           page++;
 
-                          // Проверка, было ли установлено noMorePosts до завершения запроса
                           if (!response.data.has_more_posts) {
                               noMorePosts = true;
-                              // Отключите обработчик скролла
-                              window.onscroll = null;
                           }
                       }
                   }
@@ -115,11 +153,16 @@ export default function NewsSort() {
       }
   }
 
-  window.onscroll = function () {
-      if (noMorePosts) {
-          window.onscroll = null;
-      } else if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - offsetBeforeLoad)) {
-          loadMorePosts();
-      }
-  };
+  // Функция для обработки скролла
+    function handleScroll() {
+        if (noMorePosts) {
+            window.onscroll = null;
+        } else if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - offsetBeforeLoad)) {
+            loadMorePosts();
+        }
+    }
+    // Установка обработчика скролла
+    window.onscroll = handleScroll;
+
+  loadPosts();
 }
