@@ -55,7 +55,7 @@ Template Name: About
                                             <img src="<?php bloginfo('template_url'); ?>/assets/icons/about-char-1.svg" width="48" height="48" loading="lazy" decoding= "async" alt="">
                                         </div>
                                         <div class="about-char-slide__title"><?= get_field("third_text_slider"); ?></div>
-                                        <div class="about-char-slide__desc"><?= get_field("third_text_slider_down"); ?><</div>
+                                        <div class="about-char-slide__desc"><?= get_field("third_text_slider_down"); ?></div>
                                     </div>
                                 </div>
                             </div>
