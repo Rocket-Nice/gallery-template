@@ -209,45 +209,54 @@ function load_catalog_posts() {
         );
     }
 
+    $categoryList = [];
     if ($_POST["category"] !== 'null') {
-        $args['tax_query'] = array(
-            array(
-                'taxonomy' => $_POST["type"]."_type",
-                'field'    => 'slug',
-                'terms'    => $categoryList,
-            ),
-        );
+        if(array_key_exists('category', $_POST)) {
+           $categoryList = explode(",", $_POST["category"]);
+        }
+        if (!empty($categoryList)) {
+            $args['tax_query'] = array(
+                array(
+                    'taxonomy' => $_POST["type"]."_type",
+                    'field'    => 'slug',
+                    'terms'    => $categoryList,
+                ),
+            );
+        }
     }
+
     $query = new WP_Query($args);
     ob_start();
     if($query->have_posts()) {
         while($query->have_posts()) {
-        $query->the_post();
-        $postLogo = get_field('shop_logo');
-        $postFloor = get_field('shop_floor');
-        $postTags = [];
-        $postTags = array_merge($postTags, wp_get_post_terms($post->ID, 'shop_type'));
-        $postTags = array_merge($postTags, wp_get_post_terms($post->ID, 'food_type'));
-        $postTags = array_merge($postTags, wp_get_post_terms($post->ID, 'services_type'));
-        $postTags = wp_list_pluck($postTags, "name");
-    ?>
-        <div class="catalog-card" data-place>
-            <div class="catalog-card__img">
-                <img src="<?= $postLogo['url'] ?>" loading="lazy" decoding= "async" alt="">
-            </div>
-            <div class="catalog-card__content">
-                <a href="<?= get_post_permalink() ?>" class="catalog-card__title" data-link><?php the_title() ?></a>
-                <div class="catalog-card__tags"><?= implode(', ', $postTags) ?></div>
-                <div class="catalog-card__info">
-                    <div class="catalog-card__floor"><?= $postFloor ?></div>
-                    <a href="#map" class="catalog-card__map">Показать на карте</a>
+            $query->the_post();
+            $postLogo = get_field('shop_logo');
+            $postFloor = get_field('shop_floor');
+            $postTags = [];
+            $postTags = array_merge($postTags, wp_get_post_terms(get_the_ID(), 'shop_type'));
+            $postTags = array_merge($postTags, wp_get_post_terms(get_the_ID(), 'food_type'));
+            $postTags = array_merge($postTags, wp_get_post_terms(get_the_ID(), 'services_type'));
+            $postTags = wp_list_pluck($postTags, "name");
+        ?>
+            <div class="catalog-card" data-place>
+                <div class="catalog-card__img">
+                    <img src="<?= $postLogo['url'] ?>" loading="lazy" decoding= "async" alt="">
+                </div>
+                <div class="catalog-card__content">
+                    <a href="<?= get_post_permalink() ?>" class="catalog-card__title" data-link><?php the_title() ?></a>
+                    <div class="catalog-card__tags"><?= implode(', ', $postTags) ?></div>
+                    <div class="catalog-card__info">
+                        <div class="catalog-card__floor"><?= $postFloor ?></div>
+                        <a href="#map" class="catalog-card__map">Показать на карте</a>
+                    </div>
                 </div>
             </div>
-        </div>
     <?php }
     }
     $output = ob_get_clean();
-    wp_send_json_success(array('html' => $output, 'post' => $query->have_posts()));
+    $has_more_posts = $query->max_num_pages < $page;
+
+    wp_send_json_success(array('html' => $output, 'post' => $post->ID, 'isMorePosts' => $has_more_posts));
     die();
 }
 

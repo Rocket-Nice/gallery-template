@@ -161,6 +161,8 @@ export default function NewsSort() {
             loadMorePosts();
         }
     }
-    // Установка обработчика скролла
-    window.onscroll = handleScroll;
+    if(checkedCheckboxes.length) {
+      // Установка обработчика скролла
+      window.onscroll = handleScroll;
+    }
 }
