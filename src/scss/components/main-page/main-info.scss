@@ -28,6 +28,19 @@
     @include responsive.media-breakpoint-down(md) {
       padding: 20px 20px 88px;
     }
+
+    &__error-page {
+      padding: 112px 30px;
+
+      @include responsive.media-breakpoint-down(elg) {
+        max-height: unset;
+        padding: 130px 30px;
+      }
+  
+      @include responsive.media-breakpoint-down(md) {
+        padding: 88px 20px;
+      }
+    }
   }
 
   &__inner {

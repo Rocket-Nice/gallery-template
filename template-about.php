@@ -11,14 +11,14 @@ Template Name: About
             <main class="about-page">
                 <section class="about-desc" data-header="reverse">
                     <div class="about-desc__bg">
-                        <img src="<?php bloginfo('template_url'); ?>/assets/images/about-desc.jpg" width="1920" height="1080" loading="lazy" decoding= "async" alt="">
+                        <img src="<?= get_field("first_section_bg")["url"]; ?>" width="1920" height="1080" loading="lazy" decoding= "async" alt="">
                     </div>
                     <div class="about-desc__container">
                         <div class="about-desc__content">
-                            <div class="about-desc__subtitle">немного о</div>
-                            <div class="about-desc__title">GALLERY</div>
+                            <div class="about-desc__subtitle"><?= get_field("upper_text"); ?></div>
+                            <h1 class="about-desc__title"><?= get_field("middle_title_text"); ?></h1>
                             <div class="about-desc__text">
-                                Распространенный в Западной Европе формат, главной особенностью которого является удобство и комфорт доступа непосредственно к магазинам, каждый из которых имеет отдельный вход с улицы.
+                                <?= get_field("down_text"); ?>
                             </div>
                         </div>
                     </div>
@@ -32,8 +32,8 @@ Template Name: About
                                         <div class="about-char-slide__icon">
                                             <img src="<?php bloginfo('template_url'); ?>/assets/icons/about-char-1.svg" width="48" height="48" loading="lazy" decoding= "async" alt="">
                                         </div>
-                                        <div class="about-char-slide__title">9533м<sup>2</sup></div>
-                                        <div class="about-char-slide__desc">площадь</div>
+                                        <div class="about-char-slide__title"><?= get_field("first_text_slider"); ?>м<sup>2</sup></div>
+                                        <div class="about-char-slide__desc"><?= get_field("first_text_slider_down"); ?></div>
                                     </div>
                                 </div>
                             </div>
@@ -43,8 +43,8 @@ Template Name: About
                                         <div class="about-char-slide__icon">
                                             <img src="<?php bloginfo('template_url'); ?>/assets/icons/about-char-2.svg" width="48" height="48" loading="lazy" decoding= "async" alt="">
                                         </div>
-                                        <div class="about-char-slide__title">2970м<sup>2</sup></div>
-                                        <div class="about-char-slide__desc">арендопригодная площадь</div>
+                                        <div class="about-char-slide__title"><?= get_field("second_text_slider"); ?>м<sup>2</sup></div>
+                                        <div class="about-char-slide__desc"><?= get_field("second_text_slider_down"); ?></div>
                                     </div>
                                 </div>
                             </div>
@@ -54,8 +54,8 @@ Template Name: About
                                         <div class="about-char-slide__icon">
                                             <img src="<?php bloginfo('template_url'); ?>/assets/icons/about-char-1.svg" width="48" height="48" loading="lazy" decoding= "async" alt="">
                                         </div>
-                                        <div class="about-char-slide__title">5 этажей</div>
-                                        <div class="about-char-slide__desc">3 надземных и 2 надземных</div>
+                                        <div class="about-char-slide__title"><?= get_field("third_text_slider"); ?></div>
+                                        <div class="about-char-slide__desc"><?= get_field("third_text_slider_down"); ?><</div>
                                     </div>
                                 </div>
                             </div>
@@ -65,8 +65,8 @@ Template Name: About
                                         <div class="about-char-slide__icon">
                                             <img src="<?php bloginfo('template_url'); ?>/assets/icons/about-char-4.svg" width="48" height="48" loading="lazy" decoding= "async" alt="">
                                         </div>
-                                        <div class="about-char-slide__title">30</div>
-                                        <div class="about-char-slide__desc">магазинов</div>
+                                        <div class="about-char-slide__title"><?= get_field("fourth_text_slider"); ?></div>
+                                        <div class="about-char-slide__desc"><?= get_field("fourth_text_slider_down"); ?></div>
                                     </div>
                                 </div>
                             </div>
@@ -76,8 +76,8 @@ Template Name: About
                                         <div class="about-char-slide__icon">
                                             <img src="<?php bloginfo('template_url'); ?>/assets/icons/about-char-5.svg" width="48" height="48" loading="lazy" decoding= "async" alt="">
                                         </div>
-                                        <div class="about-char-slide__title">10</div>
-                                        <div class="about-char-slide__desc">торговых островов</div>
+                                        <div class="about-char-slide__title"><?= get_field("fifth_text_slider"); ?></div>
+                                        <div class="about-char-slide__desc"><?= get_field("fifth_text_slider_down"); ?></div>
                                     </div>
                                 </div>
                             </div>
@@ -146,48 +146,50 @@ Template Name: About
                 </section>
                 <section class="about-info" data-header="reverse">
                     <div class="about-rates__bg">
-                        <img src="<?php bloginfo('template_url'); ?>/assets/images/about-info.jpg" width="1920" height="1080" loading="lazy" decoding= "async" alt="">
+                        <img src="<?= get_field("third_section_bg")["url"]; ?>" width="1920" height="1080" loading="lazy" decoding= "async" alt="">
                     </div>
                     <div class="about-info__container">
-                        <div class="about-info__block">
-                            <div class="about-info__title">Зона охвата</div>
-                            <div class="about-info__inner">
-                                <div class="about-info__item">
-                                    <div class="about-info__head">3063 чел.</div>
-                                    <div class="about-info__desc">5 минутная пешеходная доступность</div>
-                                </div>
-                                <div class="about-info__item">
-                                    <div class="about-info__head">12518 чел.</div>
-                                    <div class="about-info__desc">10 минутная пешеходная доступность</div>
-                                </div>
-                                <div class="about-info__item">
-                                    <div class="about-info__head">28222 чел.</div>
-                                    <div class="about-info__desc">15 минутная пешеходная доступность</div>
-                                </div>
+                        <?php if( have_rows('title_and_elements') ){ ?>
+                            <?php while( have_rows('title_and_elements') ){ the_row(); 
+                                ?>
+                                <div class="about-info__block">
+                                    <div class="about-info__title"><?= get_sub_field("title_third_section"); ?></div>
+                                    <div class="about-info__inner">
+                                        <?php if( have_rows('title_and_text_element') ){ ?>
+                                            <?php while( have_rows('title_and_text_element') ){ the_row(); 
+                                                ?>
+                                            <div class="about-info__item <?php if(get_sub_field("green_or_not_bg")) { ?> --green <?php } ?>">
+                                                <div class="about-info__head"><?= get_sub_field("title_element"); ?></div>
+                                                <div class="about-info__desc"><?= get_sub_field("text_for_element"); ?></div>
+                                            </div>
+                                        <?php } }?>
+                                    </div>
                             </div>
-                        </div>
-                        <div class="about-info__block">
-                            <div class="about-info__title">Транспортная доступность</div>
-                            <div class="about-info__inner">
-                                <div class="about-info__item">
-                                    <div class="about-info__head">2 мин.</div>
-                                    <div class="about-info__desc">Проспект Мира</div>
-                                </div>
-                                <div class="about-info__item">
-                                    <div class="about-info__head">2 мин.</div>
-                                    <div class="about-info__desc">Центральный рынок</div>
-                                </div>
-                                <div class="about-info__item">
-                                    <div class="about-info__head">5 мин.</div>
-                                    <div class="about-info__desc">ЖД Вокзал</div>
-                                </div>
-                                <div class="about-info__item --green">
-                                    <div class="about-info__head">17</div>
-                                    <div class="about-info__desc">Маршрутных такси</div>
-                                </div>
+                                <?php
+                                    }
+                                }
+                        ?>
+                        <?php if( have_rows('title_and_elements_2') ){ ?>
+                            <?php while( have_rows('title_and_elements_2') ){ the_row(); 
+                                ?>
+                                <div class="about-info__block">
+                                    <div class="about-info__title"><?= get_sub_field("title_third_section"); ?></div>
+                                    <div class="about-info__inner">
+                                        <?php if( have_rows('title_and_text_element') ){ ?>
+                                            <?php while( have_rows('title_and_text_element') ){ the_row(); 
+                                                ?>
+                                            <div class="about-info__item <?php if(get_sub_field("green_or_not_bg")) { ?> --green <?php } ?>">
+                                                <div class="about-info__head"><?= get_sub_field("title_element"); ?></div>
+                                                <div class="about-info__desc"><?= get_sub_field("text_for_element"); ?></div>
+                                            </div>
+                                        <?php } }?>
+                                    </div>
                             </div>
-                        </div>
-                        <a href="#" class="dark-btn">
+                                <?php
+                                    }
+                                }
+                        ?>
+                        <a href="#about-contacts" class="dark-btn link-to">
                             <div class="dark-btn__text">О ТЦ</div>
                             <div class="dark-btn__icon">
                                 <img src="<?php bloginfo('template_url'); ?>/assets/icons/btn-arrow.svg" width="24" height="24" loading="lazy" decoding= "async" alt="">
@@ -197,31 +199,42 @@ Template Name: About
                 </section>
                 <section class="about-rates" data-header="reverse">
                     <div class="about-rates__bg">
-                        <img src="<?php bloginfo('template_url'); ?>/assets/images/about-rates.jpg" width="1920" height="1080" loading="lazy" decoding= "async" alt="">
+                        <img src="<?= get_field("fourth_section_bg")["url"]; ?>" width="1920" height="1080" loading="lazy" decoding= "async" alt="">
                     </div>
                     <div class="about-rates__container">
-                        <div class="about-rates__title">100</div>
-                        <div class="about-rates__subtitle">машиномест на подземном паркинге</div>
-                        <a href="#" class="dark-btn">
-                            <div class="dark-btn__text">Иформация о тарифах</div>
+                        <div class="about-rates__title"><?= get_field("big_text_fourth_section"); ?></div>
+                        <div class="about-rates__subtitle"><?= get_field("small_text_fourth_section"); ?></div>
+                        <a href="#" class="dark-btn dis-none">
+                            <div class="dark-btn__text">Информация о тарифах</div>
                             <div class="dark-btn__icon">
                                 <img src="<?php bloginfo('template_url'); ?>/assets/icons/btn-arrow.svg" width="24" height="24" loading="lazy" decoding= "async" alt="">
                             </div>
                         </a>
                     </div>
                 </section>
-                <section class="about-contacts" data-header="default">
+                <section class="about-contacts" data-header="default" id="about-contacts">
                     <div class="about-contacts__container">
                         <div class="about-contacts__title">Контактная информация</div>
                         <div class="about-contacts__inner">
-                            <div class="about-contacts__item">
-                                <div class="about-contacts__head">Отдел аренды</div>
-                                <a href="tel:+79999999999" class="about-contacts__desc">+7 (999) 999 99-99</a>
-                            </div>
-                            <div class="about-contacts__item">
-                                <div class="about-contacts__head">Справочная информация</div>
-                                <a href="tel:+79999999999" class="about-contacts__desc">+7 (999) 999 99-99</a>
-                            </div>
+                            <?php if( have_rows('title_and_number') ){ ?>
+                                <?php while( have_rows('title_and_number') ){ the_row(); 
+                                    ?>
+                                    <div class="about-contacts__item">
+                                        <div class="about-contacts__head"><?= get_sub_field("title_fifth_section"); ?></div>
+                                        <?php
+                                        $phone_number = get_sub_field("number_fifth_section"); // Получение номера из ACF поля
+
+                                        // Очистка номера от всех символов кроме цифр
+                                        $cleaned_number = preg_replace('/[^0-9]/', '', $phone_number);
+
+                                        // Форматирование номера для отображения в текстовом виде
+                                        $formatted_number = '+7 (' . substr($cleaned_number, 1, 3) . ') ' . substr($cleaned_number, 4, 3) . ' ' . substr($cleaned_number, 7, 2) . ' ' . substr($cleaned_number, 9, 2);
+
+                                        // Отображение ссылки с номером телефона
+                                        ?>
+                                        <a href="tel:<?php echo $cleaned_number; ?>" class="about-contacts__desc"><?= $formatted_number; ?></a>
+                                    </div>
+                            <?php } } ?>
                         </div>
                     </div>
                     <div class="about-contacts__map">
