@@ -1,3 +1,5 @@
+import {PlaceLink} from "./PlaceLink";
+
 export default function CatalogFilters() {
   const mainContent = document.querySelector('.catalog__content.main-content ');
   const cardsCatalog = document.querySelector('.catalog__content.cards-catalog ');
@@ -110,12 +112,12 @@ export default function CatalogFilters() {
         if (xhr.status === 200) {
           let response = JSON.parse(xhr.responseText);
           if (response.success) {
-            console.log(response.data.post)
             if (isMore) {
               cardsContainer.innerHTML += response.data.html;
             } else {
               cardsContainer.innerHTML = response.data.html;
             }
+            PlaceLink();
             noMorePosts = !!response.data.isMorePosts;
             window.onscroll = handleScroll;
             loading = false;
