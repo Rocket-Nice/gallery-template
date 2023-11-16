@@ -21,7 +21,7 @@ Template Name: Catalog_variables
                                     </div>
                                     <div class="sidebar-tabs__text">Списком</div>
                                 </div>
-                                <a href="/map" class="sidebar-tabs__item">
+                                <a class="sidebar-tabs__item">
                                     <div class="sidebar-tabs__icon">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M20 10C20 14.418 12 22 12 22C12 22 4 14.418 4 10C4 7.87827 4.84285 5.84344 6.34315 4.34315C7.84344 2.84285 9.87827 2 12 2C14.1217 2 16.1566 2.84285 17.6569 4.34315C19.1571 5.84344 20 7.87827 20 10Z" stroke="white" stroke-width="1.5"/>

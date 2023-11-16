@@ -30,8 +30,11 @@
     }
 
     &__error-page {
-      padding: 112px 30px;
-
+      padding: 170px 30px;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
       @include responsive.media-breakpoint-down(elg) {
         max-height: unset;
         padding: 130px 30px;

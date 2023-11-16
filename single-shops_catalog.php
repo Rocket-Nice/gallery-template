@@ -1,10 +1,25 @@
-<?php get_header(); ?>
+<?php get_header();
+$month_shortenings = array(
+                         'января' => 'янв.',
+                         'февраля' => 'фев.',
+                         'марта' => 'мар.',
+                         'апреля' => 'апр.',
+                         'мая' => 'мая',
+                         'июня' => 'июн.',
+                         'июля' => 'июл.',
+                         'августа' => 'авг.',
+                         'сентября' => 'сен.',
+                         'октября' => 'окт.',
+                         'ноября' => 'нояб.',
+                         'декабря' => 'дек.'
+                     );
+?>
     <main class="catalog-single-page">
         <section class="catalog-single">
             <div class="catalog-single__container">
                 <div class="catalog-single-title">
                     <div class="catalog-single-title__info">
-                        <a href="/catalog-open" class="btn-back-simple">
+                        <a href="/catalog" class="btn-back-simple">
                             <div class="btn-back__icon">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M15 6L9 12L15 18" stroke="#2F3542" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -18,7 +33,8 @@
                             <path d="M20 10C20 14.418 12 22 12 22C12 22 4 14.418 4 10C4 7.87827 4.84285 5.84344 6.34315 4.34315C7.84344 2.84285 9.87827 2 12 2C14.1217 2 16.1566 2.84285 17.6569 4.34315C19.1571 5.84344 20 7.87827 20 10Z" stroke="#2F3542" stroke-width="1.5"/>
                             <path d="M12 11C12.2652 11 12.5196 10.8946 12.7071 10.7071C12.8946 10.5196 13 10.2652 13 10C13 9.73478 12.8946 9.48043 12.7071 9.29289C12.5196 9.10536 12.2652 9 12 9C11.7348 9 11.4804 9.10536 11.2929 9.29289C11.1054 9.48043 11 9.73478 11 10C11 10.2652 11.1054 10.5196 11.2929 10.7071C11.4804 10.8946 11.7348 11 12 11Z" fill="#2F3542" stroke="#2F3542" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        <p>3 этаж</p>
+                        <?php $postFloor = get_field('shop_floor'); ?>
+                        <p><?= $postFloor ?></p>
                         <span></span>
                         <p>Посмотреть на карте</p>
                     </a>
@@ -76,11 +92,15 @@
                                  <?php } ?>
                             </div>
                         </div>
-                        <?php $post_terms = wp_get_post_terms($post->ID, 'shop_type');?>
+                        <?php
+                        $post_terms = [];
+                        $post_terms = array_merge($post_terms, wp_get_post_terms($post->ID, 'shop_type'));
+                        $post_terms = array_merge($post_terms, wp_get_post_terms($post->ID, 'food_type'));
+                        $post_terms = array_merge($post_terms, wp_get_post_terms($post->ID, 'services_type'));
+                        ?>
                         <div class="catalog-single-tags">
                             <?php
                             foreach($post_terms as $post_term) {
-                                if(!$post_term->parent) continue;
                                 ?>
                                 <div class="catalog-single-tags__item"><?= $post_term->name ?></div>
                             <?php } ?>
@@ -169,51 +189,77 @@
             </div>
             <div class="catalog-single__container --desk">
                 <div class="catalog-single__inner">
-                    <div class="side">
-                        <div class="catalog-single-news">
-                            <div class="catalog-single-news__title">НОВОСТИ МАГАЗИНА</div>
-                            <div class="swiper">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <a href="#" class="catalog-single-news-slide">
-                                            <div class="catalog-single-news-slide__title">Armani Exchange: SALE</div>
-                                            <div class="catalog-single-news-slide__date">c 13 июн. по 23 сент.</div>
-                                        </a>
+                    <?php
+                        $args = array(
+                            'post_type' => 'news_gallery',
+                            'posts_per_page' => -1,
+                            'meta_query' =>[
+                                'relation' => 'OR',
+                                [
+                                    'key' => 'news_shops',
+                                    'value' => get_the_ID(),
+                                    'compare' => 'LIKE'
+                                ],
+                            ],
+                        );
+                        $query = new WP_Query($args);
+                        if($query->have_posts()){
+
+                        ?>
+                        <div class="side">
+                            <div class="catalog-single-news">
+                                <div class="catalog-single-news__title">НОВОСТИ МАГАЗИНА</div>
+                                <div class="swiper">
+                                    <div class="swiper-wrapper">
+                                    <?php while($query->have_posts()){
+                                            $query->the_post();
+                                            ?>
+                                            <div class="swiper-slide">
+                                                <a href="<?= get_post_permalink() ?>" class="catalog-single-news-slide">
+                                                    <div class="catalog-single-news-slide__title"><?php the_title();  ?></div>
+                                                    <div class="catalog-single-news-slide__date">
+                                                        <?php
+                                                             $beginning_date = get_field('beginning_date');
+                                                             $end_date = get_field('end_date');
+                                                             $single_date_news = get_field("single_news_date");
+
+                                                             if ($beginning_date && $end_date) {
+                                                                 $beginning_date_formatted = date_i18n('j F', strtotime($beginning_date));
+                                                                 $end_date_formatted = date_i18n('j F', strtotime($end_date));
+
+                                                                 $beginning_date_formatted = strtr($beginning_date_formatted, $month_shortenings);
+                                                                 $end_date_formatted = strtr($end_date_formatted, $month_shortenings);
+
+                                                                 echo 'с ' . $beginning_date_formatted . ' по ' . $end_date_formatted;
+                                                             } elseif($single_date_news) {
+                                                                 $single_date_formatted = date_i18n('j F', strtotime($single_date_news));
+
+                                                                 $single_date_formatted = strtr($single_date_formatted, $month_shortenings);
+
+                                                                 echo $single_date_formatted;
+                                                             }
+                                                             ?>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        <?php } ?>
                                     </div>
-                                    <div class="swiper-slide">
-                                        <a href="#" class="catalog-single-news-slide">
-                                            <div class="catalog-single-news-slide__title">СКОРО В ШКОЛУ! Скидки до - 50% на одежду, обувь и аксессуары для ваших школьников</div>
-                                            <div class="catalog-single-news-slide__date">c 5 дек.</div>
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <a href="#" class="catalog-single-news-slide">
-                                            <div class="catalog-single-news-slide__title">Armani Exchange: SALE</div>
-                                            <div class="catalog-single-news-slide__date">c 13 июн. по 23 сент.</div>
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <a href="#" class="catalog-single-news-slide">
-                                            <div class="catalog-single-news-slide__title">СКОРО В ШКОЛУ! Скидки до - 50% на одежду, обувь и аксессуары для ваших школьников</div>
-                                            <div class="catalog-single-news-slide__date">c 5 дек.</div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="catalog-single-news__navigation swiper-navigation">
-                                    <div class="swiper-navigation-button swiper-navigation-prev">
-                                        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M5 1L1 5L5 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </div>
-                                    <div class="swiper-navigation-button swiper-navigation-next">
-                                        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 1L5 5L1 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
+                                    <div class="catalog-single-news__navigation swiper-navigation">
+                                        <div class="swiper-navigation-button swiper-navigation-prev">
+                                            <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 1L1 5L5 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="swiper-navigation-button swiper-navigation-next">
+                                            <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1 1L5 5L1 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    <?php } ?>
                     <div class="side">
                         <div class="catalog-single-time">
                             <div class="catalog-single-time__inner">

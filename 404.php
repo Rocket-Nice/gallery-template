@@ -1,23 +1,18 @@
 <?php get_header(); ?>
-    
-    <div id="smooth-wrapper">
-        <div id="smooth-content">
-            <main class="main-page">
-                <div class="main-info__container__error-page">
-                    <div class="error-page">
-                        <h1>404</h1>
-                        <span>Страница не найдена</span>
-                        <a href="/" class="dark-btn --desc">
-                            <div class="dark-btn__text">На главную</div>
-                                <div class="dark-btn__icon">
-                                    <img src="<?php bloginfo('template_url'); ?>/assets/icons/btn-arrow.svg" width="24" height="24" loading="lazy" decoding="async" alt="">
-                            </div>
-                        </a>
+    <main class="main-page">
+        <div class="main-info__container__error-page">
+            <div class="error-page">
+                <h1>404</h1>
+                <span>Страница не найдена</span>
+                <a href="/" class="dark-btn --desc">
+                    <div class="dark-btn__text">На главную</div>
+                        <div class="dark-btn__icon">
+                            <img src="http://localhost/gallery/wp-content/themes/gallery/assets/icons/btn-arrow.svg" width="24" height="24" loading="lazy" decoding="async" alt="">
                     </div>
-                </div>
-            </main>
-            <?php get_footer(); ?>
+                </a>
+            </div>
         </div>
-    </div>
+    </main>
+    <?php get_footer(); ?>
 </body>
 </html>

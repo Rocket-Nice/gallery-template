@@ -45,7 +45,7 @@
                     <div class="main-slider__pagination pagination-fraction --desc"></div>
                 <?php endif ?>
                 <div class="menu <?php if(is_front_page() || is_page_template('template-about.php')) echo('--reverse') ?>">
-                    <a class="menu-item --violet" href="/catalog-open">
+                    <a class="menu-item --violet" href="/catalog/?type=shop">
                         <div class="menu-item__icon">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M14.5 5C14.5 4.46957 14.2892 3.96086 13.9142 3.58579C13.5391 3.21071 13.0304 3 12.5 3C11.9695 3 11.4608 3.21071 11.0857 3.58579C10.7107 3.96086 10.5 4.46957 10.5 5M19.76 9.696L21.145 18.696C21.1888 18.9808 21.1705 19.2718 21.0914 19.5489C21.0123 19.8261 20.8742 20.0828 20.6867 20.3016C20.4991 20.5204 20.2665 20.6961 20.0047 20.8167C19.7429 20.9372 19.4582 20.9997 19.17 21H5.82995C5.54158 21 5.25662 20.9377 4.99459 20.8173C4.73257 20.6969 4.49968 20.5212 4.3119 20.3024C4.12411 20.0836 3.98587 19.8267 3.90666 19.5494C3.82744 19.2721 3.80912 18.981 3.85295 18.696L5.23795 9.696C5.3106 9.22359 5.55003 8.79282 5.91288 8.4817C6.27572 8.17059 6.73799 7.9997 7.21595 8H17.784C18.2617 7.99994 18.7238 8.17094 19.0864 8.48203C19.449 8.79312 19.6873 9.22376 19.76 9.696Z" stroke="#2F3542" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -53,7 +53,7 @@
                         </div>
                         <div class="menu-item__text">Магазины</div>
                     </a>
-                    <a class="menu-item --yellow" href="/catalog-open">
+                    <a class="menu-item --yellow" href="/catalog/?type=food">
                         <div class="menu-item__icon">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M14.5 9.01002L14.51 8.99902M8.5 8.01002L8.51 7.99902M8.5 14.01L8.51 13.999" stroke="#2F3542" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -63,7 +63,7 @@
                         </div>
                         <div class="menu-item__text">Где поесть</div>
                     </a>
-                    <a class="menu-item --blue" href="/catalog-open">
+                    <a class="menu-item --blue" href="/catalog/?type=services">
                         <div class="menu-item__icon">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M9.49995 11V18M15.5 11V18M14.5 5C14.5 4.46957 14.2892 3.96086 13.9142 3.58579C13.5391 3.21071 13.0304 3 12.5 3C11.9695 3 11.4608 3.21071 11.0857 3.58579C10.7107 3.96086 10.5 4.46957 10.5 5M19.76 9.696L21.145 18.696C21.1888 18.9808 21.1705 19.2718 21.0914 19.5489C21.0123 19.8261 20.8742 20.0828 20.6867 20.3016C20.4991 20.5204 20.2665 20.6961 20.0047 20.8167C19.7429 20.9372 19.4582 20.9997 19.17 21H5.82995C5.54158 21 5.25662 20.9377 4.99459 20.8173C4.73257 20.6969 4.49968 20.5212 4.3119 20.3024C4.12411 20.0836 3.98587 19.8267 3.90666 19.5494C3.82744 19.2721 3.80912 18.981 3.85295 18.696L5.23795 9.696C5.3106 9.22359 5.55003 8.79282 5.91288 8.4817C6.27572 8.17059 6.73799 7.9997 7.21595 8H17.784C18.2617 7.99994 18.7238 8.17094 19.0864 8.48203C19.449 8.79312 19.6873 9.22376 19.76 9.696Z" stroke="#2F3542" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -79,7 +79,7 @@
                         </div>
                         <div class="menu-item__text">События</div>
                     </a>
-                    <a class="menu-item --green" href="/map">
+                    <a class="menu-item --green">
                         <div class="menu-item__icon">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M9.5 19L4.29 20.737C4.19973 20.7671 4.10358 20.7754 4.0095 20.761C3.91542 20.7467 3.82611 20.7101 3.74893 20.6544C3.67175 20.5988 3.60893 20.5255 3.56565 20.4408C3.52236 20.356 3.49986 20.2622 3.5 20.167V5.433C3.50003 5.30714 3.53963 5.18447 3.61321 5.08236C3.68679 4.98025 3.79062 4.90386 3.91 4.864L9.5 3M9.5 19L15.5 21M9.5 19V3M9.5 3L15.5 5M15.5 21L21.09 19.137C21.2095 19.0971 21.3135 19.0205 21.3871 18.9182C21.4607 18.8159 21.5002 18.693 21.5 18.567V3.832C21.5 3.73692 21.4774 3.6432 21.434 3.55857C21.3907 3.47394 21.3278 3.40083 21.2507 3.34526C21.1735 3.28969 21.0843 3.25325 20.9902 3.23895C20.8962 3.22465 20.8002 3.23289 20.71 3.263L15.5 5M15.5 21V5" stroke="#2F3542" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -87,7 +87,7 @@
                         </div>
                         <div class="menu-item__text">Схема ТЦ</div>
                     </a>
-                    <a class="menu-item --white" href="/renter">
+                    <a class="menu-item --white">
                         <div class="menu-item__icon">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M14.8631 5.65201L16.3431 4.17201C16.5288 3.98621 16.7493 3.83882 16.992 3.73826C17.2347 3.6377 17.4948 3.58594 17.7576 3.58594C18.0203 3.58594 18.2804 3.6377 18.5231 3.73826C18.7658 3.83882 18.9863 3.98621 19.1721 4.17201L20.5861 5.58601C20.961 5.96107 21.1716 6.46968 21.1716 7.00001C21.1716 7.53034 20.961 8.03895 20.5861 8.41401L19.1061 9.89401M14.8631 5.65201L5.24705 15.267C4.91504 15.599 4.71042 16.0373 4.66905 16.505L4.42705 19.245C4.41406 19.3907 4.43316 19.5374 4.48303 19.6749C4.5329 19.8123 4.61231 19.9372 4.71566 20.0407C4.81902 20.1441 4.94381 20.2236 5.08124 20.2736C5.21866 20.3236 5.36538 20.3429 5.51105 20.33L8.25105 20.088C8.71948 20.0471 9.15852 19.8425 9.49105 19.51L19.1061 9.89401M14.8631 5.65201L19.1061 9.89401" stroke="#2F3542" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -147,7 +147,7 @@
         <div class="burger-menu" data-burger>
             <div class="burger-menu__wrapper">
                 <div class="burger-menu__list">
-                    <a class="menu-item" href="/catalog-open">
+                    <a class="menu-item" href="/catalog/?type=shop">
                         <div class="menu-item__icon">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M14.4998 5C14.4998 4.46957 14.2891 3.96086 13.914 3.58579C13.539 3.21071 13.0303 3 12.4998 3C11.9694 3 11.4607 3.21071 11.0856 3.58579C10.7105 3.96086 10.4998 4.46957 10.4998 5M19.7598 9.696L21.1448 18.696C21.1886 18.9808 21.1704 19.2718 21.0913 19.5489C21.0122 19.8261 20.8741 20.0828 20.6865 20.3016C20.499 20.5204 20.2663 20.6961 20.0045 20.8167C19.7428 20.9372 19.458 20.9997 19.1698 21H5.82983C5.54146 21 5.2565 20.9377 4.99447 20.8173C4.73245 20.6969 4.49956 20.5212 4.31177 20.3024C4.12399 20.0836 3.98575 19.8267 3.90653 19.5494C3.82732 19.2721 3.809 18.981 3.85283 18.696L5.23783 9.696C5.31048 9.22359 5.54991 8.79282 5.91275 8.4817C6.2756 8.17059 6.73787 7.9997 7.21583 8H17.7838C18.2616 7.99994 18.7236 8.17094 19.0863 8.48203C19.4489 8.79312 19.6872 9.22376 19.7598 9.696Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -155,7 +155,7 @@
                         </div>
                         <div class="menu-item__text">Магазины</div>
                     </a>
-                    <a class="menu-item" href="/catalog-open">
+                    <a class="menu-item" href="/catalog/?type=shop">
                         <div class="menu-item__icon">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_26_40)">
@@ -172,7 +172,7 @@
                         </div>
                         <div class="menu-item__text">Где поесть</div>
                     </a>
-                    <a class="menu-item" href="/catalog-open">
+                    <a class="menu-item" href="/catalog/?type=services">
                         <div class="menu-item__icon">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_26_47)">
@@ -202,7 +202,7 @@
                         </div>
                         <div class="menu-item__text">События</div>
                     </a>
-                    <a class="menu-item" href="/map">
+                    <a class="menu-item">
                         <div class="menu-item__icon">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_26_57)">
@@ -217,7 +217,7 @@
                         </div>
                         <div class="menu-item__text">Схема ТЦ</div>
                     </a>
-                    <a class="menu-item" href="/renter">
+                    <a class="menu-item">
                         <div class="menu-item__icon">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_26_62)">
