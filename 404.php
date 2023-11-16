@@ -10,7 +10,7 @@
                         <a href="/" class="dark-btn --desc">
                             <div class="dark-btn__text">На главную</div>
                                 <div class="dark-btn__icon">
-                                    <img src="http://localhost/gallery/wp-content/themes/gallery/assets/icons/btn-arrow.svg" width="24" height="24" loading="lazy" decoding="async" alt="">
+                                    <img src="<?php bloginfo('template_url'); ?>/assets/icons/btn-arrow.svg" width="24" height="24" loading="lazy" decoding="async" alt="">
                             </div>
                         </a>
                     </div>
