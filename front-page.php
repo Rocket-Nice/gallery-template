@@ -61,7 +61,7 @@ Template Name: Front-page
                             <section class="swiper-slide main-info" data-scroll-slide data-header="default">
                                 <div class="main-info__container">
                                     <div class="main-info__inner">
-                                        <a href="/catalog-open" class="main-info__item --violet">
+                                        <a href="/catalog/?type=shop" class="main-info__item --violet">
                                             <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/1.jpg" loading="lazy" decoding= "async" alt="">
                                             <div class="main-info__hover"></div>
                                             <div class="main-info-desc">
@@ -73,7 +73,7 @@ Template Name: Front-page
                                                 <div class="main-info-desc__text">Магазины</div>
                                             </div>
                                         </a>
-                                        <a href="/catalog-open" class="main-info__item --yellow">
+                                        <a href="/catalog/?type=food" class="main-info__item --yellow">
                                             <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/2.jpg" loading="lazy" decoding= "async" alt="">
                                             <div class="main-info__hover"></div>
                                             <div class="main-info-desc">
@@ -87,7 +87,7 @@ Template Name: Front-page
                                                 <div class="main-info-desc__text">Где поесть</div>
                                             </div>
                                         </a>
-                                        <a href="/catalog-open" class="main-info__item --blue">
+                                        <a href="/catalog/?type=services" class="main-info__item --blue">
                                             <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/3.jpg" loading="lazy" decoding= "async" alt="">
                                             <div class="main-info__hover"></div>
                                             <div class="main-info-desc">
@@ -111,7 +111,7 @@ Template Name: Front-page
                                                 <div class="main-info-desc__text">События</div>
                                             </div>
                                         </a>
-                                        <a href="/map" class="main-info__item --green">
+                                        <a class="main-info__item --green">
                                             <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/5.jpg" loading="lazy" decoding= "async" alt="">
                                             <div class="main-info__hover"></div>
                                             <div class="main-info-desc">
@@ -136,7 +136,7 @@ Template Name: Front-page
                                                 <div class="main-info-desc__text">О ТЦ</div>
                                             </div>
                                         </a>
-                                        <a href="/renter" class="main-info__item --white">
+                                        <a class="main-info__item --white">
                                             <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/7.jpg" loading="lazy" decoding= "async" alt="">
                                             <div class="main-info__hover"></div>
                                             <div class="main-info-desc">
@@ -158,6 +158,7 @@ Template Name: Front-page
                             $bestShop_title = get_field('bestShop_title');
                             $bestShop_subtitle = get_field('bestShop_subtitle');
                             $bestShop_bg = get_field('bestShop_bg');
+                            $shopsList = get_field('bestShop_shops');
                              ?>
                             <section class="swiper-slide main-firms" data-scroll-slide data-header="reverse">
                                 <div class="main-firms__wrapper">
@@ -168,54 +169,15 @@ Template Name: Front-page
                                         <div class="main-firms__subtitle"><?= $bestShop_subtitle ?></div>
                                         <div class="main-firms__title"><?= $bestShop_title ?></div>
                                         <div class="main-firms__inner">
-                                            <a href="#" class="main-firms__item">
-                                                <div class="main-firms__logo">
-                                                    <img src="<?php bloginfo('template_url'); ?>/assets/images/firms-logo.jpg" loading="lazy" decoding= "async" alt="">
-                                                </div>
-                                                <div class="main-firms__text">ZARA</div>
-                                            </a>
-                                            <a href="#" class="main-firms__item">
-                                                <div class="main-firms__logo">
-                                                    <img src="<?php bloginfo('template_url'); ?>/assets/images/firms-logo1.jpg" loading="lazy" decoding= "async" alt="">
-                                                </div>
-                                                <div class="main-firms__text">Четыре Лапы</div>
-                                            </a>
-                                            <a href="#" class="main-firms__item">
-                                                <div class="main-firms__logo">
-                                                    <img src="<?php bloginfo('template_url'); ?>/assets/images/firms-logo.jpg" loading="lazy" decoding= "async" alt="">
-                                                </div>
-                                                <div class="main-firms__text">М.Видео</div>
-                                            </a>
-                                            <a href="#" class="main-firms__item">
-                                                <div class="main-firms__logo">
-                                                    <img src="<?php bloginfo('template_url'); ?>/assets/images/firms-logo1.jpg" loading="lazy" decoding= "async" alt="">
-                                                </div>
-                                                <div class="main-firms__text">GUCCI</div>
-                                            </a>
-                                            <a href="#" class="main-firms__item">
-                                                <div class="main-firms__logo">
-                                                    <img src="<?php bloginfo('template_url'); ?>/assets/images/firms-logo.jpg" loading="lazy" decoding= "async" alt="">
-                                                </div>
-                                                <div class="main-firms__text">Stradivarius</div>
-                                            </a>
-                                            <a href="#" class="main-firms__item">
-                                                <div class="main-firms__logo">
-                                                    <img src="<?php bloginfo('template_url'); ?>/assets/images/firms-logo1.jpg" loading="lazy" decoding= "async" alt="">
-                                                </div>
-                                                <div class="main-firms__text">Stradivarius</div>
-                                            </a>
-                                            <a href="#" class="main-firms__item">
-                                                <div class="main-firms__logo">
-                                                    <img src="<?php bloginfo('template_url'); ?>/assets/images/firms-logo.jpg" loading="lazy" decoding= "async" alt="">
-                                                </div>
-                                                <div class="main-firms__text">Азбука вкуса</div>
-                                            </a>
-                                            <a href="#" class="main-firms__item">
-                                                <div class="main-firms__logo">
-                                                    <img src="<?php bloginfo('template_url'); ?>/assets/images/firms-logo1.jpg" loading="lazy" decoding= "async" alt="">
-                                                </div>
-                                                <div class="main-firms__text">Икея</div>
-                                            </a>
+                                            <?php foreach($shopsList as $shop) {
+                                                $chopIMG = get_field('shop_logo', $shop->ID); ?>
+                                                <a href="<?= get_post_permalink($shop->ID) ?>" class="main-firms__item">
+                                                    <div class="main-firms__logo">
+                                                        <img src="<?= $chopIMG["url"] ?>" loading="lazy" decoding= "async" alt="">
+                                                    </div>
+                                                    <div class="main-firms__text"><?= get_the_title($shop->ID) ?></div>
+                                                </a>
+                                            <?php } ?>
                                         </div>
                                     </div>
                                 </div>

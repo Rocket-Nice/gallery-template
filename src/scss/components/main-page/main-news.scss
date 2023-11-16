@@ -60,6 +60,7 @@
     padding: 0 30px;
     display: flex;
     align-items: center;
+    justify-content: center;
 
     @include responsive.media-breakpoint-down(elg) {
       padding: 0;
