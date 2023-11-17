@@ -89,7 +89,7 @@ export default function NewsSort() {
                 if (xhr.status === 200) {
                     let response = JSON.parse(xhr.responseText);
                     if (response.success) {
-                        container.innerHTML = response.data.html; // Заменяем содержимое контейнера
+                        container.innerHTML = response.data.html;
                         loadingPosts = false;
                     }
                 }
