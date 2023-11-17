@@ -22,7 +22,7 @@ Template Name: Front-page
                                 <section class="swiper-slide main-slider full-window" data-scroll-slide data-header="reverse">
                                     <div class="swiper">
                                         <div class="swiper-wrapper">
-                                            <?php foreach($frontSlider as $slide) { ?>
+                                            <?php foreach($frontSlider as $key => $slide) { ?>
                                                 <div class="swiper-slide main-slider-slide">
                                                     <div class="main-slider-slide__bg">
                                                         <img src="<?= $slide["slide-img"]["url"] ?>" width="1920" height="1080" loading="lazy" decoding= "async" alt="">
@@ -30,7 +30,7 @@ Template Name: Front-page
                                                     <div class="main-slider-slide__content">
                                                         <div class="main-slider__pagination pagination-fraction --mob">
                                                             <div class="fraction-wrapper">
-                                                                <span class="current">1</span>&nbsp;/&nbsp;<span class="total">3</span>
+                                                                <span class="current"><?= $key+1; ?></span>&nbsp;/&nbsp;<span class="total"><?= count($frontSlider); ?></span>
                                                             </div>
                                                         </div>
                                                         <div class="main-slider-slide__title">
