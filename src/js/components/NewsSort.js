@@ -165,4 +165,107 @@ export default function NewsSort() {
       // Установка обработчика скролла
       window.onscroll = handleScroll;
     }
+
+    // Вариант через FETCH, шпаргалка
+
+    // let loadingPosts = false;
+
+    // async function loadPosts() {
+    // if (loadingPosts) {
+    //     return;
+    // }
+
+    // loadingPosts = true;
+
+    // const ajaxurl = window.location.origin + "/wp-admin/admin-ajax.php";
+    // const container = document.querySelector('.news__inner');
+    // const urlParams = new URLSearchParams(window.location.search);
+    // const newsType = urlParams.getAll('type');
+
+    // if (container) {
+    //     try {
+    //     const response = await fetch(ajaxurl, {
+    //         method: 'POST',
+    //         body: new URLSearchParams({
+    //         action: 'load_posts',
+    //         news_type: newsType,
+    //         }),
+    //     });
+
+    //     if (response.ok) {
+    //         const data = await response.json();
+    //         if (data.success) {
+    //         container.innerHTML = data.data.html;
+    //         loadingPosts = false;
+    //         }
+    //     }
+    //     } catch (error) {
+    //     console.error('Error loading posts:', error);
+    //     }
+    // }
+    // }
+
+    // let page = 2;
+    // let loading = false;
+    // let offsetBeforeLoad = 250;
+    // let noMorePosts = false;
+
+    // async function loadMorePosts() {
+    // if (loading || noMorePosts) {
+    //     return;
+    // }
+
+    // loading = true;
+
+    // const ajaxurl = window.location.origin + "/wp-admin/admin-ajax.php";
+    // const container = document.querySelector('.news__inner');
+    // const urlParams = new URLSearchParams(window.location.search);
+    // const newsType = urlParams.getAll('type');
+
+    // if (container) {
+    //     document.querySelector('.lds-ellipsis--container').style.display = "flex";
+
+    //     try {
+    //     const response = await fetch(ajaxurl, {
+    //         method: 'POST',
+    //         body: new URLSearchParams({
+    //         action: 'load_more_posts',
+    //         page: page,
+    //         news_type: newsType,
+    //         }),
+    //     });
+
+    //     setTimeout(function () {
+    //         document.querySelector('.lds-ellipsis--container').style.display = "none";
+    //     }, 200);
+
+    //     if (response.ok) {
+    //         const data = await response.json();
+    //         if (data.success) {
+    //         container.innerHTML += data.data.html;
+    //         loading = false;
+    //         page++;
+
+    //         if (!data.data.has_more_posts) {
+    //             noMorePosts = true;
+    //         }
+    //         }
+    //     }
+    //     } catch (error) {
+    //     console.error('Error loading more posts:', error);
+    //     }
+    // }
+    // }
+
+    // function handleScroll() {
+    // if (noMorePosts) {
+    //     window.onscroll = null;
+    // } else if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - offsetBeforeLoad)) {
+    //     loadMorePosts();
+    // }
+    // }
+
+    // if (checkedCheckboxes.length) {
+    // window.onscroll = handleScroll;
+    // }
 }
