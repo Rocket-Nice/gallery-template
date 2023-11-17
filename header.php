@@ -4,18 +4,18 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/Lato-Light.woff2" as="font" crossorigin>
+    <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/Lato-Regular.woff2" as="font" crossorigin>
+    <!-- <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/Lato-Light.woff2" as="font" crossorigin>
     <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/Lato-Bold.woff2" as="font" crossorigin>
     <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/Lato-Heavy.woff2" as="font" crossorigin>
     <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/Lato-Medium.woff2" as="font" crossorigin>
-    <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/Lato-Regular.woff2" as="font" crossorigin>
     <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/Lato-Semibold.woff2" as="font" crossorigin>
     <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/Lato-Black.woff2" as="font" crossorigin>
     <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/NotoSans-Bold.ttf" as="font" crossorigin>
     <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/NotoSans-Medium.ttf" as="font" crossorigin>
     <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/NotoSans-Regular.ttf" as="font" crossorigin>
     <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/NotoSans-SemiBold.ttf" as="font" crossorigin>
-    <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/Jost-Light.woff2" as="font" crossorigin>
+    <link rel="preload" href="/wp-content/themes/gallery/assets/fonts/Jost-Light.woff2" as="font" crossorigin> -->
     <?php wp_head(); ?>
 </head>
 <body class="custom-scroll <?php if(is_front_page()) echo('no-scrollbar') ?>">
