@@ -273,7 +273,7 @@ $query = new WP_Query($args);
                                 </div>
                                 <div class="catalog-title-head__text">Услуги</div>
                             </div>
-                            <a href="#" class="btn-back --desc">
+                            <a href="/" class="btn-back --desc">
                                 <div class="btn-back__icon">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M15 6L9 12L15 18" stroke="#2F3542" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -281,7 +281,7 @@ $query = new WP_Query($args);
                                 </div>
                                 <div class="btn-back__text">Назад</div>
                             </a>
-                            <a href="#" class="btn-back-simple --mobile">
+                            <a href="/" class="btn-back-simple --mobile">
                                 <div class="btn-back__icon">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M15 6L9 12L15 18" stroke="#2F3542" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
