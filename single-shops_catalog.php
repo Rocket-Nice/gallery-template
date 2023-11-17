@@ -242,7 +242,9 @@ $month_shortenings = array(
                                                     </div>
                                                 </a>
                                             </div>
-                                        <?php } ?>
+                                        <?php }
+                                        wp_reset_postdata();
+                                        ?>
                                     </div>
                                     <div class="catalog-single-news__navigation swiper-navigation">
                                         <div class="swiper-navigation-button swiper-navigation-prev">
@@ -264,34 +266,62 @@ $month_shortenings = array(
                         <div class="catalog-single-time">
                             <div class="catalog-single-time__inner">
                             <?php $weekDay = date('w'); ?>
-                                <div class="catalog-single-time__item <?php if($weekDay === '0') echo '--active' ?>">
-                                    <div class="catalog-single-time__title">Пн</div>
-                                    <div class="catalog-single-time__info"><?= get_field('monday_time') ?></div>
-                                </div>
+                                <?php
+                                $monday_time = get_field('monday_time');
+                                if($monday_time) { ?>
+                                    <div class="catalog-single-time__item <?php if($weekDay === '0') echo '--active' ?>">
+                                        <div class="catalog-single-time__title">Пн</div>
+                                        <div class="catalog-single-time__info"><?= $monday_time ?></div>
+                                    </div>
+                                <?php } ?>
+                                <?php
+                                $tuesday_time = get_field('tuesday_time');
+                                if($tuesday_time) { ?>
                                 <div class="catalog-single-time__item <?php if($weekDay === '1') echo '--active' ?>">
                                     <div class="catalog-single-time__title">Вт</div>
-                                    <div class="catalog-single-time__info"><?= get_field('tuesday_time') ?></div>
+                                    <div class="catalog-single-time__info"><?= $tuesday_time ?></div>
                                 </div>
-                                <div class="catalog-single-time__item <?php if($weekDay === '2') echo '--active' ?>">
-                                    <div class="catalog-single-time__title">Ср</div>
-                                    <div class="catalog-single-time__info"><?= get_field('wednesday_time') ?></div>
-                                </div>
-                                <div class="catalog-single-time__item <?php if($weekDay === '3') echo '--active' ?>">
-                                    <div class="catalog-single-time__title">Чт</div>
-                                    <div class="catalog-single-time__info"><?= get_field('thursday_time') ?></div>
-                                </div>
-                                <div class="catalog-single-time__item <?php if($weekDay === '4') echo '--active' ?>">
-                                    <div class="catalog-single-time__title">Пт</div>
-                                    <div class="catalog-single-time__info"><?= get_field('friday_time') ?></div>
-                                </div>
-                                <div class="catalog-single-time__item <?php if($weekDay === '5') echo '--active' ?>">
-                                    <div class="catalog-single-time__title">Сб</div>
-                                    <div class="catalog-single-time__info"><?= get_field('saturday_time') ?></div>
-                                </div>
-                                <div class="catalog-single-time__item <?php if($weekDay === '6') echo '--active' ?>">
-                                    <div class="catalog-single-time__title">Вс</div>
-                                    <div class="catalog-single-time__info"><?= get_field('sunday_time') ?></div>
-                                </div>
+                                <?php } ?>
+                                <?php
+                                $wednesday_time = get_field('wednesday_time');
+                                if($wednesday_time) { ?>
+                                    <div class="catalog-single-time__item <?php if($weekDay === '2') echo '--active' ?>">
+                                        <div class="catalog-single-time__title">Ср</div>
+                                        <div class="catalog-single-time__info"><?= $wednesday_time ?></div>
+                                    </div>
+                                <?php } ?>
+                                <?php
+                                $thursday_time = get_field('thursday_time');
+                                if($thursday_time) { ?>
+                                    <div class="catalog-single-time__item <?php if($weekDay === '3') echo '--active' ?>">
+                                        <div class="catalog-single-time__title">Чт</div>
+                                        <div class="catalog-single-time__info"><?= $thursday_time ?></div>
+                                    </div>
+                                <?php } ?>
+                                <?php
+                                $friday_time = get_field('friday_time');
+                                if($friday_time) { ?>
+                                    <div class="catalog-single-time__item <?php if($weekDay === '4') echo '--active' ?>">
+                                        <div class="catalog-single-time__title">Пт</div>
+                                        <div class="catalog-single-time__info"><?= $friday_time ?></div>
+                                    </div>
+                                <?php } ?>
+                                <?php
+                                $saturday_time = get_field('saturday_time');
+                                if($saturday_time) { ?>
+                                    <div class="catalog-single-time__item <?php if($weekDay === '5') echo '--active' ?>">
+                                        <div class="catalog-single-time__title">Сб</div>
+                                        <div class="catalog-single-time__info"><?= $saturday_time ?></div>
+                                    </div>
+                                <?php } ?>
+                                <?php
+                                $sunday_time = get_field('sunday_time');
+                                if($sunday_time) { ?>
+                                    <div class="catalog-single-time__item <?php if($weekDay === '6') echo '--active' ?>">
+                                        <div class="catalog-single-time__title">Вс</div>
+                                        <div class="catalog-single-time__info"><?= $sunday_time ?></div>
+                                    </div>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
