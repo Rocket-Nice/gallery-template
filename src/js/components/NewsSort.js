@@ -71,7 +71,7 @@ export default function NewsSort() {
 
     loadingPosts = true;
 
-    let ajaxurl = "./wp-admin/admin-ajax.php";
+    let ajaxurl = "/wp-admin/admin-ajax.php";
     let container = document.querySelector('.news__inner');
     let urlParams = new URLSearchParams(window.location.search);
     let newsType = urlParams.getAll('type');
@@ -113,7 +113,7 @@ export default function NewsSort() {
 
       loading = true;
 
-      let ajaxurl = "./wp-admin/admin-ajax.php";
+      let ajaxurl = "/wp-admin/admin-ajax.php";
       let container = document.querySelector('.news__inner');
       let urlParams = new URLSearchParams(window.location.search);
       let newsType = urlParams.getAll('type');
