@@ -308,70 +308,71 @@ Template Name: Front-page
                                             </div>
                                         </div>
                                         <div class="swiper --mobile">
-                                            <div class="swiper-wrapper">
-                                                <div class="swiper-slide">
-                                                    <div class="main-news__slide">
-                                                        <a href="/news/news-1" class="news-card">
-                                                            <div class="news-card__bg">
-                                                                <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
-                                                                <div class="news-card__bg-hover"></div>
+                                        <div class="swiper-wrapper">
+                                                <?php
+                                                $typePromotionFront = array('post_type' => 'news_gallery', 'posts_per_page' => 12, 'orderby' => 'date');
+                                                $listTypePromotionFront = new WP_Query($typePromotionFront);
+
+                                                // Проверяем, есть ли посты
+                                                if ($listTypePromotionFront->have_posts()) {
+                                                    while ($listTypePromotionFront->have_posts()) {
+                                                        $listTypePromotionFront->the_post();
+                                                ?>
+                                                        <div class="swiper-slide">
+                                                            <div class="main-news__slide">
+                                                                <a href="<?php echo get_permalink(); ?>" class="news-card">
+                                                                    <div class="news-card__bg">
+                                                                        <?php if (get_field('news_photo_title')) { ?>
+                                                                            <img src="<?php echo get_field('news_photo_title')['url']; ?>" loading="lazy" decoding="async" alt="">
+                                                                        <?php } ?>
+                                                                        <div class="news-card__bg-hover"></div>
+                                                                    </div>
+                                                                    <div class="news-card__content">
+                                                                        <div class="news-card__info">
+                                                                            <?php
+                                                                            $terms = get_the_terms(get_the_ID(), 'news-page-type');
+                                                                            if ($terms && !is_wp_error($terms)) {
+                                                                                $term = array_shift($terms);
+                                                                                $term_name = $term->name;
+                                                                            ?>
+                                                                                <div class="news-card__tag <?php if ($term_name === "Новости") { ?>--blue <?php } elseif ($term_name === "Акция") { ?>--yellow <?php } else { ?>--red <?php } ?>"><?php echo $term_name; ?></div>
+                                                                            <?php } ?>
+                                                                            <?php
+                                                                            $beginning_date = get_field('beginning_date');
+                                                                            $end_date = get_field('end_date');
+                                                                            $single_date_news = get_field("single_news_date");
+
+                                                                            if ($beginning_date && $end_date) {
+                                                                                $beginning_date_formatted = date_i18n('j.m', strtotime($beginning_date));
+                                                                                $end_date_formatted = date_i18n('j.m', strtotime($end_date));
+
+                                                                                echo '<div class="news-card__date">' . $beginning_date_formatted . ' – ' . $end_date_formatted . '</div>';
+                                                                            } elseif ($single_date_news) {
+                                                                                $single_date_formatted = date_i18n('j.m', strtotime($single_date_news));
+                                                                                echo '<div class="news-card__date">' . $single_date_formatted . '</div>';
+                                                                            }
+                                                                            ?>
+                                                                        </div>
+                                                                        <div class="news-card__text">
+                                                                            <div class="news-card__title">
+                                                                                <?php if (get_field("news_title_archive") === "") {
+                                                                                    echo get_the_title();
+                                                                                } else {
+                                                                                    echo get_field("news_title_archive");
+                                                                                } ?>
+                                                                            </div>
+                                                                            <div class="news-card__subtitle"><?php echo get_field("news_subtitle_archive"); ?></div>
+                                                                            <div class="news-card__desc"><?php echo get_field("news_desc_title_archive"); ?></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
                                                             </div>
-                                                            <div class="news-card__content">
-                                                                <div class="news-card__info">
-                                                                    <div class="news-card__tag --yellow">Акция</div>
-                                                                    <div class="news-card__date">24.07 – 05.08</div>
-                                                                </div>
-                                                                <div class="news-card__text">
-                                                                    <div class="news-card__title">SALE до 30%</div>
-                                                                    <div class="news-card__subtitle">в lady & gentleman CITY</div>
-                                                                    <div class="news-card__desc">На старт, внимание, SALE*! В магазине lady & gentleman CITY вас ждут скидки до 30%** на коллекцию Весна-Лето.</div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <div class="main-news__slide">
-                                                        <a href="/news/news-1" class="news-card">
-                                                            <div class="news-card__bg">
-                                                                <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
-                                                                <div class="news-card__bg-hover"></div>
-                                                            </div>
-                                                            <div class="news-card__content">
-                                                                <div class="news-card__info">
-                                                                    <div class="news-card__tag --yellow">Акция</div>
-                                                                    <div class="news-card__date">24.07 – 05.08</div>
-                                                                </div>
-                                                                <div class="news-card__text">
-                                                                    <div class="news-card__title">SALE до 30%</div>
-                                                                    <div class="news-card__subtitle">в lady & gentleman CITY</div>
-                                                                    <div class="news-card__desc">На старт, внимание, SALE*! В магазине lady & gentleman CITY вас ждут скидки до 30%** на коллекцию Весна-Лето.</div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <div class="main-news__slide">
-                                                        <a href="/news/news-1" class="news-card">
-                                                            <div class="news-card__bg">
-                                                                <img src="<?php bloginfo('template_url'); ?>/assets/images/news-card.jpg" loading="lazy" decoding= "async" alt="">
-                                                                <div class="news-card__bg-hover"></div>
-                                                            </div>
-                                                            <div class="news-card__content">
-                                                                <div class="news-card__info">
-                                                                    <div class="news-card__tag --yellow">Акция</div>
-                                                                    <div class="news-card__date">24.07 – 05.08</div>
-                                                                </div>
-                                                                <div class="news-card__text">
-                                                                    <div class="news-card__title">SALE до 30%</div>
-                                                                    <div class="news-card__subtitle">в lady & gentleman CITY</div>
-                                                                    <div class="news-card__desc">На старт, внимание, SALE*! В магазине lady & gentleman CITY вас ждут скидки до 30%** на коллекцию Весна-Лето.</div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
+                                                        </div>
+                                                <?php
+                                                    }
+                                                    wp_reset_postdata(); // Сбрасываем данные о посте
+                                                }
+                                                ?>
                                             </div>
                                             <div class="main-news__navigation swiper-navigation --desc">
                                                 <div class="swiper-navigation-button swiper-navigation-prev">
