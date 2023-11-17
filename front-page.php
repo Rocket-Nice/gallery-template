@@ -62,7 +62,7 @@ Template Name: Front-page
                                 <div class="main-info__container">
                                     <div class="main-info__inner">
                                         <a href="/catalog/?type=shop" class="main-info__item --violet">
-                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/1.jpg" loading="lazy" decoding= "async" alt="">
+                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/1.webp" loading="lazy" decoding= "async" alt="">
                                             <div class="main-info__hover"></div>
                                             <div class="main-info-desc">
                                                 <div class="main-info-desc__icon">
@@ -74,7 +74,7 @@ Template Name: Front-page
                                             </div>
                                         </a>
                                         <a href="/catalog/?type=food" class="main-info__item --yellow">
-                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/2.jpg" loading="lazy" decoding= "async" alt="">
+                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/2.webp" loading="lazy" decoding= "async" alt="">
                                             <div class="main-info__hover"></div>
                                             <div class="main-info-desc">
                                                 <div class="main-info-desc__icon">
@@ -88,7 +88,7 @@ Template Name: Front-page
                                             </div>
                                         </a>
                                         <a href="/catalog/?type=services" class="main-info__item --blue">
-                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/3.jpg" loading="lazy" decoding= "async" alt="">
+                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/3.webp" loading="lazy" decoding= "async" alt="">
                                             <div class="main-info__hover"></div>
                                             <div class="main-info-desc">
                                                 <div class="main-info-desc__icon">
@@ -100,7 +100,7 @@ Template Name: Front-page
                                             </div>
                                         </a>
                                         <a href="/news" class="main-info__item --red">
-                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/4.jpg" loading="lazy" decoding= "async" alt="">
+                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/4.webp" loading="lazy" decoding= "async" alt="">
                                             <div class="main-info__hover"></div>
                                             <div class="main-info-desc">
                                                 <div class="main-info-desc__icon">
@@ -112,7 +112,7 @@ Template Name: Front-page
                                             </div>
                                         </a>
                                         <a class="main-info__item --green">
-                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/5.jpg" loading="lazy" decoding= "async" alt="">
+                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/5.webp" loading="lazy" decoding= "async" alt="">
                                             <div class="main-info__hover"></div>
                                             <div class="main-info-desc">
                                                 <div class="main-info-desc__icon">
@@ -124,7 +124,7 @@ Template Name: Front-page
                                             </div>
                                         </a>
                                         <a href="/about" class="main-info__item --pink">
-                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/6.jpg" loading="lazy" decoding= "async" alt="">
+                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/6.webp" loading="lazy" decoding= "async" alt="">
                                             <div class="main-info__hover"></div>
                                             <div class="main-info-desc">
                                                 <div class="main-info-desc__icon">
@@ -137,7 +137,7 @@ Template Name: Front-page
                                             </div>
                                         </a>
                                         <a class="main-info__item --white">
-                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/7.jpg" loading="lazy" decoding= "async" alt="">
+                                            <img src="<?php bloginfo('template_url'); ?>/assets/images/main-info/7.webp" loading="lazy" decoding= "async" alt="">
                                             <div class="main-info__hover"></div>
                                             <div class="main-info-desc">
                                                 <div class="main-info-desc__icon">
